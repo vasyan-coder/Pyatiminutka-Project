@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/activity_padding_horizontal">
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_q10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corners8_questions"
+            android:elevation="@dimen/shadow_two"
+            android:padding="@dimen/activity_padding">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="13dp">
+
+                <TextView
+                    android:id="@+id/question10text"
+                    style="@style/Twice_title_Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/text_margin_bottom"
+                    android:layout_marginTop="@dimen/check_box_top"
+                    android:text="10 вопрос:"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <CheckBox
+                    android:id="@+id/answer_one_q10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/check_box_horizontal"
+                    android:layout_marginTop="@dimen/check_box_top"
+                    android:buttonTint="@color/white"
+                    android:text="1 вариант ответа"
+                    android:textColor="@color/white" />
+
+                <CheckBox
+                    android:id="@+id/answer_two_q10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/check_box_horizontal"
+                    android:layout_marginTop="@dimen/check_box_top"
+                    android:buttonTint="@color/white"
+                    android:text="2 вариант ответа"
+                    android:textColor="@color/white" />
+
+                <CheckBox
+                    android:id="@+id/answer_three_q10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/check_box_horizontal"
+                    android:layout_marginTop="@dimen/check_box_top"
+                    android:buttonTint="@color/white"
+                    android:text="3 вариант ответа"
+                    android:textColor="@color/white" />
+
+                <CheckBox
+                    android:id="@+id/answer_four_q10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/check_box_horizontal"
+                    android:layout_marginTop="@dimen/check_box_top"
+                    android:layout_marginBottom="15dp"
+                    android:buttonTint="@color/white"
+                    android:text="4 вариант ответа"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/rounded_corners3"
+            android:elevation="@dimen/shadow_two"
+            android:padding="@dimen/activity_padding"
+            android:layout_marginBottom="10dp">
+
+
+            <Button
+                android:id="@+id/changeq10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/text_view_q10"
+                android:alpha="0.4"
+                android:background="@drawable/rounded_corners2"
+                android:enabled="false"
+                android:text="Изменить"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_view_q10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="5dp" />
+
+            <Button
+                android:id="@+id/fixq10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/text_view_q10"
+                android:background="@drawable/rounded_corners"
+                android:text="Ответить"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

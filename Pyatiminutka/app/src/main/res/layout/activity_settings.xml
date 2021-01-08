@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_padding"
+    tools:context=".ui.settings.ActivitySettings">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners4"
+        android:paddingVertical="@dimen/activity_padding"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Цветовые темы"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/white" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_marginEnd="10dp"
+                    android:id="@+id/purple_background"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corners_styles"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/dark_background"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <View
+                        android:id="@+id/purple_circle"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/circle_settings" />
+
+                    <TextView
+                        style="@style/Third_title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="45dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Обычная" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginEnd="10dp"
+                    android:id="@+id/dark_background"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corners_styles_dark"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/purple_background"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <View
+                        android:id="@+id/dark_circle"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/circle_settings" />
+
+                    <TextView
+                        style="@style/Third_title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="45dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Тёмная" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginEnd="10dp"
+                    android:id="@+id/linearLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corners_styles"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/dark_background"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <View
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/circle_settings" />
+
+                    <TextView
+                        style="@style/Third_title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="45dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Обычная" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corners_styles"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/linearLayout"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <View
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/circle_settings" />
+
+                    <TextView
+                        style="@style/Third_title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="45dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Обычная" />
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

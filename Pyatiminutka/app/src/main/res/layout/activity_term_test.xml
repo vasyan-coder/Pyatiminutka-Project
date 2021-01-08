@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background2"
+        android:backgroundTint="?attr/colorBackgroundBlocks"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp">
+
+            <TextView
+                android:id="@+id/test_title"
+                style="@style/Twice_title_Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="§15 Электродинамика" />
+
+            <RelativeLayout
+                android:id="@+id/previous_button1"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="click_previous"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/notificationIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_baseline_arrow_forward_24"
+                    android:rotation="180" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corners_bottom"
+                android:elevation="@dimen/shadow">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@color/white"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout_three"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_corners4"
+                        android:elevation="@dimen/shadow_two"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/constraintLayout2"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintHorizontal_weight="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/info_difficult"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/ic_baseline_info_24"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                        <TextView
+                            android:id="@+id/text_difficult"
+                            style="@style/Twice_title_Text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:text="@string/text_difficult"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <RadioGroup
+                            android:id="@+id/radioGroup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/text_difficult"
+                            android:layout_centerHorizontal="true"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/text_difficult">
+
+                            <RadioButton
+                                android:id="@+id/easyButton"
+                                style="@style/Third_title_Text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="@dimen/btn_margin_top"
+                                android:buttonTint="@color/white"
+                                android:checked="true"
+                                android:text="@string/text_difficult_easy" />
+
+                            <RadioButton
+                                android:id="@+id/mediumButton"
+                                style="@style/Third_title_Text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/btn_margin_top"
+                                android:buttonTint="@color/white"
+                                android:text="@string/text_difficult_medium" />
+
+                            <RadioButton
+                                android:id="@+id/hardButton"
+                                style="@style/Third_title_Text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="@dimen/btn_margin_top"
+                                android:buttonTint="@color/white"
+                                android:text="@string/text_difficult_hard" />
+                        </RadioGroup>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10dp"
+                            android:visibility="invisible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_corners4"
+                        android:elevation="@dimen/shadow_two"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_weight="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/text_title_score"
+                            style="@style/Twice_title_Text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/text_score"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                            android:id="@+id/progressBar_score"
+                            android:layout_width="54dp"
+                            android:layout_height="54dp"
+                            app:cpb_background_progressbar_color="@color/progress_red"
+                            app:cpb_background_progressbar_width="5dp"
+                            app:cpb_progress_direction="to_left"
+                            app:cpb_progressbar_color="@color/progress_green"
+                            app:cpb_round_border="false"
+                            app:cpb_progress_max="100"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/text_title_score" />
+
+<!--                        <ProgressBar-->
+<!--                            android:id="@+id/ProgressBar_score"-->
+<!--                            style="?android:attr/progressBarStyleLarge"-->
+<!--                            android:layout_width="54dp"-->
+<!--                            android:layout_height="54dp"-->
+<!--                            android:indeterminateOnly="false"-->
+<!--                            android:progress="0"-->
+<!--                            android:progressDrawable="@drawable/circle_bar"-->
+<!--                            android:rotation="90"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@+id/text_title_score"-->
+<!--                            android:visibility="invisible"/>-->
+
+                        <TextView
+                            android:id="@+id/text_score"
+                            style="@style/Twice_title_Text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0/10"
+                            app:layout_constraintBottom_toBottomOf="@+id/progressBar_score"
+                            app:layout_constraintEnd_toStartOf="@+id/progressBar_score"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/text_title_score" />
+
+                        <TextView
+                            android:id="@+id/text_percent_score"
+                            style="@style/Twice_title_Text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0%"
+                            app:layout_constraintBottom_toBottomOf="@+id/progressBar_score"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/progressBar_score"
+                            app:layout_constraintTop_toBottomOf="@+id/text_title_score" />
+
+                        <ImageView
+                            android:id="@+id/info_score"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_margin="5dp"
+                            android:layout_marginTop="2dp"
+                            android:src="@drawable/ic_baseline_info_24"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/text_percent_score" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/rounded_corners4"
+                        android:elevation="@dimen/shadow_two"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+                        <TextView
+                            android:id="@+id/text_title_last_score"
+                            style="@style/Twice_title_Text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/text_last_score"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                            android:id="@+id/ProgressBar_last_score"
+                            android:layout_width="54dp"
+                            android:layout_height="54dp"
+                            app:cpb_background_progressbar_color="@color/progress_red"
+                            app:cpb_background_progressbar_width="5dp"
+                            app:cpb_progress_direction="to_left"
+                            app:cpb_progressbar_color="@color/progress_green"
+                            app:cpb_round_border="false"
+                            app:cpb_progress_max="100"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/text_title_last_score" />
+
+                        <TextView
+                            android:id="@+id/text_last_score"
+                            style="@style/Twice_title_Text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0/10"
+                            app:layout_constraintBottom_toBottomOf="@+id/ProgressBar_last_score"
+                            app:layout_constraintEnd_toStartOf="@+id/ProgressBar_last_score"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/text_title_last_score" />
+
+                        <TextView
+                            android:id="@+id/text_percent_last_score"
+                            style="@style/Twice_title_Text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0%"
+                            app:layout_constraintBottom_toBottomOf="@+id/ProgressBar_last_score"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/ProgressBar_last_score"
+                            app:layout_constraintTop_toBottomOf="@+id/text_title_last_score" />
+
+                        <ImageView
+                            android:id="@+id/info_last_score"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_margin="5dp"
+                            android:layout_marginTop="2dp"
+                            android:src="@drawable/ic_baseline_info_24"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/text_percent_last_score" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <Button
+                    android:id="@+id/button_start_quiz"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/rounded_corners5"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                    android:onClick="clickButton_start_quiz"
+                    android:paddingHorizontal="15dp"
+                    android:text="@string/text_start_quiz"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout_three"
+                    tools:layout_editor_absoluteX="10dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/btn_achievement"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@drawable/rounded_corners4"
+                    android:elevation="@dimen/shadow"
+                    android:padding="15dp"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_top"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_weight="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        style="@style/Twice_title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_achievements"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        android:layout_width="108dp"
+                        android:layout_height="108dp"
+                        android:layout_marginTop="10dp"
+                        android:indeterminateOnly="false"
+                        android:progress="70"
+                        android:progressDrawable="@drawable/circle_progress_achievements"
+                        android:rotation="90"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+                    <TextView
+                        android:id="@+id/text_progress_percent_achievements"
+                        style="@style/Third_title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="70%"
+                        app:layout_constraintBottom_toBottomOf="@+id/progressBar"
+                        app:layout_constraintEnd_toEndOf="@+id/progressBar"
+                        app:layout_constraintStart_toStartOf="@+id/progressBar"
+                        app:layout_constraintTop_toTopOf="@+id/progressBar" />
+
+                    <TextView
+                        android:id="@+id/text_count_achievements"
+                        style="@style/Third_title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="7 из 10"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/btn_top"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/rounded_corners4"
+                    android:elevation="@dimen/shadow"
+                    android:padding="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_weight="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/btn_achievement"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        style="@style/Twice_title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_top_players"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/image_top"
+                        android:layout_width="108dp"
+                        android:layout_height="108dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/ic_top_108"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+                    <TextView
+                        style="@style/Third_title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Ваше место: 1001"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/image_top" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

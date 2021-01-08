@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="10dp"
+    android:paddingTop="10dp"
+    android:layout_marginTop="10dp">
+
+    <!--    <TextView-->
+<!--        android:id="@+id/text_view32"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/image_button1"-->
+<!--        android:layout_alignParentEnd="true"-->
+
+<!--        android:layout_marginRight="25dp"-->
+<!--        android:alpha="0.1"-->
+<!--        android:text="1"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="70sp" />-->
+
+    <LinearLayout
+        android:id="@+id/linear_layout10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+
+        android:layout_toLeftOf="@id/image_button2"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/image_button2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/text_view11"
+            style="@style/Twice_title_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Текст первого вопроса" />
+
+        <TextView
+            style="@style/Third_title_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
+            android:text="Верный ответ" />
+
+
+        <TextView
+            android:id="@+id/text_view12"
+            style="@style/Text_Style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
+            android:text="Первый вариант" />
+
+        <TextView
+            android:id="@+id/text_view13"
+            style="@style/Text_Style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
+            android:text="Первый вариант" />
+
+        <TextView
+            android:id="@+id/text_view18"
+            style="@style/Text_Style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
+            android:text="Первый вариант" />
+
+        <TextView
+            android:id="@+id/text_view19"
+            style="@style/Text_Style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Первый вариант" />
+
+        <TextView
+            style="@style/Third_title_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
+            android:text="Выбранный ответ" />
+
+        <TextView
+            android:id="@+id/text_view14"
+            style="@style/Wrong_answers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
+            android:text="Первый вариант" />
+
+        <TextView
+            android:id="@+id/text_view15"
+            style="@style/Wrong_answers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
+            android:text="Второй вариант" />
+
+        <TextView
+            android:id="@+id/text_view16"
+            style="@style/Wrong_answers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
+            android:text="Третий вариант" />
+
+        <TextView
+            android:id="@+id/text_view17"
+            style="@style/Wrong_answers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Четвёртый вариант" />
+
+        <TextView
+            android:id="@+id/text_view20"
+            style="@style/Text_Style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Задание пропущено"
+            android:visibility="invisible" />
+    </LinearLayout>
+    <ImageButton
+        android:id="@+id/image_button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/rounded_corners4"
+        android:padding="10dp"
+        android:src="@drawable/ic_baseline_info_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="@dimen/shadow_two"/>
+
+    <ImageButton
+        android:id="@+id/image_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_toLeftOf="@id/image_button1"
+        android:background="@drawable/rounded_corners4"
+        android:padding="10dp"
+        android:src="@drawable/ic_baseline_ondemand_video_24"
+        app:layout_constraintEnd_toStartOf="@+id/image_button1"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="@dimen/shadow_two"/>
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/linear_layout10"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_baseline_done_green_48"
+        app:layout_constraintBottom_toBottomOf="@+id/linear_layout10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/image_button1" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@id/image1"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image1"
+        tools:layout_editor_absoluteX="10dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

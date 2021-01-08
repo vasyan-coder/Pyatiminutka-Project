@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background2"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp">
+
+            <TextView
+                android:id="@+id/test_name_final"
+                style="@style/Twice_title_Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="§15 Электродинамика (Легко)"
+                tools:layout_editor_absoluteX="119dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corners_bottom"
+                android:elevation="@dimen/shadow">
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@color/white"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="30dp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar2"
+                    android:layout_width="187dp"
+                    android:layout_height="187dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@color/white"
+                    app:layout_constraintTop_toBottomOf="@+id/progressBar2"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/rounded_corners4"
+                    android:elevation="@dimen/shadow"
+                    android:padding="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/progressBar2">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_baseline_timer_24"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        style="@style/Twice_title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Пройден за 10:10"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/rounded_corners4"
+                    android:elevation="@dimen/shadow"
+                    android:paddingVertical="20dp"
+                    app:layout_constraintEnd_toStartOf="@+id/constraintLayout10"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        style="@style/Twice_title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Верно"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/text_result_correct_ans"
+                        style="@style/Twice_title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/rounded_corners4"
+                    android:elevation="@dimen/shadow"
+                    android:paddingVertical="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/constraintLayout10"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        style="@style/Twice_title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Пропущено"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/text_result_skip_ans"
+                        style="@style/Twice_title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/rounded_corners4"
+                    android:elevation="@dimen/shadow"
+                    android:paddingVertical="20dp"
+                    app:layout_constraintEnd_toStartOf="@+id/constraintLayout9"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/constraintLayout8"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        style="@style/Twice_title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Неверно"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/text_result_incorrect_ans"
+                        style="@style/Twice_title_Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/block_two_final_term"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="30dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/rounded_corners4"
+                    android:elevation="@dimen/shadow"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout10">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_up_statistics"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Новый рекорд"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/text_new_record"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="25dp"
+                        android:text="7"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ListView
+                android:id="@+id/list_view1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="13dp"
+                android:background="@drawable/rounded_corners3"
+                android:cacheColorHint="@color/white"
+                android:divider="@android:color/white"
+                android:dividerHeight="1dip"
+                android:elevation="@dimen/shadow_two"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

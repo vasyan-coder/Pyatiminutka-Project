@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Светлая тема-->
+
+    <color name="colorPrimary">#50A5FF</color>
+    <color name="colorPrimaryDark">#4F5254</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="colorTextBlack">#000000</color>
+    <color name="colorText2">#858383</color>
+
+    <color name="button2">#68489F</color>
+    <color name="background2">#4666B8</color>
+
+    <color name="colorBackgroundWhite">#F6EEF0</color>
+    <!--Тёмная тема-->
+    <color name="colorPrimaryNight">#4C416B</color>
+    <color name="colorPrimaryDarkNight">#505050</color>
+    <color name="colorAccentNight">#03DAC5</color>
+    <color name="colorText2Night">#8199A6</color>
+
+    <color name="for_dark_theme1">#292929</color>
+    <color name="for_dark_theme2">#505050</color>
+
+    <color name="colorBackgroundBlack">#04334E</color>
+    <color name="colorBackgroundBlocks">#1A1B22</color>
+
+
+
+
+    <!--Общие цвета-->
+    <color name="red">#ff0000</color>
+    <color name="btn_red">#ED6F6F</color>
+    <color name="btn_yellow">#EDC76F</color>
+    <color name="green">#5FB371</color>
+
+    <!--Цвета для статистики-->
+    <color name="progress_green">#03EC36</color>
+    <color name="progress_silver">#959595</color>
+    <color name="progress_red">#C64949</color>
+</resources>
