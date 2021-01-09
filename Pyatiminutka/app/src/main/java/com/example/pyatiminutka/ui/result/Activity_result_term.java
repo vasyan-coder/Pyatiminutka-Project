@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,7 +35,7 @@ public class Activity_result_term extends AppCompatActivity {
     private int count_skip_answers = 0;
 
     //Информация о тетсе
-    private int difficult = AppConstants.map_difficult.get("Difficult")-1;
+    private int difficult = AppConstants.map_difficult.get("Difficult") - 1;
     private int test_num = AppConstants.map_test_number.get("test_num");
 
     private TextView text_new_record;
@@ -53,6 +54,7 @@ public class Activity_result_term extends AppCompatActivity {
     private CircularProgressBar progress_wrong;
     private CircularProgressBar progress_skip;
 
+    private NestedScrollView nestedScrollView;
     private ResultListAdapter resultListAdapter;
     private RecyclerView recyclerView;
 
@@ -107,6 +109,8 @@ public class Activity_result_term extends AppCompatActivity {
             recyclerView.setAdapter(resultListAdapter);
         }
 
+        recyclerView.setFocusable(false);
+
         //Получение времени
         Intent intent = getIntent();
         String time = intent.getStringExtra("time");
@@ -138,8 +142,6 @@ public class Activity_result_term extends AppCompatActivity {
             progress_wrong.setProgressWithAnimation(count_incorrect_answers + count_correct_answers, (long) 800);
         if (count_skip_answers != 0)
             progress_skip.setProgressWithAnimation(100, (long) 600);
-
-
 
 
     }
@@ -176,6 +178,8 @@ public class Activity_result_term extends AppCompatActivity {
         progress_right = findViewById(R.id.progress_right);
         progress_wrong = findViewById(R.id.progress_wrong);
         progress_skip = findViewById(R.id.progress_skip);
+
+        nestedScrollView = findViewById(R.id.scroll_guide_answers);
     }
 
     private void viewHeaderInf() {
@@ -201,12 +205,12 @@ public class Activity_result_term extends AppCompatActivity {
 
         //Вывод уровня сложности и заголовка
         if (difficult == 0) {
-            test_name_final.setText("("+ getResources().getString(R.string.text_difficult_easy2) + ")");
+            test_name_final.setText("(" + getResources().getString(R.string.text_difficult_easy2) + ")");
         } else if (difficult == 1) {
-            test_name_final.setText("("+ getResources().getString(R.string.text_difficult_medium2) + ")");
+            test_name_final.setText("(" + getResources().getString(R.string.text_difficult_medium2) + ")");
         }
         if (difficult == 2) {
-            test_name_final.setText("("+ getResources().getString(R.string.text_difficult_hard2) + ")");
+            test_name_final.setText("(" + getResources().getString(R.string.text_difficult_hard2) + ")");
         }
 
         test_title.setText(QuestionTest.Question_title[test_num]);
@@ -219,7 +223,7 @@ public class Activity_result_term extends AppCompatActivity {
         SharedPreferences.Editor myEditor = myPreferences.edit();
 
 
-        if (difficult== 0) {
+        if (difficult == 0) {
 
             if (myPreferences.contains("score_easy")) {
                 if (count_correct_answers == myPreferences.getInt("score_easy", 0)) {
