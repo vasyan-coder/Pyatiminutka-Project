@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    @Override
+//    @Override ТУТ НАСРАЛ ЕГОР!!!!!!!
 //    public void onBackPressed() {
 //        if (AppConstants.map_btmNav.containsKey(true)) {
 //            if (AppConstants.map_btmNav.get("map_btmNav") == 1) {
