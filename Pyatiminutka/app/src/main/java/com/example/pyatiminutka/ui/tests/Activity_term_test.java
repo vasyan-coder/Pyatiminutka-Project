@@ -7,14 +7,13 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import androidx.appcompat.app.ActionBar;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.pyatiminutka.Models.DataBase.QuestionTest;
 import com.example.pyatiminutka.Models.Func.LoadTheme;
@@ -54,17 +53,18 @@ public class Activity_term_test extends AppCompatActivity implements RadioGroup.
 
     private QuestionTest questionTest = new QuestionTest();
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //Проверка установленной темы
         LoadTheme.LoadTheme(this);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.hide();
 
         StatusBarColor.StatusBarColor(R.color.background2, R.color.colorBackgroundBlocks, this);
-
 
 
         setContentView(R.layout.activity_term_test);
@@ -72,7 +72,11 @@ public class Activity_term_test extends AppCompatActivity implements RadioGroup.
 
 
         findById();
-        //Получение номера выбранного теста
+
+        //Настройка toolbar
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         //SharedPref
 
@@ -143,8 +147,8 @@ public class Activity_term_test extends AppCompatActivity implements RadioGroup.
 
 
         //Кнопка назад
-        actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
+//        actionBar.setHomeButtonEnabled(true);
+//        actionBar.setDisplayHomeAsUpEnabled(true);
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -274,15 +278,6 @@ public class Activity_term_test extends AppCompatActivity implements RadioGroup.
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == android.R.id.home) {
-            this.finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     private void findById() {
         last_result_onstart = findViewById(R.id.text_last_score);
         text_view_highscore = findViewById(R.id.text_score);
@@ -293,6 +288,17 @@ public class Activity_term_test extends AppCompatActivity implements RadioGroup.
         progressBar_last_score = findViewById(R.id.ProgressBar_last_score);
         text_percent_score = findViewById(R.id.text_percent_score);
         text_percent_last_score = findViewById(R.id.text_percent_last_score);
+
+        toolbar = findViewById(R.id.toolbar);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void startScoreAnimationEasy(Integer startCount, Integer last_score_value, final String str, final TextView textView) {

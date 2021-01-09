@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.Chronometer;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.pyatiminutka.Models.Func.LoadTheme;
 import com.example.pyatiminutka.Models.Func.StatusBarColor;
@@ -36,7 +37,7 @@ public class Activity_quiz_term extends AppCompatActivity {
     private long timerTime1;
     private long timerTime2;
 
-    private ActionBar actionBar;
+    private Toolbar toolbar;
 
     private QuestionTest questionTest = new QuestionTest();
 
@@ -52,11 +53,11 @@ public class Activity_quiz_term extends AppCompatActivity {
 
         StatusBarColor.StatusBarColor(R.color.colorPrimary, R.color.colorPrimaryNight,this);
 
-        settingsToolBar();
-
         setContentView(R.layout.activity_quiz_term);
 
         findById();
+
+        settingsToolBar();
 
         //Настройка табов
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
@@ -144,18 +145,17 @@ public class Activity_quiz_term extends AppCompatActivity {
     }
 
     private void settingsToolBar(){
-        getSupportActionBar().setElevation(0);
-        actionBar = getSupportActionBar();
+        setSupportActionBar(toolbar);
         //Кнопка назад
-        actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
     private void findById() {
         viewPager = findViewById(R.id.view_pager);
         tabs = findViewById(R.id.tabs);
         chronometer_test_term = findViewById(R.id.chronometer_test_term);
-
+        toolbar = findViewById(R.id.toolbar);
     }
 
     private void exitAlert() {

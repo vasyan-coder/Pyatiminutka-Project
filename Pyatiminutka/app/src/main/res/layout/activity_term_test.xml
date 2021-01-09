@@ -8,50 +8,23 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorBackgroundBlocks"
+        android:theme="@style/ToolbarColoredBackArrow"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/test_title"
+        style="@style/Twice_title_Text"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/background2"
-        android:backgroundTint="?attr/colorBackgroundBlocks"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        tools:ignore="MissingConstraints">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="15dp">
-
-            <TextView
-                android:id="@+id/test_title"
-                style="@style/Twice_title_Text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="§15 Электродинамика" />
-
-            <RelativeLayout
-                android:id="@+id/previous_button1"
-                android:layout_width="35dp"
-                android:layout_height="wrap_content"
-                android:background="?selectableItemBackgroundBorderless"
-                android:clickable="true"
-                android:focusable="true"
-                android:onClick="click_previous"
-                android:padding="5dp">
-
-                <ImageView
-                    android:id="@+id/notificationIcon"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_baseline_arrow_forward_24"
-                    android:rotation="180" />
-            </RelativeLayout>
-
-        </RelativeLayout>
-
-    </androidx.appcompat.widget.Toolbar>
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="§15 Электродинамика"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
     <ScrollView
         android:layout_width="match_parent"

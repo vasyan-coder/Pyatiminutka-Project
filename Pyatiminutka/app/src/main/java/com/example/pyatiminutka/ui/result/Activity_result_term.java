@@ -86,9 +86,6 @@ public class Activity_result_term extends AppCompatActivity {
         findById();
 
 
-        //Кнопка назад
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);

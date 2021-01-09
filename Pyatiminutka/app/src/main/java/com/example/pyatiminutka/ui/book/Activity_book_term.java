@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.pyatiminutka.Models.Func.LoadTheme;
 import com.example.pyatiminutka.Models.Func.StatusBarColor;
@@ -30,6 +31,8 @@ public class Activity_book_term extends AppCompatActivity {
 
     private int page_counter = 1;
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,15 +45,14 @@ public class Activity_book_term extends AppCompatActivity {
         setContentView(R.layout.activity_book_term);
 
         //Кнопка назад
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        setSupportActionBar(toolbar = findViewById(R.id.toolbar));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         term_Text = findViewById(R.id.text_term);
 
         //Запись данных
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(Activity_book_term.this);
-        SharedPreferences.Editor myEditor = myPreferences.edit();
         float text_size = myPreferences.getFloat("text_size", 0);
 
         //Установка раннее выбранного шрифта

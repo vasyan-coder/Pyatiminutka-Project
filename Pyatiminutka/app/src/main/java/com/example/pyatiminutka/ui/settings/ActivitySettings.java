@@ -37,11 +37,6 @@ public class ActivitySettings extends AppCompatActivity {
 
         setContentView(R.layout.activity_settings);
 
-        //Кнопка назад
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeButtonEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
         findById();
 
         dark_circle.getBackground().setColorFilter(this.getResources().getColor(R.color.colorPrimaryNight), PorterDuff.Mode.SRC_ATOP);

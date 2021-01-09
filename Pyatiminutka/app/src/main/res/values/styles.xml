@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -11,7 +11,7 @@
         <item name="android:windowBackground">@color/colorBackgroundWhite</item>
     </style>
 
-    <style name="AppDarkTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppDarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimaryNight</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkNight</item>
@@ -61,6 +61,11 @@
 
     <style name="StatusBarColor2">
         <item name="colorBackgroundBlocks">@color/colorPrimary</item>
+    </style>
+
+    <style name="ToolbarColoredBackArrow" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
     </style>
 
 </resources>

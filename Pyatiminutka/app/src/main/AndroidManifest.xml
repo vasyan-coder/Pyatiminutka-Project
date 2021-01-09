@@ -22,7 +22,7 @@
             android:name=".ui.tests.Activity_quiz_term" />
         <activity
             android:name=".ui.tests.Activity_term_test"
-            android:label="@string/text_test"/>
+            android:label=""/>
         <activity android:name=".ui.book.Activity_book_term" />
         <activity android:name=".book_term" />
         <activity
