@@ -1,35 +1,16 @@
 package com.example.pyatiminutka.ui.result;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewManager;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
-import androidx.core.widget.NestedScrollView;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -73,10 +54,9 @@ public class Activity_result_term extends AppCompatActivity {
     private CircularProgressBar progress_skip;
 
     private ResultListAdapter resultListAdapter;
-    private RecyclerView list_view1;
+    private RecyclerView recyclerView;
 
     private ConstraintLayout block_two_final_term;
-    public NestedScrollView scroll_guide_answers;
 
     private final QuestionTest questionTest = new QuestionTest();
 
@@ -109,22 +89,22 @@ public class Activity_result_term extends AppCompatActivity {
         actionBar.hide();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        list_view1.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(layoutManager);
         if (difficult == 0) {
             resultListAdapter = new ResultListAdapter(questionTest.QuestionTest[test_num][difficult].length, mQuestions_easy, mIcons, this);
 
-            list_view1.setNestedScrollingEnabled(false);
-            list_view1.setAdapter(resultListAdapter);
+            recyclerView.setNestedScrollingEnabled(false);
+            recyclerView.setAdapter(resultListAdapter);
         } else if (difficult == 1) {
             resultListAdapter = new ResultListAdapter(questionTest.QuestionTest[test_num][difficult].length, mQuestions_medium, mIcons, this);
 
-            list_view1.setNestedScrollingEnabled(false);
-            list_view1.setAdapter(resultListAdapter);
+            recyclerView.setNestedScrollingEnabled(false);
+            recyclerView.setAdapter(resultListAdapter);
         } else if (difficult == 2) {
             resultListAdapter = new ResultListAdapter(questionTest.QuestionTest[test_num][difficult].length, mQuestions_hard, mIcons, this);
 
-            list_view1.setNestedScrollingEnabled(false);
-            list_view1.setAdapter(resultListAdapter);
+            recyclerView.setNestedScrollingEnabled(false);
+            recyclerView.setAdapter(resultListAdapter);
         }
 
         //Получение времени
@@ -159,13 +139,6 @@ public class Activity_result_term extends AppCompatActivity {
         if (count_skip_answers != 0)
             progress_skip.setProgressWithAnimation(100, (long) 600);
 
-        scroll_guide_answers.setVerticalScrollbarPosition(0);
-        scroll_guide_answers.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                scroll_guide_answers.fullScroll(ScrollView.FOCUS_UP);
-            }
-        }, 0);
 
 
 
@@ -190,10 +163,9 @@ public class Activity_result_term extends AppCompatActivity {
         text_result_incorrect_ans = findViewById(R.id.text_result_incorrect_ans);
         text_result_skip_ans = findViewById(R.id.text_result_skip_ans);
         block_two_final_term = findViewById(R.id.block_two_final_term);
-        list_view1 = findViewById(R.id.list_view1); //Список
+        recyclerView = findViewById(R.id.list_view1); //Список
         test_time = findViewById(R.id.test_time); //Таймер
-        test_name_final = findViewById(R.id.test_name_final); //Вывод уровня сложности
-        scroll_guide_answers = findViewById(R.id.scroll_guide_answers);
+        test_name_final = findViewById(R.id.test_name_final); //Вывод уровня сложностиsc
 
         test_title = findViewById(R.id.test_title);
 
