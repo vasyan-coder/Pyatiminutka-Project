@@ -6,12 +6,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.pyatiminutka.Models.Func.LoadTheme;
@@ -26,7 +24,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    boolean help_exit;
     private Fragment selectedFragment = null;
 
     @Override
@@ -35,11 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Проверка установленной темы
         LoadTheme.LoadTheme(this);
-
-        StatusBarColor.StatusBarColor(R.color.background2, R.color.colorBackgroundBlocks, this);
-
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.hide();
 
         setContentView(R.layout.activity_main);
 
@@ -65,21 +57,25 @@ public class MainActivity extends AppCompatActivity {
 
 
                     switch (item.getItemId()) {
-                        case R.id.navigation_home:
+                        case R.id.navigation_book_list:
                             AppConstants.map_btmNav.put("map_btmNav", 1);
                             selectedFragment = new BookListFragment();
                             break;
-                        case R.id.navigation_dashboard:
+                        case R.id.navigation_test_list:
                             AppConstants.map_btmNav.put("map_btmNav", 2);
                             selectedFragment = new TestListFragment();
                             break;
-                        case R.id.navigation_notifications:
+                        case R.id.navigation_profile:
                             AppConstants.map_btmNav.put("map_btmNav", 3);
                             selectedFragment = new ProfileFragment();
                             break;
+                        case R.id.navigation_notifications:
+                            selectedFragment = new TestListFragment();
+                            break;
                     }
 
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_view_tag, selectedFragment).commit();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container_view_tag, selectedFragment).commit();
 
                     return true;
                 }
@@ -96,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    @Override ТУТ НАСРАЛ ЕГОР!!!!!!!
+//    @Override ТУТ НАСРАЛ ЕГОР!!!!!!!        123
 //    public void onBackPressed() {
 //        if (AppConstants.map_btmNav.containsKey(true)) {
 //            if (AppConstants.map_btmNav.get("map_btmNav") == 1) {
