@@ -1,6 +1,7 @@
 package com.example.pyatiminutka.Models.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,17 +21,17 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
 
     private final QuestionTest questionTest = new QuestionTest();
 
-    private int numberItems;
+    private final int numberItems;
     private static int viewHolderCount;
 
-    private int[] rQuestions;
-    private int[] rIcons;
+    private final int[] rQuestions;
+    private final int[] rIcons;
 
-    private Context context1;
+    private final Context context1;
 
-    private int test_num = AppConstants.map_test_number.get("test_num");
+    private final int test_num = AppConstants.map_test_number.get("test_num");
 
-    private int difficult = AppConstants.map_difficult.get("Difficult")-1;
+    private final int difficult = AppConstants.map_difficult.get("Difficult")-1;
 
     public ResultListAdapter(int numberOfItems, int[] questions, int[] icons, Context context) {
         numberItems = numberOfItems;
@@ -51,8 +52,7 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
         View view = inflater.inflate(layoutIdForListItem, parent, false);
 
         ResultListViewHolder viewHolder = new ResultListViewHolder(view);
-        viewHolder.question_final_text.setText(questionTest.QuestionTest[AppConstants.map_test_number.get("test_num")][AppConstants.map_difficult.get("Difficult")-1][viewHolderCount]);
-
+        viewHolder.question_final_text.setText(questionTest.QuestionTest[test_num][difficult][viewHolderCount]);
         viewHolderCount++;
 
         return viewHolder;
@@ -105,8 +105,9 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
         }
 
         void bind(int listIndex) {
+
             question_final_text.setText(rQuestions[listIndex]);
-            if (listIndex == questionTest.QuestionTest[AppConstants.map_test_number.get("test_num")][AppConstants.map_difficult.get("Difficult")-1].length-1) {
+            if (listIndex == questionTest.QuestionTest[test_num][difficult].length-1) {
                 divider.setVisibility(View.INVISIBLE);
             }
             image1.setImageResource(rIcons[QuestionTest.incorrect_results[listIndex]]);

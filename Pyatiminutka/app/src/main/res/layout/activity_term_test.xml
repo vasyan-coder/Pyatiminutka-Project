@@ -203,7 +203,7 @@
 <!--                            android:visibility="invisible"/>-->
 
                         <TextView
-                            android:id="@+id/text_score"
+                            android:id="@+id/text_high_score"
                             style="@style/Twice_title_Text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -214,7 +214,7 @@
                             app:layout_constraintTop_toBottomOf="@+id/text_title_score" />
 
                         <TextView
-                            android:id="@+id/text_percent_score"
+                            android:id="@+id/text_percent_high_score"
                             style="@style/Twice_title_Text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -225,7 +225,7 @@
                             app:layout_constraintTop_toBottomOf="@+id/text_title_score" />
 
                         <ImageView
-                            android:id="@+id/info_score"
+                            android:id="@+id/info_high_score"
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_alignParentBottom="true"
@@ -234,7 +234,7 @@
                             android:src="@drawable/ic_baseline_info_24"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/text_percent_score" />
+                            app:layout_constraintTop_toBottomOf="@+id/text_percent_high_score" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -25,16 +26,15 @@ import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 public class Activity_term_test extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
 
 
-    private TextView text_view_highscore;
-    private TextView last_result_onstart;
-
     private RadioGroup radioGroup;
 
-    private Button button;
+    private Button btn_start_quiz;
 
     private CircularProgressBar progressBar_score;
     private CircularProgressBar progressBar_last_score;
-    private TextView text_percent_score;
+    private TextView text_high_score;
+    private TextView text_last_score;
+    private TextView text_percent_high_score;
     private TextView text_percent_last_score;
 
     private int u1 = 0;
@@ -49,11 +49,12 @@ public class Activity_term_test extends AppCompatActivity implements RadioGroup.
 
     private int difficult_num = 0;
 
-    private int test_num = AppConstants.map_test_number.get("test_num");
+    private final int test_num = AppConstants.map_test_number.get("test_num");
 
-    private QuestionTest questionTest = new QuestionTest();
+    private final QuestionTest questionTest = new QuestionTest();
 
     private Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,25 +62,20 @@ public class Activity_term_test extends AppCompatActivity implements RadioGroup.
 
         //Проверка установленной темы
         LoadTheme.LoadTheme(this);
-//        ActionBar actionBar = getSupportActionBar();
-//        actionBar.hide();
-
-        StatusBarColor.StatusBarColor(R.color.background2, R.color.colorBackgroundBlocks, this);
-
 
         setContentView(R.layout.activity_term_test);
-
 
 
         findById();
 
         //Настройка toolbar
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
         //SharedPref
-
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
@@ -102,55 +98,114 @@ public class Activity_term_test extends AppCompatActivity implements RadioGroup.
 
         //Заголовок
         TextView test_title = findViewById(R.id.test_title);
-        test_title.setText(QuestionTest.Question_title[AppConstants.map_test_number.get("test_num")]);
+        test_title.setText(QuestionTest.Question_title[test_num]);
 
         //Рекорд
-        if (AppConstants.map_test_number.get("test_num") == 0) {
+        if (test_num == 0) {
             if (myPreferences.contains("score_easy")) {
-                startScoreAnimationEasy(0, score_easy_value, "/10", text_view_highscore); //Анимация рекорда
-                startScoreAnimationEasy(0, score_easy_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, "%", text_percent_score);  //Анимация рекорда в процентах
 
-                startScoreAnimationEasy(0, last_score_easy_value, "/10", last_result_onstart); //Анимация последнего результата в процентах
-                startScoreAnimationEasy(0, last_score_easy_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, "%", text_percent_last_score); //Анимация последнего результата в процентах в процентах
+                //Анимации окна с рекордом
+                startScoreAnimationEasy(
+                        0,
+                        score_easy_value,
+                        "/10",
+                        text_high_score); //Анимация рекорда в цифрах
+                startScoreAnimationEasy(
+                        0,
+                        score_easy_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                        "%",
+                        text_percent_high_score);  //Анимация рекорда в процентах
+                progressBar_score.setProgressWithAnimation(
+                        score_easy_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                        (long) 1000); //Анимация progressbar с рекордом
 
-                progressBar_score.setProgressWithAnimation(score_easy_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, (long) 1000);
-                progressBar_last_score.setProgressWithAnimation(last_score_easy_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, (long) 1000);
+                //Анимации окна с последним результатом
+                startScoreAnimationEasy(
+                        0,
+                        last_score_easy_value,
+                        "/10",
+                        text_last_score); //Анимация последнего результата в цифрах
+                startScoreAnimationEasy(
+                        0,
+                        last_score_easy_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                        "%",
+                        text_percent_last_score); //Анимация последнего результата в процентах
+                progressBar_last_score.setProgressWithAnimation(
+                        last_score_easy_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                        (long) 1000); //Анимация progressbar с последним результатом
 
                 u1 = score_easy_value;
                 u2 = last_score_easy_value;
             } else if (myPreferences.contains("score_medium")) {
-                startScoreAnimationEasy(0, score_medium_value, "/10", text_view_highscore); //Анимация рекорда
-                startScoreAnimationEasy(0, score_medium_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, "%", text_percent_score);  //Анимация рекорда в процентах
 
-                startScoreAnimationEasy(0, last_score_medium_value, "/10", last_result_onstart); //Анимация последнего результата в процентах
-                startScoreAnimationEasy(0, last_score_medium_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, "%", text_percent_last_score); //Анимация последнего результата в процентах в процентах
+                //Анимации окна с рекордом
+                startScoreAnimationEasy(
+                        0,
+                        score_medium_value,
+                        "/10",
+                        text_high_score); //Анимация рекорда
+                startScoreAnimationEasy(0,
+                        score_medium_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                        "%",
+                        text_percent_high_score);  //Анимация рекорда в процентах
+                progressBar_score.setProgressWithAnimation(
+                        score_medium_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                        (long) 1000); //Анимация progressbar с рекордом
 
-                progressBar_score.setProgressWithAnimation(score_medium_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, (long) 1000);
-                progressBar_last_score.setProgressWithAnimation(last_score_medium_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, (long) 1000);
+                //Анимации окна с последним результатом
+                startScoreAnimationEasy(
+                        0,
+                        last_score_medium_value,
+                        "/10",
+                        text_last_score); //Анимация последнего результата в цифрах
+                startScoreAnimationEasy(0,
+                        last_score_medium_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                        "%",
+                        text_percent_last_score); //Анимация последнего результата в процентах
+                progressBar_last_score.setProgressWithAnimation(
+                        last_score_medium_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                        (long) 1000); //Анимация progressbar с последним результатом
 
                 u1 = score_medium_value;
                 u2 = last_score_medium_value;
             } else if (myPreferences.contains("score_hard")) {
-                startScoreAnimationEasy(0, score_hard_value, "/10", text_view_highscore); //Анимация рекорда
-                startScoreAnimationEasy(0, score_hard_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, "%", text_percent_score);  //Анимация рекорда в процентах
 
-                startScoreAnimationEasy(0, last_score_hard_value, "/10", last_result_onstart); //Анимация последнего результата в процентах
-                startScoreAnimationEasy(0, last_score_hard_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, "%", text_percent_last_score); //Анимация последнего результата в процентах в процентах
+                //Анимации окна с рекордом
+                startScoreAnimationEasy(
+                        0,
+                        score_hard_value,
+                        "/10",
+                        text_high_score); //Анимация рекорда
+                startScoreAnimationEasy(
+                        0,
+                        score_hard_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                        "%",
+                        text_percent_high_score);  //Анимация рекорда в процентах
+                progressBar_score.setProgressWithAnimation(
+                        score_hard_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                        (long) 1000);//Анимация progressbar с рекордом
 
-                progressBar_score.setProgressWithAnimation(score_hard_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, (long) 1000);
-                progressBar_last_score.setProgressWithAnimation(last_score_hard_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, (long) 1000);
+                //Анимации окна с последним результатом
+                startScoreAnimationEasy(
+                        0,
+                        last_score_hard_value,
+                        "/10",
+                        text_last_score); //Анимация последнего результата в процентах
+                startScoreAnimationEasy(
+                        0,
+                        last_score_hard_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                        "%",
+                        text_percent_last_score); //Анимация последнего результата в процентах в процентах
+                progressBar_last_score.setProgressWithAnimation(
+                        last_score_hard_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                        (long) 1000); //Анимация progressbar с последним результатом
 
                 u1 = score_hard_value;
                 u2 = last_score_hard_value;
             }
         }
 
-
-        //Кнопка назад
-//        actionBar.setHomeButtonEnabled(true);
-//        actionBar.setDisplayHomeAsUpEnabled(true);
-
-        button.setOnClickListener(new View.OnClickListener() {
+        btn_start_quiz.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent activity2Intent = new Intent(getApplicationContext(), Activity_quiz_term.class);
                 startActivity(activity2Intent);
@@ -166,7 +221,7 @@ public class Activity_term_test extends AppCompatActivity implements RadioGroup.
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-
+        //sharedPref
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
@@ -178,24 +233,61 @@ public class Activity_term_test extends AppCompatActivity implements RadioGroup.
 
                 difficult_num = 0;
 
-                if (AppConstants.map_test_number.get("test_num") == 0) {
+                if (test_num == 0) {
                     if (myPreferences.contains("score_easy")) {
-                        startScoreAnimationEasy(u1, score_easy_value, "/10", text_view_highscore); //Анимация рекорда
-                        startScoreAnimationEasy(u1 * 100 / questionTest.QuestionTest[test_num][difficult_num].length, score_easy_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, "%", text_percent_score);  //Анимация рекорда в процентах
+                        //Анимация окна с рекордом
+                        startScoreAnimationEasy(
+                                u1,
+                                score_easy_value,
+                                "/10",
+                                text_high_score); //Анимация рекорда
+                        startScoreAnimationEasy(
+                                u1 * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                score_easy_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                "%", text_percent_high_score);  //Анимация рекорда в процентах
+                        progressBar_score.setProgressWithAnimation(
+                                score_easy_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                (long) 1000); //Анимация progressbar с рекордом
 
-                        startScoreAnimationEasy(u2, last_score_easy_value, "/10", last_result_onstart); //Анимация последнего результата в процентах
-                        startScoreAnimationEasy(u2 * 100 / questionTest.QuestionTest[test_num][difficult_num].length, last_score_easy_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, "%", text_percent_last_score); //Анимация последнего результата в процентах в процентах
+                        //Анимация окна с последним результатом
+                        startScoreAnimationEasy(
+                                u2,
+                                last_score_easy_value,
+                                "/10",
+                                text_last_score); //Анимация последнего результата в процентах
+                        startScoreAnimationEasy(
+                                u2 * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                last_score_easy_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                "%", text_percent_last_score); //Анимация последнего результата в процентах в процентах
+                        progressBar_last_score.setProgressWithAnimation(
+                                last_score_easy_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                (long) 1000); //Анимация progressbar с последним результатом
 
-                        progressBar_score.setProgressWithAnimation(score_easy_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, (long) 1000);
-                        progressBar_last_score.setProgressWithAnimation(last_score_easy_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, (long) 1000);
+
                     } else {
-                        progressBar_score.setProgressWithAnimation(0f, (long) 700);
-                        progressBar_last_score.setProgressWithAnimation(0f, (long) 700);
-                        startScoreAnimationEasy(u1, 0, "/10", text_view_highscore); //Анимация рекорда
-                        startScoreAnimationEasy(u1 * 100 / questionTest.QuestionTest[test_num][difficult_num].length, 0, "%", text_percent_score);  //Анимация рекорда в процентах
+                        progressBar_score.setProgressWithAnimation(0f, (long) 1000);
+                        progressBar_last_score.setProgressWithAnimation(0f, (long) 1000);
+                        startScoreAnimationEasy(
+                                u1,
+                                0,
+                                "/10",
+                                text_high_score); //Анимация рекорда
+                        startScoreAnimationEasy(
+                                u1 * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                0,
+                                "%",
+                                text_percent_high_score);  //Анимация рекорда в процентах
 
-                        startScoreAnimationEasy(u2, 0, "/10", last_result_onstart); //Анимация последнего результата
-                        startScoreAnimationEasy(u2 * 100 / questionTest.QuestionTest[test_num][difficult_num].length, 0, "%", text_percent_last_score); //Анимация последнего результата в процентах
+                        startScoreAnimationEasy(
+                                u2,
+                                0,
+                                "/10",
+                                text_last_score); //Анимация последнего результата
+                        startScoreAnimationEasy(
+                                u2 * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                0,
+                                "%",
+                                text_percent_last_score); //Анимация последнего результата в процентах
                     }
 
                     u1 = score_easy_value;
@@ -212,25 +304,45 @@ public class Activity_term_test extends AppCompatActivity implements RadioGroup.
 
                 difficult_num = 1;
 
-                if (AppConstants.map_test_number.get("test_num") == 0) {
+                if (test_num == 0) {
                     if (myPreferences.contains("score_medium")) {
-                        startScoreAnimationEasy(u1, score_medium_value, "/10", text_view_highscore); //Анимация рекорда
-                        startScoreAnimationEasy(u1 * 100 / questionTest.QuestionTest[test_num][difficult_num].length, score_medium_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, "%", text_percent_score);  //Анимация рекорда в процентах
+                        startScoreAnimationEasy(
+                                u1,
+                                score_medium_value,
+                                "/10",
+                                text_high_score); //Анимация рекорда
+                        startScoreAnimationEasy(
+                                u1 * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                score_medium_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                "%",
+                                text_percent_high_score);  //Анимация рекорда в процентах
 
-                        startScoreAnimationEasy(u2, last_score_medium_value, "/10", last_result_onstart); //Анимация последнего результата в процентах
-                        startScoreAnimationEasy(u2 * 100 / questionTest.QuestionTest[test_num][difficult_num].length, last_score_medium_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, "%", text_percent_last_score); //Анимация последнего результата в процентах в процентах
+                        startScoreAnimationEasy(
+                                u2,
+                                last_score_medium_value,
+                                "/10",
+                                text_last_score); //Анимация последнего результата в процентах
+                        startScoreAnimationEasy(
+                                u2 * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                last_score_medium_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                "%",
+                                text_percent_last_score); //Анимация последнего результата в процентах в процентах
 
-                        progressBar_score.setProgressWithAnimation(score_medium_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, (long) 1000);
-                        progressBar_last_score.setProgressWithAnimation(last_score_medium_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, (long) 1000);
+                        progressBar_score.setProgressWithAnimation(
+                                score_medium_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                (long) 1000);
+                        progressBar_last_score.setProgressWithAnimation(
+                                last_score_medium_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                (long) 1000);
                     } else {
-                        progressBar_score.setProgressWithAnimation(0f, (long) 700);
+                        progressBar_score.setProgressWithAnimation(0f, (long) 1000);
+                        progressBar_last_score.setProgressWithAnimation(0f, (long) 1000);
+                        progressBar_score.setProgressWithAnimation(0f, (long) 1000);
                         progressBar_last_score.setProgressWithAnimation(0f, (long) 700);
-                        progressBar_score.setProgressWithAnimation(0f, (long) 700);
-                        progressBar_last_score.setProgressWithAnimation(0f, (long) 700);
-                        startScoreAnimationEasy(u1, 0, "/10", text_view_highscore); //Анимация рекорда
-                        startScoreAnimationEasy(u1 * 100 / questionTest.QuestionTest[test_num][difficult_num].length, 0, "%", text_percent_score);  //Анимация рекорда в процентах
+                        startScoreAnimationEasy(u1, 0, "/10", text_high_score); //Анимация рекорда
+                        startScoreAnimationEasy(u1 * 100 / questionTest.QuestionTest[test_num][difficult_num].length, 0, "%", text_percent_high_score);  //Анимация рекорда в процентах
 
-                        startScoreAnimationEasy(u2, 0, "/10", last_result_onstart); //Анимация последнего результата в процентах
+                        startScoreAnimationEasy(u2, 0, "/10", text_last_score); //Анимация последнего результата в процентах
                         startScoreAnimationEasy(u2 * 100 / questionTest.QuestionTest[test_num][difficult_num].length, 0, "%", text_percent_last_score); //Анимация последнего результата в процентах в процентах
                     }
 
@@ -247,26 +359,46 @@ public class Activity_term_test extends AppCompatActivity implements RadioGroup.
 
                 difficult_num = 2;
 
-                if (AppConstants.map_test_number.get("test_num") == 0) {
+                if (test_num == 0) {
                     if (myPreferences.contains("score_hard")) {
-                        startScoreAnimationEasy(u1, score_hard_value, "/10", text_view_highscore); //Анимация рекорда
-                        startScoreAnimationEasy(u1 * 100 / questionTest.QuestionTest[test_num][difficult_num].length, score_hard_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, "%", text_percent_score);  //Анимация рекорда в процентах
+                        startScoreAnimationEasy(u1, score_hard_value, "/10", text_high_score); //Анимация рекорда
+                        startScoreAnimationEasy(u1 * 100 / questionTest.QuestionTest[test_num][difficult_num].length, score_hard_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, "%", text_percent_high_score);  //Анимация рекорда в процентах
 
-                        startScoreAnimationEasy(u2, last_score_hard_value, "/10", last_result_onstart); //Анимация последнего результата
+                        startScoreAnimationEasy(u2, last_score_hard_value, "/10", text_last_score); //Анимация последнего результата
                         startScoreAnimationEasy(u2 * 100 / questionTest.QuestionTest[test_num][difficult_num].length, last_score_hard_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, "%", text_percent_last_score); //Анимация последнего результата в процентах
 
-                        progressBar_score.setProgressWithAnimation(score_hard_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, (long) 1000);
-                        progressBar_last_score.setProgressWithAnimation(last_score_hard_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length, (long) 1000);
+                        progressBar_score.setProgressWithAnimation(
+                                score_hard_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                (long) 1000);
+                        progressBar_last_score.setProgressWithAnimation(
+                                last_score_hard_value * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                (long) 1000);
                     } else {
-                        progressBar_score.setProgressWithAnimation(0f, (long) 700);
-                        progressBar_last_score.setProgressWithAnimation(0f, (long) 700);
-                        progressBar_score.setProgressWithAnimation(0f, (long) 700);
-                        progressBar_last_score.setProgressWithAnimation(0f, (long) 700);
-                        startScoreAnimationEasy(u1, 0, "/10", text_view_highscore); //Анимация рекорда
-                        startScoreAnimationEasy(u1 * 100 / questionTest.QuestionTest[test_num][difficult_num].length, 0, "%", text_percent_score);  //Анимация рекорда в процентах
+                        progressBar_score.setProgressWithAnimation(0f, (long) 1000);
+                        progressBar_last_score.setProgressWithAnimation(0f, (long) 1000);
+                        progressBar_score.setProgressWithAnimation(0f, (long) 1000);
+                        progressBar_last_score.setProgressWithAnimation(0f, (long) 1000);
+                        startScoreAnimationEasy(
+                                u1,
+                                0,
+                                "/10",
+                                text_high_score); //Анимация рекорда
+                        startScoreAnimationEasy(
+                                u1 * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                0,
+                                "%",
+                                text_percent_high_score);  //Анимация рекорда в процентах
 
-                        startScoreAnimationEasy(u2, 0, "/10", last_result_onstart); //Анимация последнего результата в процентах
-                        startScoreAnimationEasy(u2 * 100 / questionTest.QuestionTest[test_num][difficult_num].length, 0, "%", text_percent_last_score); //Анимация последнего результата в процентах в процентах
+                        startScoreAnimationEasy(
+                                u2,
+                                0,
+                                "/10",
+                                text_last_score); //Анимация последнего результата в процентах
+                        startScoreAnimationEasy(
+                                u2 * 100 / questionTest.QuestionTest[test_num][difficult_num].length,
+                                0,
+                                "%",
+                                text_percent_last_score); //Анимация последнего результата в процентах в процентах
                     }
 
                     u1 = score_hard_value;
@@ -279,14 +411,14 @@ public class Activity_term_test extends AppCompatActivity implements RadioGroup.
     }
 
     private void findById() {
-        last_result_onstart = findViewById(R.id.text_last_score);
-        text_view_highscore = findViewById(R.id.text_score);
+        text_last_score = findViewById(R.id.text_last_score);
+        text_high_score = findViewById(R.id.text_high_score);
         radioGroup = findViewById(R.id.radioGroup);
-        button = findViewById(R.id.button_start_quiz);
+        btn_start_quiz = findViewById(R.id.button_start_quiz);
 
         progressBar_score = findViewById(R.id.progressBar_score);
         progressBar_last_score = findViewById(R.id.ProgressBar_last_score);
-        text_percent_score = findViewById(R.id.text_percent_score);
+        text_percent_high_score = findViewById(R.id.text_percent_high_score);
         text_percent_last_score = findViewById(R.id.text_percent_last_score);
 
         toolbar = findViewById(R.id.toolbar);
@@ -312,18 +444,5 @@ public class Activity_term_test extends AppCompatActivity implements RadioGroup.
         animator.start();
     }
 
-    private void startScoreLastAnimationEasy(Long seconds, Integer startCount, Integer last_score_value, final String str, final TextView textView) {
-        ValueAnimator animator = ValueAnimator.ofInt(startCount, last_score_value); //0 is min number, 600 is max number
-        animator.setDuration(seconds); //Duration is in milliseconds
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            public void onAnimationUpdate(ValueAnimator animation) {
-                textView.setText(animation.getAnimatedValue().toString() + str);
-            }
-        });
-        animator.start();
-    }
 
-    public void click_previous(View view) {
-        this.finish();
-    }
 }

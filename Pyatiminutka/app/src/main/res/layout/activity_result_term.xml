@@ -152,7 +152,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:text="Верно - "
+                    android:text="@string/text_correct"
                     app:layout_constraintBottom_toBottomOf="@+id/view3"
                     app:layout_constraintStart_toEndOf="@+id/view3"
                     app:layout_constraintTop_toTopOf="@+id/view3" />
@@ -173,7 +173,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:text="Неверно - "
+                    android:text="@string/text_incorrect"
                     app:layout_constraintBottom_toBottomOf="@+id/view4"
                     app:layout_constraintStart_toEndOf="@+id/view4"
                     app:layout_constraintTop_toTopOf="@+id/view4" />
@@ -193,8 +193,8 @@
                     style="@style/Twice_title_Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:text="Пропущено - "
+                    android:layout_marginStart="15dp"
+                    android:text="@string/text_skip"
                     app:layout_constraintBottom_toBottomOf="@+id/view5"
                     app:layout_constraintStart_toEndOf="@+id/view5"
                     app:layout_constraintTop_toTopOf="@+id/view5" />
@@ -245,7 +245,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text="Пройден за 10:10"
+                        android:text="@string/text_time_pass"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageView"

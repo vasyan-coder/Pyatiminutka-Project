@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,39 +8,20 @@
     android:padding="@dimen/activity_padding"
     tools:context=".ui.tests.TestListFragment">
 
-    <EditText
-        android:id="@+id/search_test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/white"
-        android:hint="@string/text_search"
-        android:textColor="@color/white"
-        android:textColorHint="@color/colorAccent"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/text_center_tests"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginHorizontal="4dp" />
 
     <RelativeLayout
         android:id="@+id/rel_termodinamika"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/search_test"
-        android:layout_marginTop="16dp"
-        android:layout_toLeftOf="@id/text_center_tests"
+        android:layout_marginEnd="5dp"
         android:background="@drawable/rounded_corners7"
         android:elevation="@dimen/shadow_two"
         android:onClick="onClick"
-        android:padding="10dp">
+        android:padding="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/mehanika"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/title_test1"
@@ -76,14 +57,16 @@
 
     <RelativeLayout
         android:id="@+id/mehanika"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/search_test"
-        android:layout_marginTop="16dp"
-        android:layout_toRightOf="@id/text_center_tests"
+        android:layout_marginStart="5dp"
         android:background="@drawable/rounded_corners7"
         android:elevation="@dimen/shadow_two"
-        android:padding="10dp">
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rel_termodinamika"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/title_test2"
@@ -112,18 +95,7 @@
             android:onClick="onClick"
             android:padding="5dp"
             android:src="@drawable/ic_baseline_star_border_24" />
-        <!--        <com.github.ivbaranov.mfb.MaterialFavoriteButton-->
-        <!--            android:id="@+id/favourite_test2"-->
-        <!--            android:layout_width="53dp"-->
-        <!--            android:layout_height="53dp"-->
-        <!--            android:layout_below="@id/icon_test_2"-->
-        <!--            android:layout_alignParentEnd="true"-->
-        <!--            app:mfb_animate_favorite="true"-->
-        <!--            app:mfb_bounce_duration="300"-->
-        <!--            app:mfb_color="white"-->
-        <!--            app:mfb_rotation_duration="400"-->
-        <!--            app:mfb_type="star" />-->
 
     </RelativeLayout>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

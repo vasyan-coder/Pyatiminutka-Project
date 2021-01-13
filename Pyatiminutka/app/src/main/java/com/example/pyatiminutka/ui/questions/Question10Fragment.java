@@ -42,7 +42,7 @@ public class Question10Fragment extends Fragment {
     private Button fix_question;
     private Button change_question;
 
-    private int score_new_form;
+    private int score_new_form = 0;
 
     private String currentView1;
     private int currentView;
@@ -52,9 +52,10 @@ public class Question10Fragment extends Fragment {
 
     private ViewPager viewPager;
 
-    private int test_num;
+    private final int test_num = AppConstants.map_test_number.get("test_num");
+    private final int difficult = AppConstants.map_difficult.get("Difficult");
 
-    QuestionTest questionTest = new QuestionTest();
+    private QuestionTest questionTest = new QuestionTest();
 
 
     @Nullable
@@ -64,8 +65,6 @@ public class Question10Fragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_question10_layout, container, false);
 
         findByIdFragment(root);
-
-        test_num = AppConstants.map_test_number.get("test_num");
 
         change_question.setAlpha(0.6f);
         anim1 = new AlphaAnimation(0.6f, 1.0f);
@@ -82,7 +81,7 @@ public class Question10Fragment extends Fragment {
         Log.d("myLogs", "Возвращаемая позиция TabLayout " + currentView);
 
         //Возвращение данных вопроса по номеру текущего таба (currentView)
-        if (AppConstants.map_difficult.get("Difficult") == 1) {
+        if (difficult == 1) {
             textquestion = questionTest.QuestionTest[test_num][0][currentView]; //Текст вопроса
             question10text.setText(textquestion);
 
@@ -99,7 +98,9 @@ public class Question10Fragment extends Fragment {
             correctAnswer2 = questionTest.correctAnswer[test_num][0][currentView][1];
             correctAnswer3 = questionTest.correctAnswer[test_num][0][currentView][2];
             correctAnswer4 = questionTest.correctAnswer[test_num][0][currentView][3];
-        } else if (AppConstants.map_difficult.get("Difficult") == 2) {
+
+            Log.d("myLogs", "Правильные ответы " + correctAnswer1 + correctAnswer2 + correctAnswer3 + correctAnswer4);
+        } else if (difficult == 2) {
             textquestion = questionTest.QuestionTest[test_num][1][currentView]; //Текст вопроса
             question10text.setText(textquestion);
 
@@ -116,7 +117,7 @@ public class Question10Fragment extends Fragment {
             correctAnswer2 = questionTest.correctAnswer[test_num][1][currentView][1];
             correctAnswer3 = questionTest.correctAnswer[test_num][1][currentView][2];
             correctAnswer4 = questionTest.correctAnswer[test_num][1][currentView][3];
-        } else if (AppConstants.map_difficult.get("Difficult") == 3) {
+        } else if (difficult == 3) {
             textquestion = questionTest.QuestionTest[test_num][2][currentView]; //Текст вопроса
             question10text.setText(textquestion);
 
@@ -143,34 +144,37 @@ public class Question10Fragment extends Fragment {
                         if (answer_one.isChecked() || answer_two.isChecked() || answer_three.isChecked() || answer_four.isChecked()) {
                             if (correctAnswer1 == 1 && answer_one.isChecked()) {
                                 score_new_form += 1;
-                            } else if (answer_one.isChecked()) score_new_form += 3;
+                            } else if (answer_one.isChecked()) score_new_form += 4;
 
                             if (correctAnswer2 == 1 && answer_two.isChecked()) {
                                 score_new_form += 1;
-                            } else if (answer_two.isChecked()) score_new_form += 3;
+                            } else if (correctAnswer2 == 0 && answer_two.isChecked()) {
+                                score_new_form += 4;
+                                Log.d("myLogs", "Счётчик увеличился");
+                            }
 
 
                             if (correctAnswer3 == 1 && answer_three.isChecked()) {
                                 score_new_form += 1;
-                            } else if (answer_three.isChecked()) score_new_form += 3;
+                            } else if (answer_three.isChecked()) score_new_form += 4;
 
 
                             if (correctAnswer4 == 1 && answer_four.isChecked()) {
                                 score_new_form += 1;
-                            } else if (answer_four.isChecked()) score_new_form += 3;
+                            } else if (answer_four.isChecked()) score_new_form += 4;
 
 
                             int val = currentView + 1;
                             if (score_new_form == correctAnswer1 + correctAnswer2 + correctAnswer3 + correctAnswer4) {
-                                questionTest.skip_answers[currentView] = 0;
-                                questionTest.results[currentView] = 1;
+                                QuestionTest.skip_answers[currentView] = 0;
+                                QuestionTest.results[currentView] = 1;
                             } else {
-                                questionTest.skip_answers[currentView] = 0;
-                                questionTest.incorrect_results[currentView] = 1;
-                                questionTest.results[currentView] = 3;
+                                QuestionTest.skip_answers[currentView] = 0;
+                                QuestionTest.incorrect_results[currentView] = 1;
+                                QuestionTest.results[currentView] = 3;
                             }
 
-                            QuestionFadeIn();
+                            AnimQuestionFadeIn();
 
                             viewPager.setCurrentItem(currentView + 1);
 
@@ -182,7 +186,7 @@ public class Question10Fragment extends Fragment {
                                     .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
-                                            QuestionFadeIn();
+                                            AnimQuestionFadeIn();
 
                                             viewPager.setCurrentItem(currentView + 1); //Метка при коприровании
                                             QuestionTest.skip_answers[currentView] = 1;
@@ -206,13 +210,13 @@ public class Question10Fragment extends Fragment {
                         }
 
                         if (answer_one.isChecked())
-                            questionTest.choosed_answers1[currentView] = 1; //Метка при коприровании
+                            QuestionTest.choosed_answers1[currentView] = 1; //Метка при коприровании
                         if (answer_two.isChecked())
-                            questionTest.choosed_answers2[currentView] = 1; //Метка при коприровании
+                            QuestionTest.choosed_answers2[currentView] = 1; //Метка при коприровании
                         if (answer_three.isChecked())
-                            questionTest.choosed_answers3[currentView] = 1; //Метка при коприровании
+                            QuestionTest.choosed_answers3[currentView] = 1; //Метка при коприровании
                         if (answer_four.isChecked())
-                            questionTest.choosed_answers4[currentView] = 1; //Метка при коприровании
+                            QuestionTest.choosed_answers4[currentView] = 1; //Метка при коприровании
                         break;
 
 
@@ -220,18 +224,18 @@ public class Question10Fragment extends Fragment {
                         score_new_form = 0;
 
                         if (answer_one.isChecked())
-                            questionTest.choosed_answers1[currentView] = 0; //Метка при коприровании
+                            QuestionTest.choosed_answers1[currentView] = 0; //Метка при коприровании
                         if (answer_two.isChecked())
-                            questionTest.choosed_answers2[currentView] = 0; //Метка при коприровании
+                            QuestionTest.choosed_answers2[currentView] = 0; //Метка при коприровании
                         if (answer_three.isChecked())
-                            questionTest.choosed_answers3[currentView] = 0; //Метка при коприровании
+                            QuestionTest.choosed_answers3[currentView] = 0; //Метка при коприровании
                         if (answer_four.isChecked())
-                            questionTest.choosed_answers4[currentView] = 0; //Метка при коприровании
-                        questionTest.skip_answers[currentView] = 1;
-                        questionTest.results[currentView] = 0;
-                        questionTest.incorrect_results[currentView] = 0;
+                            QuestionTest.choosed_answers4[currentView] = 0; //Метка при коприровании
+                        QuestionTest.skip_answers[currentView] = 1;
+                        QuestionTest.results[currentView] = 0;
+                        QuestionTest.incorrect_results[currentView] = 0;
 
-                        QuestionFadeFrom();
+                        AnimQuestionFadeFrom();
 
 
                         break;
@@ -259,7 +263,7 @@ public class Question10Fragment extends Fragment {
         viewPager = getActivity().findViewById(R.id.view_pager);
     }
 
-    private void QuestionFadeIn() {
+    private void AnimQuestionFadeIn() {
         answer_one.setEnabled(false);
         answer_two.setEnabled(false);
         answer_three.setEnabled(false);
@@ -285,7 +289,7 @@ public class Question10Fragment extends Fragment {
         answer_four.setAlpha(.6f);
     }
 
-    private void QuestionFadeFrom() {
+    private void AnimQuestionFadeFrom() {
         answer_one.setEnabled(true);
         answer_two.setEnabled(true);
         answer_three.setEnabled(true);

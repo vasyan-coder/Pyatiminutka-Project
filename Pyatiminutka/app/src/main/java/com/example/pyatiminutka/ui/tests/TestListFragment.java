@@ -17,8 +17,8 @@ import com.example.pyatiminutka.R;
 
 public class TestListFragment extends Fragment implements View.OnClickListener{
 
-    private RelativeLayout rel_termodinamika;
-    private RelativeLayout mehanika;
+    private RelativeLayout rel_thermodynamics;
+    private RelativeLayout rel_mechanics;
 
     private ImageView favourite_test1;
 
@@ -34,41 +34,43 @@ public class TestListFragment extends Fragment implements View.OnClickListener{
 
 
         //Фон кнопок теста
-        rel_termodinamika.getBackground().setColorFilter(getContext().getResources().getColor(R.color.btn_red), PorterDuff.Mode.SRC_ATOP);
-        mehanika.getBackground().setColorFilter(getContext().getResources().getColor(R.color.btn_yellow), PorterDuff.Mode.SRC_ATOP);
+        rel_thermodynamics.getBackground().setColorFilter(getContext().getResources()
+                .getColor(R.color.btn_red), PorterDuff.Mode.SRC_ATOP);
+        rel_mechanics.getBackground().setColorFilter(getContext().getResources()
+                .getColor(R.color.btn_yellow), PorterDuff.Mode.SRC_ATOP);
 
 
         favourite_test1.setOnClickListener(this);
-        rel_termodinamika.setOnClickListener(this);
+        rel_thermodynamics.setOnClickListener(this);
 
         return root;
     }
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.rel_termodinamika:
-                Intent intent = new Intent(getActivity(), Activity_term_test.class);
-                AppConstants.map_test_number.put("test_num", 0);
-                startActivity(intent);
-                break;
-            case R.id.favourite_test1:
-                Resources res = getResources();
-                if (choose == 0) {
-                    choose = 1;
-                    favourite_test1.setImageDrawable(res.getDrawable(R.drawable.ic_baseline_star_24));
-                }
-                else {
-                    choose = 0;
-                    favourite_test1.setImageDrawable(res.getDrawable(R.drawable.ic_baseline_star_border_24));
-                }
+
+        int id = v.getId();
+        if (id == R.id.rel_termodinamika) {
+            Intent intent = new Intent(getActivity(), Activity_term_test.class);
+            AppConstants.map_test_number.put("test_num", 0);
+            startActivity(intent);
+        } else if (id == R.id.favourite_test1) {
+            Resources res = getResources();
+            if (choose == 0) {
+                choose = 1;
+                favourite_test1.setImageDrawable(res.getDrawable(R.drawable.ic_baseline_star_24));
+            }
+            else {
+                choose = 0;
+                favourite_test1.setImageDrawable(res.getDrawable(R.drawable.ic_baseline_star_border_24));
+            }
         }
     }
 
 
     private void findById(View v){
-        rel_termodinamika = v.findViewById(R.id.rel_termodinamika);
+        rel_thermodynamics = v.findViewById(R.id.rel_termodinamika);
         favourite_test1 = v.findViewById(R.id.favourite_test1);
-        mehanika = v.findViewById(R.id.mehanika);
+        rel_mechanics = v.findViewById(R.id.mehanika);
     }
 
 }

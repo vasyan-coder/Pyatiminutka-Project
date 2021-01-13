@@ -26,7 +26,7 @@ public class BookListFragment extends Fragment implements BooksAdapter.OnNoteLis
 
     private BookViewModel bookViewModel;
     private ArrayAdapter adapter;
-    String numbook;
+    private String numbook;
 
     private BooksAdapter booksAdapter;
 

@@ -35,8 +35,8 @@ public class Activity_result_term extends AppCompatActivity {
     private int count_skip_answers = 0;
 
     //Информация о тетсе
-    private int difficult = AppConstants.map_difficult.get("Difficult") - 1;
-    private int test_num = AppConstants.map_test_number.get("test_num");
+    private final int difficult = AppConstants.map_difficult.get("Difficult") - 1;
+    private final int test_num = AppConstants.map_test_number.get("test_num");
 
     private TextView text_new_record;
     private TextView text_result_correct_ans;
@@ -63,11 +63,11 @@ public class Activity_result_term extends AppCompatActivity {
     private final QuestionTest questionTest = new QuestionTest();
 
 
-    private final int[] mQuestions_easy = questionTest.QuestionTest[test_num][0];
+    private int[] mQuestions_easy = questionTest.QuestionTest[test_num][0];
 
-    private final int[] mQuestions_medium = questionTest.QuestionTest[test_num][1];
+    private int[] mQuestions_medium = questionTest.QuestionTest[test_num][1];
 
-    private final int[] mQuestions_hard = questionTest.QuestionTest[test_num][2];
+    private int[] mQuestions_hard = questionTest.QuestionTest[test_num][2];
 
     int[] mIcons = {R.drawable.ic_baseline_done_green_48, R.drawable.ic_baseline_close_24};
 
@@ -81,6 +81,7 @@ public class Activity_result_term extends AppCompatActivity {
         LoadTheme.LoadTheme(this);
 
         StatusBarColor.StatusBarColor(R.color.background2, R.color.colorBackgroundBlocks, this);
+
 
         setContentView(R.layout.activity_result_term);
         findById();
@@ -111,7 +112,7 @@ public class Activity_result_term extends AppCompatActivity {
         //Получение времени
         Intent intent = getIntent();
         String time = intent.getStringExtra("time");
-        test_time.setText(getString(R.string.text_time_pass) + " " + time);
+        test_time.append(" " + time);
 
         Log.d("myLogs", "Массив правильных результатов" + Arrays.toString(QuestionTest.results));
         Log.d("myLogs", "Массив неправильных результатов" + Arrays.toString(QuestionTest.incorrect_results));
@@ -130,9 +131,9 @@ public class Activity_result_term extends AppCompatActivity {
         count_incorrect_answers = count_incorrect_answers * 100 / questionTest.QuestionTest[test_num][difficult].length;
         count_skip_answers = count_skip_answers * 100 / questionTest.QuestionTest[test_num][difficult].length;
 
-        text_percent_right.setText(getString(R.string.text_correct) + " - " + count_correct_answers + "%");
-        text_percent_wrong.setText(getString(R.string.text_incorrect) + " - " + count_incorrect_answers + "%");
-        text_percent_skip.setText(getString(R.string.text_skip) + " - " + count_skip_answers + "%");
+        text_percent_right.append(" - " + count_correct_answers + "%");
+        text_percent_wrong.append(" - " + count_incorrect_answers + "%");
+        text_percent_skip.append(" - " + count_skip_answers + "%");
 
         progress_right.setProgressWithAnimation(count_correct_answers, (long) 1000);
         if (count_incorrect_answers != 0)
@@ -164,7 +165,7 @@ public class Activity_result_term extends AppCompatActivity {
         block_two_final_term = findViewById(R.id.block_two_final_term);
         recyclerView = findViewById(R.id.list_view1); //Список
         test_time = findViewById(R.id.test_time); //Таймер
-        test_name_final = findViewById(R.id.test_name_final); //Вывод уровня сложностиsc
+        test_name_final = findViewById(R.id.test_name_final); //Вывод уровня сложности
 
         test_title = findViewById(R.id.test_title);
 
@@ -186,19 +187,19 @@ public class Activity_result_term extends AppCompatActivity {
                 count_correct_answers += 1;
             }
         }
-        text_result_correct_ans.setText(Integer.toString(count_correct_answers));
+        text_result_correct_ans.setText(String.valueOf(count_correct_answers));
 
         //Кол-во пропущенных ответов
         for (int i2 = 0; i2 < QuestionTest.skip_answers.length; i2++) {
             count_skip_answers += QuestionTest.skip_answers[i2];
         }
-        text_result_skip_ans.setText(Integer.toString(count_skip_answers));
+        text_result_skip_ans.setText(String.valueOf(count_skip_answers));
 
         //Кол-во непраильных результатов
         for (int i3 = 0; i3 < QuestionTest.incorrect_results.length; i3++) {
             count_incorrect_answers += QuestionTest.incorrect_results[i3];
         }
-        text_result_incorrect_ans.setText(Integer.toString(count_incorrect_answers));
+        text_result_incorrect_ans.setText(String.valueOf(count_incorrect_answers));
 
         //Вывод уровня сложности и заголовка
         if (difficult == 0) {
@@ -296,4 +297,6 @@ public class Activity_result_term extends AppCompatActivity {
             myEditor.commit();
         }
     }
+
+
 }

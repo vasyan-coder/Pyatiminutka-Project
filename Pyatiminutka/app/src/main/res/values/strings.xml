@@ -248,6 +248,7 @@
     <string name="text_mechanics">§2 Механика</string>
     <string name="text_electricity">§3 Электричество</string>
     <string name="text_search">Поиск</string>
+    <string name="text_notifications">Уведомления</string>
 
 
 </resources>

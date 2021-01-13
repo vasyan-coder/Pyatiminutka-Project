@@ -245,7 +245,7 @@ public class QuestionTest extends Activity {
             }
     };
 
-    public int[][][][] correctAnswer = {
+    public final int[][][][] correctAnswer = {
 
             {
                     //Первый тест
