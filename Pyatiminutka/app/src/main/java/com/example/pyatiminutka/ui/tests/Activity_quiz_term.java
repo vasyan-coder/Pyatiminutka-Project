@@ -57,8 +57,6 @@ public class Activity_quiz_term extends AppCompatActivity {
         //Проверка установленной темы
         LoadTheme.LoadTheme(this);
 
-        StatusBarColor.StatusBarColor(R.color.colorPrimary, R.color.colorPrimaryNight,this);
-
         setContentView(R.layout.activity_quiz_term);
 
         findById();

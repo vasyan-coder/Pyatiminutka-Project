@@ -33,8 +33,6 @@ public class ActivitySettings extends AppCompatActivity {
         LoadTheme loadTheme = new LoadTheme();
         LoadTheme.LoadTheme(this);
 
-        StatusBarColor.StatusBarColor(R.color.colorPrimary, R.color.colorPrimaryNight,this);
-
         setContentView(R.layout.activity_settings);
 
         findById();

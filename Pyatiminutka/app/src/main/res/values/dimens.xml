@@ -19,6 +19,6 @@
     <dimen name="check_box">20dp</dimen>
 
 <!--    Тени меню-->
-    <dimen name="shadow">8dp</dimen>
-    <dimen name="shadow_two">4dp</dimen>
+    <dimen name="shadow">0dp</dimen>
+    <dimen name="shadow_two">0dp</dimen>
 </resources>

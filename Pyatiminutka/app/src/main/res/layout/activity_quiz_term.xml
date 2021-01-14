@@ -18,13 +18,15 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:theme="@style/ToolbarColoredBackArrow"/>
+            android:background="?attr/colorBackgroundBlocks"
+            android:theme="@style/ToolbarColoredBackArrow" />
+
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="?attr/colorBackgroundBlocks"
             app:tabIndicatorColor="@color/white"
             app:tabTextColor="@color/white" />
     </com.google.android.material.appbar.AppBarLayout>
@@ -39,22 +41,24 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="17dp"
+        android:layout_below="@id/tabtool"
         android:layout_alignParentEnd="true"
-        android:layout_below="@id/tabtool">
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="17dp">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_timer_24"
-            android:layout_gravity="center" />
-    <Chronometer
-        android:id="@+id/chronometer_test_term"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_timer_24" />
+
+        <Chronometer
+            android:id="@+id/chronometer_test_term"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
     </LinearLayout>
 </RelativeLayout>
