@@ -41,192 +41,226 @@
     <string name="text_achievements">Достижения</string>
     <string name="text_top_players">Топ игроков</string>
 
-    <!--Вопросы тестов-->
-    <string name="test1_easy_q1">Выберете действия электрического тока</string>
-    <string name="test1_easy_q2">Выберете то, без чего не может существовать электрический ток?</string>
-    <string name="test1_easy_q3">Скорость движения электронов в металлическом проводнике равна...</string>
-    <string name="test1_easy_q4">Скорость распространения электрического поля в металлическом проводнике равна...</string>
-    <string name="test1_easy_q5">Вольт-амперная характеристика проводника это...</string>
-    <string name="test1_easy_q6">Напряжение на резисторе с сопротивлением 15 Ом равно 30 В. Какова сила тока в резисторе (в А)?</string>
-    <string name="test1_easy_q7">Электрический заряд в системе Си имеет размерность:</string>
-    <string name="test1_easy_q8">Заряд -2q слили с зарядом +5q. Образовался заряд:</string>
-    <string name="test1_easy_q9">Как изменится сила кулоновского взаимодействия двух точечных зарядов, если расстояние между ними увеличить в 2 раза?</string>
-    <string name="test1_easy_q10">Цинковая пластина, имеющая отрицательный заряд  -10е , при освещении потеряла четыре электрона. Каким стал заряд пластинки?</string>
-    <string name="test1_medium_q1">1 вопрос (средне)</string>
-    <string name="test1_medium_q2">2 вопрос (средне)</string>
-    <string name="test1_medium_q3">3 вопрос (средне)</string>
-    <string name="test1_medium_q4">4 вопрос (средне)</string>
-    <string name="test1_medium_q5">5 вопрос (средне)</string>
-    <string name="test1_medium_q6">6 вопрос (средне)</string>
-    <string name="test1_medium_q7">7 вопрос (средне)</string>
-    <string name="test1_medium_q8">8 вопрос (средне)</string>
-    <string name="test1_medium_q9">9 вопрос (средне)</string>
-    <string name="test1_medium_q10">10 вопрос (средне)</string>
-    <string name="test1_hard_q1">1 вопрос (сложно)</string>
-    <string name="test1_hard_q2">2 вопрос (сложно)</string>
-    <string name="test1_hard_q3">3 вопрос (сложно)</string>
-    <string name="test1_hard_q4">4 вопрос (сложно)</string>
-    <string name="test1_hard_q5">5 вопрос (сложно)</string>
-    <string name="test1_hard_q6">6 вопрос (сложно)</string>
-    <string name="test1_hard_q7">7 вопрос (сложно)</string>
-    <string name="test1_hard_q8">8 вопрос (сложно)</string>
-    <string name="test1_hard_q9">9 вопрос (сложно)</string>
-    <string name="test1_hard_q10">10 вопрос (сложно)</string>
+    <!--Вопросы тестов -->
+    <string name="test1_easy_q1">Выберите верное - газовый закон (что постоянно)</string>
+    <string name="test1_easy_q2">Первый закон термодинамики</string>
+    <string name="test1_easy_q3">Формула для расчёта количества теплоты, выделяемого при крисиаллизации</string>
+    <string name="test1_easy_q4">Систему, которая не обменивается с внешней средой ни энергией,
+        ни веществом называют</string>
+    <string name="test1_easy_q5">Характеристики процесса изменения внутренней энергии - это</string>
+    <string name="test1_easy_q6">Второй закон термодинамики</string>
+    <string name="test1_easy_q7">Какой процесс произошел в идеальном газе, если изменение его
+        внутренней энергии равно нулю?</string>
+    <string name="test1_easy_q8">В каком тепловом процессе не совершается работа?</string>
+    <string name="test1_easy_q9">При передаче газу количества теплоты 23 кДж он совершил работу в 55 кДж.
+        Чему равно изменение внутренней энергии газа?</string>
+    <string name="test1_easy_q10">При изотермическом процессе газу передано 9 кДж теплоты.
+        Чему равна работа, совершённая газом?</string>
+
+    <string name="test1_medium_q1">Внутренняя энергия данной массы реального газа…</string>
+    <string name="test1_medium_q2">Взято по одному молю гелия, неона и аргона при одинаковой температуре.
+        У какого газа внутренняя энергия самая большая:</string>
+    <string name="test1_medium_q3">В процессе плавления твердого тела подводимое тепло идет
+        на разрыв межатомных (межмолекулярных) связей и разрушение дальнего порядка в кристаллах.
+        При  плавлении…</string>
+    <string name="test1_medium_q4">Какой тепловой процесс изменения состояния
+        газа происходит без теплообмена?</string>
+    <string name="test1_medium_q5">Идеальный газ переводится из одного состояния в другое двумя способами:
+        а—б и а—в (см. рис.). Какому состоянию соответствует наибольшая темпе¬ратура?</string>
+    <string name="test1_medium_q6">На сколько мегаджоулей отличается внутренняя энергия 2 кг водяного пара
+        при температуре 100°С от внутренней энергии 2 кг воды при этой же температуре? L=2,3МДж/кг</string>
+    <string name="test1_medium_q7">Чему равна работа, совершенная газом при пере¬ходе его из состояния
+        I в состояние II (см. рис.)?</string>
+    <string name="test1_medium_q8">В процессе адиабатного расширения газ совершает работу, равную
+        3 • 1010 Дж. Чему равно изменение внутренней энергии газа?</string>
+    <string name="test1_medium_q9">Какую работу совершил водород массой 2 кг при изобарном нагревании на 10 К?</string>
+    <string name="test1_medium_q10">Тепловая   машина   получила   от   нагревателя 0,4 МДж теплоты
+        и отдала холодильнику 0,1 МДж теплоты. Чему равен КПД такой тепловой машины?</string>
+
+    <string name="test1_hard_q1">В стакан с водой опустили кристаллы марган¬цовки.
+        Через некоторое время получился равномерно окрашенный раствор.
+        Могут ли из раствора самопро¬извольно образоваться кристаллики марганцовки?</string>
+    <string name="test1_hard_q2">Температура тела А 300 К, температура тела Б 100 0С,
+        Температура какого из тел повысится при тепловом контакте?</string>
+    <string name="test1_hard_q3">Внутренняя энергия идеального газа при ади¬абатном процессе,
+        график которого представлен на рис.</string>
+    <string name="test1_hard_q4">На рис. показан процесс изменения состояния идеального газа.
+        Чему равна работа, совершенная газом, если в этом процессе он получил 6 • 105 Дж теп¬лоты?</string>
+    <string name="test1_hard_q5">В процессе изохорного нагревания газ получил 15 МДж теплоты.
+        Чему равно изменение внутренней энергии газа?</string>
+    <string name="test1_hard_q6">Водород и гелий равной массы, взятые при оди¬наковых давлениях, нагревают на 20К.
+        Одинаковая ли работа совершается при этом?</string>
+    <string name="test1_hard_q7">Идеальный газ переводится из одного состояния в другое тремя способами:
+        а—б, а—в и аг (см. рис.). Каким состояниям соответствует оди¬наковая температура?</string>
+    <string name="test1_hard_q8">Какое значение КПД может иметь идеальная тепловая машина с
+        температурой нагревателя 527 °С и температурой холодильника -27 °С?</string>
+    <string name="test1_hard_q9">Идеальный газ переводится из первого состояния во второе двумя способами: 1—а—2 и 1—б—2.
+        В каком случае газу передано большее количество теплоты? </string>
+    <string name="test1_hard_q10">На рис. приведен график зависимости внут¬ренней энергии некоторой массы
+        одноатомного иде¬ального газа от температуры U = U (Т).
+        Используя график, рассчитайте количество молей в данном газе.</string>
 
     <!--Варианты ответов (Легко)-->
-    <string name="test1_easy_q1_ch1">Тепловое</string>
-    <string name="test1_easy_q1_ch2">Физическое</string>
-    <string name="test1_easy_q1_ch3">Химическое</string>
-    <string name="test1_easy_q1_ch4">Магнитное</string>
+    <string name="test1_easy_q1_ch1">Изотермический (температура), изобарический (объем),
+        изохорический (давление)</string>
+    <string name="test1_easy_q1_ch2">Изотермический (давление), изобарический (объем),
+        изохорический (температура)</string>
+    <string name="test1_easy_q1_ch3">Изотермический (температура), изобарический (давление),
+        изохорический (объем)</string>
+    <string name="test1_easy_q1_ch4">000</string>
 
-    <string name="test1_easy_q2_ch1">Проводник</string>
-    <string name="test1_easy_q2_ch2">Свободные заряды</string>
-    <string name="test1_easy_q2_ch3">Электрическое поле</string>
-    <string name="test1_easy_q2_ch4">Магнитное поле</string>
+    <string name="test1_easy_q2_ch1">∆U = A вн+ Q</string>
+    <string name="test1_easy_q2_ch2">∆U = A + Q</string>
+    <string name="test1_easy_q2_ch3">∆U = A - Q</string>
+    <string name="test1_easy_q2_ch4">000</string>
 
-    <string name="test1_easy_q3_ch1">Обратно пропорциональна площади поперечного сечения проводника</string>
-    <string name="test1_easy_q3_ch2">Прямо пропорциональна заряду электрон</string>
-    <string name="test1_easy_q3_ch3">Прямо пропорциональна силе тока в проводнике</string>
-    <string name="test1_easy_q3_ch4">Прямо пропорциональна концентрации вещества, из которого сделан проводник</string>
+    <string name="test1_easy_q3_ch1">Q = Lm</string>
+    <string name="test1_easy_q3_ch2">Q = qm</string>
+    <string name="test1_easy_q3_ch3">Q = λ m</string>
+    <string name="test1_easy_q3_ch4">000</string>
 
-    <string name="test1_easy_q4_ch1">Скорости движения электронов</string>
-    <string name="test1_easy_q4_ch2">Отношению заряда электрона к его массе умноженному на силу тока в проводнике</string>
-    <string name="test1_easy_q4_ch3">Скорости звука</string>
-    <string name="test1_easy_q4_ch4">Скорости света</string>
+    <string name="test1_easy_q4_ch1">Внешней</string>
+    <string name="test1_easy_q4_ch2">Изолированной</string>
+    <string name="test1_easy_q4_ch3">замкнутой</string>
+    <string name="test1_easy_q4_ch4">000</string>
 
-    <string name="test1_easy_q5_ch1">Его сопротивление</string>
-    <string name="test1_easy_q5_ch2">Зависимость силы тока от напряжения в данном проводнике</string>
-    <string name="test1_easy_q5_ch3">Отношение силы тока к напряжению в данном проводнике</string>
-    <string name="test1_easy_q5_ch4">Ничего из вышеперечисленного</string>
+    <string name="test1_easy_q5_ch1">Работа</string>
+    <string name="test1_easy_q5_ch2">Работа и количество теплоты</string>
+    <string name="test1_easy_q5_ch3">Количество теплоты</string>
+    <string name="test1_easy_q5_ch4">000</string>
 
-    <string name="test1_easy_q6_ch1">1 А</string>
-    <string name="test1_easy_q6_ch2">2 А</string>
-    <string name="test1_easy_q6_ch3">450 А</string>
-    <string name="test1_easy_q6_ch4">0,5 А</string>
+    <string name="test1_easy_q6_ch1">Невозможно перевести тепло от более холодной системы к более
+        горячей при отсутствии других одновременных изменений в обеих системах или в окружающих телах</string>
+    <string name="test1_easy_q6_ch2">Энергия в природе не возникает из ничего и не исчезает:
+        она только переходит из одной формы в другую</string>
+    <string name="test1_easy_q6_ch3">Изменение внутренней энергии системы при переходе её из одного
+        состояния в другое равно сумме работы внешних сил и количества теплоты, переданного системе</string>
+    <string name="test1_easy_q6_ch4">000</string>
 
-    <string name="test1_easy_q7_ch1">Кл</string>
-    <string name="test1_easy_q7_ch2">А</string>
-    <string name="test1_easy_q7_ch3">Н</string>
-    <string name="test1_easy_q7_ch4">Ничего из вышеперечисленного</string>
+    <string name="test1_easy_q7_ch1">Изобарный</string>
+    <string name="test1_easy_q7_ch2">Изотермический</string>
+    <string name="test1_easy_q7_ch3">Адиабатный</string>
+    <string name="test1_easy_q7_ch4">000</string>
 
-    <string name="test1_easy_q8_ch1">+7q</string>
-    <string name="test1_easy_q8_ch2">+1,5q</string>
-    <string name="test1_easy_q8_ch3">-7q</string>
-    <string name="test1_easy_q8_ch4">+3q</string>
+    <string name="test1_easy_q8_ch1">В изобарном</string>
+    <string name="test1_easy_q8_ch2">В изохорном</string>
+    <string name="test1_easy_q8_ch3">В изотермическом</string>
+    <string name="test1_easy_q8_ch4">000</string>
 
-    <string name="test1_easy_q9_ch1">увеличится в 2 раза</string>
-    <string name="test1_easy_q9_ch2">уменьшится в 2 раза</string>
-    <string name="test1_easy_q9_ch3">увеличится в 4 раза</string>
-    <string name="test1_easy_q9_ch4">уменьшится в 4 раза</string>
+    <string name="test1_easy_q9_ch1">32000 Дж</string>
+    <string name="test1_easy_q9_ch2">- 32000 Дж</string>
+    <string name="test1_easy_q9_ch3">78000 Дж </string>
+    <string name="test1_easy_q9_ch4">000</string>
 
-    <string name="test1_easy_q10_ch1">+ 6е</string>
-    <string name="test1_easy_q10_ch2">- 6е</string>
-    <string name="test1_easy_q10_ch3">+ 14e</string>
-    <string name="test1_easy_q10_ch4">- 14е</string>
+    <string name="test1_easy_q10_ch1">0 Дж</string>
+    <string name="test1_easy_q10_ch2">- 9000 Дж</string>
+    <string name="test1_easy_q10_ch3">9000 Дж</string>
+    <string name="test1_easy_q10_ch4">000</string>
 
 
     <!--Варианты ответов (Средне)-->
-    <string name="test1_medium_q1_ch1">1 вариант ответа первого  вопроса (Средне)</string>
-    <string name="test1_medium_q1_ch2">2 вариант ответа первого  вопроса (Средне)</string>
-    <string name="test1_medium_q1_ch3">3 вариант ответа первого  вопроса (Средне)</string>
-    <string name="test1_medium_q1_ch4">4 вариант ответа первого  вопроса (Средне)</string>
+    <string name="test1_medium_q1_ch1">Не зависит ни от температуры, ни от объема.</string>
+    <string name="test1_medium_q1_ch2">Не зависит ни от каких факторов.</string>
+    <string name="test1_medium_q1_ch3">Зависит только от объема.</string>
+    <string name="test1_medium_q1_ch4">Зависит от температуры и объема.</string>
 
-    <string name="test1_medium_q2_ch1">1 вариант ответа второго  вопроса (Средне)</string>
-    <string name="test1_medium_q2_ch2">2 вариант ответа второго  вопроса (Средне)</string>
-    <string name="test1_medium_q2_ch3">3 вариант ответа второго  вопроса (Средне)</string>
-    <string name="test1_medium_q2_ch4">4 вариант ответа второго  вопроса (Средне)</string>
+    <string name="test1_medium_q2_ch1">у всех газов одинакова</string>
+    <string name="test1_medium_q2_ch2">гелия</string>
+    <string name="test1_medium_q2_ch3">неона</string>
+    <string name="test1_medium_q2_ch4">аргона</string>
 
-    <string name="test1_medium_q3_ch1">1 вариант ответа третьего вопроса (Средне)</string>
-    <string name="test1_medium_q3_ch2">2 вариант ответа третьего вопроса (Средне)</string>
-    <string name="test1_medium_q3_ch3">3 вариант ответа третьего вопроса (Средне)</string>
-    <string name="test1_medium_q3_ch4">4 вариант ответа третьего вопроса (Средне)</string>
+    <string name="test1_medium_q3_ch1">Внутренняя энергия тела не изменяется.</string>
+    <string name="test1_medium_q3_ch2">Внутренняя энергия тела увеличивается.</string>
+    <string name="test1_medium_q3_ch3">Внутренняя энергия тела уменьшается.</string>
+    <string name="test1_medium_q3_ch4">Внутренняя  энергия  тела  иногда  увеличивается,
+        иногда уменьшается.</string>
 
-    <string name="test1_medium_q4_ch1">1 вариант ответа четвёрто вопроса (Средне)</string>
-    <string name="test1_medium_q4_ch2">2 вариант ответа четвёрто вопроса (Средне)</string>
-    <string name="test1_medium_q4_ch3">3 вариант ответа четвёрто вопроса (Средне)</string>
-    <string name="test1_medium_q4_ch4">4 вариант ответа четвёрто вопроса (Средне)</string>
+    <string name="test1_medium_q4_ch1">Изобарный.</string>
+    <string name="test1_medium_q4_ch2">Изохорный.</string>
+    <string name="test1_medium_q4_ch3">Изотермический.</string>
+    <string name="test1_medium_q4_ch4">Адиабатный.</string>
 
-    <string name="test1_medium_q5_ch1">1 вариант ответа пятого в вопроса (Средне)</string>
-    <string name="test1_medium_q5_ch2">2 вариант ответа пятого в вопроса (Средне)</string>
-    <string name="test1_medium_q5_ch3">3 вариант ответа пятого в вопроса (Средне)</string>
-    <string name="test1_medium_q5_ch4">4 вариант ответа пятого в вопроса (Средне)</string>
+    <string name="test1_medium_q5_ch1">а</string>
+    <string name="test1_medium_q5_ch2">б</string>
+    <string name="test1_medium_q5_ch3">в</string>
+    <string name="test1_medium_q5_ch4">а и в</string>
 
-    <string name="test1_medium_q6_ch1">1 вариант ответа шестого  вопроса (Средне)</string>
-    <string name="test1_medium_q6_ch2">2 вариант ответа шестого  вопроса (Средне)</string>
-    <string name="test1_medium_q6_ch3">3 вариант ответа шестого  вопроса (Средне)</string>
-    <string name="test1_medium_q6_ch4">4 вариант ответа шестого  вопроса (Средне)</string>
+    <string name="test1_medium_q6_ch1">на 4,6 МДж больше </string>
+    <string name="test1_medium_q6_ch2">на 2,3 МДж меньше</string>
+    <string name="test1_medium_q6_ch3">на 2,3 МДж больше</string>
+    <string name="test1_medium_q6_ch4">не отличается</string>
 
-    <string name="test1_medium_q7_ch1">1 вариант ответа седьмого вопроса (Средне)</string>
-    <string name="test1_medium_q7_ch2">2 вариант ответа седьмого вопроса (Средне)</string>
-    <string name="test1_medium_q7_ch3">3 вариант ответа седьмого вопроса (Средне)</string>
-    <string name="test1_medium_q7_ch4">4 вариант ответа седьмого вопроса (Средне)</string>
+    <string name="test1_medium_q7_ch1">8 кДж.</string>
+    <string name="test1_medium_q7_ch2">6 кДж.</string>
+    <string name="test1_medium_q7_ch3">6 ДЖ.</string>
+    <string name="test1_medium_q7_ch4">8 мДж.</string>
 
-    <string name="test1_medium_q8_ch1">1 вариант ответа восьмого вопроса (Средне)</string>
-    <string name="test1_medium_q8_ch2">2 вариант ответа восьмого вопроса (Средне)</string>
-    <string name="test1_medium_q8_ch3">3 вариант ответа восьмого вопроса (Средне)</string>
-    <string name="test1_medium_q8_ch4">4 вариант ответа восьмого вопроса (Средне)</string>
+    <string name="test1_medium_q8_ch1">0</string>
+    <string name="test1_medium_q8_ch2">3 • 1010 Дж</string>
+    <string name="test1_medium_q8_ch3">–3– 1010 Дж</string>
+    <string name="test1_medium_q8_ch4">Изменение внутренней энергии может принимать любое значение</string>
 
-    <string name="test1_medium_q9_ch1">1 вариант ответа девятого вопроса (Средне)</string>
-    <string name="test1_medium_q9_ch2">2 вариант ответа девятого вопроса (Средне)</string>
-    <string name="test1_medium_q9_ch3">3 вариант ответа девятого вопроса (Средне)</string>
-    <string name="test1_medium_q9_ch4">4 вариант ответа девятого вопроса (Средне)</string>
+    <string name="test1_medium_q9_ch1">= 83 кДж</string>
+    <string name="test1_medium_q9_ch2">= 83 Дж</string>
+    <string name="test1_medium_q9_ch3">0</string>
+    <string name="test1_medium_q9_ch4">= 125 кДж</string>
 
-    <string name="test1_medium_q10_ch1">1 вариант ответа десятого вопроса (Средне)</string>
-    <string name="test1_medium_q10_ch2">2 вариант ответа десятого вопроса (Средне)</string>
-    <string name="test1_medium_q10_ch3">3 вариант ответа десятого вопроса (Средне)</string>
-    <string name="test1_medium_q10_ch4">4 вариант ответа десятого вопроса (Средне)</string>
+    <string name="test1_medium_q10_ch1">100%</string>
+    <string name="test1_medium_q10_ch2">> 100%</string>
+    <string name="test1_medium_q10_ch3">75%</string>
+    <string name="test1_medium_q10_ch4">25%</string>
 
 
     <!--Варианты ответов (Сложно)-->
-    <string name="test1_hard_q1_ch1">1 вариант ответа первого вопроса (Сложно)</string>
-    <string name="test1_hard_q1_ch2">2 вариант ответа первого вопроса (Сложно)</string>
-    <string name="test1_hard_q1_ch3">3 вариант ответа первого вопроса (Сложно)</string>
-    <string name="test1_hard_q1_ch4">4 вариант ответа первого вопроса (Сложно)</string>
+    <string name="test1_hard_q1_ch1">Если нагреть, то могут.</string>
+    <string name="test1_hard_q1_ch2">Никогда не могут.</string>
+    <string name="test1_hard_q1_ch3">Если охладить, то могут.</string>
+    <string name="test1_hard_q1_ch4">Могут, если быстро охладить, а затем нагреть.</string>
 
-    <string name="test1_hard_q2_ch1">1 вариант ответа второго вопроса (Сложно)</string>
-    <string name="test1_hard_q2_ch2">2 вариант ответа второго вопроса (Сложно)</string>
-    <string name="test1_hard_q2_ch3">3 вариант ответа второго вопроса (Сложно)</string>
-    <string name="test1_hard_q2_ch4">4 вариант ответа второго вопроса (Сложно)</string>
+    <string name="test1_hard_q2_ch1">тела А</string>
+    <string name="test1_hard_q2_ch2">тела Б</string>
+    <string name="test1_hard_q2_ch3">для ответа на вопрос недостаточно данных</string>
+    <string name="test1_hard_q2_ch4">температуры тел не изменятся</string>
 
-    <string name="test1_hard_q3_ch1">1 вариант ответа третьего вопроса (Сложно)</string>
-    <string name="test1_hard_q3_ch2">2 вариант ответа третьего вопроса (Сложно)</string>
-    <string name="test1_hard_q3_ch3">3 вариант ответа третьего вопроса (Сложно)</string>
-    <string name="test1_hard_q3_ch4">4 вариант ответа третьего вопроса (Сложно)</string>
+    <string name="test1_hard_q3_ch1">Не изменяется</string>
+    <string name="test1_hard_q3_ch2">Увеличивается</string>
+    <string name="test1_hard_q3_ch3">Уменьшается</string>
+    <string name="test1_hard_q3_ch4">Сначала уменьшается, затем увеличивается</string>
 
-    <string name="test1_hard_q4_ch1">1 вариант ответа четвёртого вопроса (Сложно)</string>
-    <string name="test1_hard_q4_ch2">2 вариант ответа четвёртого вопроса (Сложно)</string>
-    <string name="test1_hard_q4_ch3">3 вариант ответа четвёртого вопроса (Сложно)</string>
-    <string name="test1_hard_q4_ch4">4 вариант ответа четвёртого вопроса (Сложно)</string>
+    <string name="test1_hard_q4_ch1">0</string>
+    <string name="test1_hard_q4_ch2">-6 • 105 Дж</string>
+    <string name="test1_hard_q4_ch3">6 • 105 Дж</string>
+    <string name="test1_hard_q4_ch4">3 • 104 Дж</string>
 
-    <string name="test1_hard_q5_ch1">1 вариант ответа пятого вопроса (Сложно)</string>
-    <string name="test1_hard_q5_ch2">2 вариант ответа пятого вопроса (Сложно)</string>
-    <string name="test1_hard_q5_ch3">3 вариант ответа пятого вопроса (Сложно)</string>
-    <string name="test1_hard_q5_ch4">4 вариант ответа пятого вопроса (Сложно)</string>
+    <string name="test1_hard_q5_ch1">15 МДж</string>
+    <string name="test1_hard_q5_ch2">-15 МДж</string>
+    <string name="test1_hard_q5_ch3">0</string>
+    <string name="test1_hard_q5_ch4">Определенно ответить нельзя</string>
 
-    <string name="test1_hard_q6_ch1">1 вариант ответа шестого вопроса (Сложно)</string>
-    <string name="test1_hard_q6_ch2">2 вариант ответа шестого вопроса (Сложно)</string>
-    <string name="test1_hard_q6_ch3">3 вариант ответа шестого вопроса (Сложно)</string>
-    <string name="test1_hard_q6_ch4">4 вариант ответа шестого вопроса (Сложно)</string>
+    <string name="test1_hard_q6_ch1">Работа, совершенная водородом, в 2 раза больш</string>
+    <string name="test1_hard_q6_ch2">Работа, совершенная гелием, в 2 раза больше</string>
+    <string name="test1_hard_q6_ch3">Совершаются равные работы</string>
+    <string name="test1_hard_q6_ch4">По условию задачи невозможно сравнить работы, совершенные газами</string>
 
-    <string name="test1_hard_q7_ch1">1 вариант ответа седьмого вопроса (Сложно)</string>
-    <string name="test1_hard_q7_ch2">2 вариант ответа седьмого вопроса (Сложно)</string>
-    <string name="test1_hard_q7_ch3">3 вариант ответа седьмого вопроса (Сложно)</string>
-    <string name="test1_hard_q7_ch4">4 вариант ответа седьмого вопроса (Сложно)</string>
+    <string name="test1_hard_q7_ch1">а и б</string>
+    <string name="test1_hard_q7_ch2">а и в</string>
+    <string name="test1_hard_q7_ch3">а и г</string>
+    <string name="test1_hard_q7_ch4">в и г</string>
 
-    <string name="test1_hard_q8_ch1">1 вариант ответа восьмого вопроса (Сложно)</string>
-    <string name="test1_hard_q8_ch2">2 вариант ответа восьмого вопроса (Сложно)</string>
-    <string name="test1_hard_q8_ch3">3 вариант ответа восьмого вопроса (Сложно)</string>
-    <string name="test1_hard_q8_ch4">4 вариант ответа восьмого вопроса (Сложно)</string>
+    <string name="test1_hard_q8_ch1">100%</string>
+    <string name="test1_hard_q8_ch2">> 100%</string>
+    <string name="test1_hard_q8_ch3">= 95%</string>
+    <string name="test1_hard_q8_ch4">= 63%</string>
 
-    <string name="test1_hard_q9_ch1">1 вариант ответа девятого вопроса (Сложно)</string>
-    <string name="test1_hard_q9_ch2">2 вариант ответа девятого вопроса (Сложно)</string>
-    <string name="test1_hard_q9_ch3">3 вариант ответа девятого вопроса (Сложно)</string>
-    <string name="test1_hard_q9_ch4">4 вариант ответа девятого вопроса (Сложно)</string>
+    <string name="test1_hard_q9_ch1">1—а—2</string>
+    <string name="test1_hard_q9_ch2">1—6—2</string>
+    <string name="test1_hard_q9_ch3">В обоих случаях передается одинаковое количество теплоты</string>
+    <string name="test1_hard_q9_ch4">По условию задачи невозможно сравнить переданное газу тепло</string>
 
-    <string name="test1_hard_q10_ch1">1 вариант ответа десятого вопроса (Средне)</string>
-    <string name="test1_hard_q10_ch2">2 вариант ответа десятого вопроса (Средне)</string>
-    <string name="test1_hard_q10_ch3">3 вариант ответа десятого вопроса (Средне)</string>
-    <string name="test1_hard_q10_ch4">4 вариант ответа десятого вопроса (Средне)</string>
+    <string name="test1_hard_q10_ch1">10 моль</string>
+    <string name="test1_hard_q10_ch2">16 моль</string>
+    <string name="test1_hard_q10_ch3">200 моль</string>
+    <string name="test1_hard_q10_ch4">= 0,5 моль</string>
 
 
     <string name="text_correct">Верно</string>
@@ -249,6 +283,8 @@
     <string name="text_electricity">§3 Электричество</string>
     <string name="text_search">Поиск</string>
     <string name="text_notifications">Уведомления</string>
+    <string name="text_right_answer">Верный ответ</string>
+    <string name="text_selected_answer">Выбранный ответ</string>
 
 
 </resources>

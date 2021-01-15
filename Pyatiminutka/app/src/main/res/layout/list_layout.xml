@@ -9,26 +9,12 @@
     android:paddingTop="10dp"
     android:layout_marginTop="10dp">
 
-    <!--    <TextView-->
-<!--        android:id="@+id/text_view32"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@id/image_button1"-->
-<!--        android:layout_alignParentEnd="true"-->
-
-<!--        android:layout_marginRight="25dp"-->
-<!--        android:alpha="0.1"-->
-<!--        android:text="1"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textSize="70sp" />-->
-
     <LinearLayout
         android:id="@+id/linear_layout10"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
-
-        android:layout_toLeftOf="@id/image_button2"
+        android:layout_toStartOf="@id/image_button2"
         android:orientation="vertical"
         app:layout_constraintEnd_toStartOf="@+id/image_button2"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,13 +27,22 @@
             android:layout_height="wrap_content"
             android:text="Текст первого вопроса" />
 
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:visibility="gone"/>
+
         <TextView
             style="@style/Third_title_Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="13dp"
             android:layout_marginBottom="@dimen/text_margin_bottom"
-            android:text="Верный ответ" />
+            android:text="@string/text_right_answer" />
 
 
         <TextView
@@ -55,7 +50,7 @@
             style="@style/Text_Style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginBottom="@dimen/text_margin_bottom"
             android:text="Первый вариант" />
 
@@ -64,7 +59,7 @@
             style="@style/Text_Style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginBottom="@dimen/text_margin_bottom"
             android:text="Первый вариант" />
 
@@ -73,7 +68,7 @@
             style="@style/Text_Style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginBottom="@dimen/text_margin_bottom"
             android:text="Первый вариант" />
 
@@ -82,8 +77,9 @@
             style="@style/Text_Style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:text="Первый вариант" />
+
 
         <TextView
             style="@style/Third_title_Text"
@@ -91,14 +87,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="13dp"
             android:layout_marginBottom="@dimen/text_margin_bottom"
-            android:text="Выбранный ответ" />
+            android:text="@string/text_selected_answer" />
 
         <TextView
             android:id="@+id/text_view14"
             style="@style/Wrong_answers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginBottom="@dimen/text_margin_bottom"
             android:text="Первый вариант" />
 
@@ -107,7 +103,7 @@
             style="@style/Wrong_answers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginBottom="@dimen/text_margin_bottom"
             android:text="Второй вариант" />
 
@@ -116,7 +112,7 @@
             style="@style/Wrong_answers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginBottom="@dimen/text_margin_bottom"
             android:text="Третий вариант" />
 
@@ -125,7 +121,7 @@
             style="@style/Wrong_answers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:text="Четвёртый вариант" />
 
         <TextView
@@ -133,7 +129,7 @@
             style="@style/Text_Style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:text="Задание пропущено"
             android:visibility="invisible" />
     </LinearLayout>
@@ -141,7 +137,7 @@
         android:id="@+id/image_button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:background="@drawable/rounded_corners4"
         android:padding="10dp"
         android:src="@drawable/ic_baseline_info_24"
@@ -154,7 +150,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
-        android:layout_toLeftOf="@id/image_button1"
+        android:layout_toStartOf="@id/image_button1"
         android:background="@drawable/rounded_corners4"
         android:padding="10dp"
         android:src="@drawable/ic_baseline_ondemand_video_24"
@@ -164,10 +160,10 @@
 
     <ImageView
         android:id="@+id/image1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_alignBottom="@id/linear_layout10"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:src="@drawable/ic_baseline_done_green_48"
         app:layout_constraintBottom_toBottomOf="@+id/linear_layout10"
         app:layout_constraintEnd_toEndOf="parent"

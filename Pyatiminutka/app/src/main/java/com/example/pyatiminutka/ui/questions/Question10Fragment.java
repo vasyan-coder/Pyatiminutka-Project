@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,7 @@ public class Question10Fragment extends Fragment {
     private int correctAnswer2;
     private int correctAnswer3;
     private int correctAnswer4;
+    private ImageView test_image;
 
     private Button fix_question;
     private Button change_question;
@@ -53,7 +55,7 @@ public class Question10Fragment extends Fragment {
     private ViewPager viewPager;
 
     private final int test_num = AppConstants.map_test_number.get("test_num");
-    private final int difficult = AppConstants.map_difficult.get("Difficult");
+    private final int difficult = AppConstants.map_difficult.get("Difficult") - 1;
 
     private QuestionTest questionTest = new QuestionTest();
 
@@ -81,60 +83,46 @@ public class Question10Fragment extends Fragment {
         Log.d("myLogs", "Возвращаемая позиция TabLayout " + currentView);
 
         //Возвращение данных вопроса по номеру текущего таба (currentView)
-        if (difficult == 1) {
-            textquestion = questionTest.QuestionTest[test_num][0][currentView]; //Текст вопроса
-            question10text.setText(textquestion);
+        textquestion = questionTest.QuestionTest[test_num][difficult][currentView]; //Текст вопроса
+        question10text.setText(textquestion);
 
-            answer_one_text = questionTest.choiceans[test_num][0][currentView][0]; //текст первого варианта ответа
+
+        answer_one_text = questionTest.choiceans[test_num][difficult][currentView][0]; //текст первого варианта ответа
+        if (getString(answer_one_text).equals("000")) {
+            answer_one.setVisibility(View.GONE);
+        } else
             answer_one.setText(answer_one_text);
-            answer_two_text = questionTest.choiceans[test_num][0][currentView][1]; //текст второго варианта ответа
+        answer_two_text = questionTest.choiceans[test_num][difficult][currentView][1]; //текст второго варианта ответа
+        if (getString(answer_two_text).equals("000")) {
+            answer_two.setVisibility(View.GONE);
+        } else
             answer_two.setText(answer_two_text);
-            answer_three_text = questionTest.choiceans[test_num][0][currentView][2]; //текст третьего варианта ответа
+        answer_three_text = questionTest.choiceans[test_num][difficult][currentView][2]; //текст третьего варианта ответа
+        if (getString(answer_three_text).equals("000")) {
+            answer_three.setVisibility(View.GONE);
+        } else
             answer_three.setText(answer_three_text);
-            answer_four_text = questionTest.choiceans[test_num][0][currentView][3]; //текст четвёртого варианта ответа
+        answer_four_text = questionTest.choiceans[test_num][difficult][currentView][3]; //текст четвёртого варианта ответа
+        if (getString(answer_four_text).equals("000")) {
+            answer_four.setVisibility(View.GONE);
+        } else
             answer_four.setText(answer_four_text);
+        answer_four.setText(answer_four_text);
 
-            correctAnswer1 = questionTest.correctAnswer[test_num][0][currentView][0];
-            correctAnswer2 = questionTest.correctAnswer[test_num][0][currentView][1];
-            correctAnswer3 = questionTest.correctAnswer[test_num][0][currentView][2];
-            correctAnswer4 = questionTest.correctAnswer[test_num][0][currentView][3];
+        correctAnswer1 = questionTest.correctAnswer[test_num][difficult][currentView][0];
+        correctAnswer2 = questionTest.correctAnswer[test_num][difficult][currentView][1];
+        correctAnswer3 = questionTest.correctAnswer[test_num][difficult][currentView][2];
+        correctAnswer4 = questionTest.correctAnswer[test_num][difficult][currentView][3];
 
-            Log.d("myLogs", "Правильные ответы " + correctAnswer1 + correctAnswer2 + correctAnswer3 + correctAnswer4);
-        } else if (difficult == 2) {
-            textquestion = questionTest.QuestionTest[test_num][1][currentView]; //Текст вопроса
-            question10text.setText(textquestion);
-
-            answer_one_text = questionTest.choiceans[test_num][1][currentView][0]; //текст первого варианта ответа
-            answer_one.setText(answer_one_text);
-            answer_two_text = questionTest.choiceans[test_num][1][currentView][1]; //текст второго варианта ответа
-            answer_two.setText(answer_two_text);
-            answer_three_text = questionTest.choiceans[test_num][1][currentView][2]; //текст третьего варианта ответа
-            answer_three.setText(answer_three_text);
-            answer_four_text = questionTest.choiceans[test_num][1][currentView][3]; //текст четвёртого варианта ответа
-            answer_four.setText(answer_four_text);
-
-            correctAnswer1 = questionTest.correctAnswer[test_num][1][currentView][0];
-            correctAnswer2 = questionTest.correctAnswer[test_num][1][currentView][1];
-            correctAnswer3 = questionTest.correctAnswer[test_num][1][currentView][2];
-            correctAnswer4 = questionTest.correctAnswer[test_num][1][currentView][3];
-        } else if (difficult == 3) {
-            textquestion = questionTest.QuestionTest[test_num][2][currentView]; //Текст вопроса
-            question10text.setText(textquestion);
-
-            answer_one_text = questionTest.choiceans[test_num][2][currentView][0]; //текст первого варианта ответа
-            answer_one.setText(answer_one_text);
-            answer_two_text = questionTest.choiceans[test_num][2][currentView][1]; //текст второго варианта ответа
-            answer_two.setText(answer_two_text);
-            answer_three_text = questionTest.choiceans[test_num][2][currentView][2]; //текст третьего варианта ответа
-            answer_three.setText(answer_three_text);
-            answer_four_text = questionTest.choiceans[test_num][2][currentView][3]; //текст четвёртого варианта ответа
-            answer_four.setText(answer_four_text);
-
-            correctAnswer1 = questionTest.correctAnswer[test_num][2][currentView][0];
-            correctAnswer2 = questionTest.correctAnswer[test_num][2][currentView][1];
-            correctAnswer3 = questionTest.correctAnswer[test_num][2][currentView][2];
-            correctAnswer4 = questionTest.correctAnswer[test_num][2][currentView][3];
+        if (QuestionTest.test_pictures[test_num][difficult][currentView] != 0) {
+            test_image.setVisibility(View.VISIBLE);
+            test_image.setImageResource(QuestionTest.test_pictures[test_num][difficult][currentView]);
+        } else {
+            test_image.setVisibility(View.GONE);
         }
+
+
+        Log.d("myLogs", "Правильные ответы " + correctAnswer1 + correctAnswer2 + correctAnswer3 + correctAnswer4);
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
@@ -256,6 +244,7 @@ public class Question10Fragment extends Fragment {
         answer_two = v.findViewById(R.id.answer_two_q10);
         answer_three = v.findViewById(R.id.answer_three_q10);
         answer_four = v.findViewById(R.id.answer_four_q10);
+        test_image = v.findViewById(R.id.test_image);
 
         fix_question = v.findViewById(R.id.fixq10);
         change_question = v.findViewById(R.id.changeq10);

@@ -79,6 +79,7 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
         TextView choose_question_text2;
         TextView choose_question_text3;
         TextView choose_question_text4;
+        ImageView image_view;
         TextView text_skip;
         ImageView image1;
         ImageView image_button1;
@@ -99,12 +100,20 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
             choose_question_text2 = itemView.findViewById(R.id.text_view15);
             choose_question_text3 = itemView.findViewById(R.id.text_view16);
             choose_question_text4 = itemView.findViewById(R.id.text_view17);
+            image_view = itemView.findViewById(R.id.image_view);
             text_skip = itemView.findViewById(R.id.text_view20);
             image1 = itemView.findViewById(R.id.image1);
             divider = itemView.findViewById(R.id.divider);
         }
 
         void bind(int listIndex) {
+
+            if (QuestionTest.test_pictures[test_num][difficult][listIndex] != 0) {
+                image_view.setVisibility(View.VISIBLE);
+                image_view.setImageResource(QuestionTest.test_pictures[test_num][difficult][listIndex]);
+            } else {
+                image_view.setVisibility(View.GONE);
+            }
 
             question_final_text.setText(rQuestions[listIndex]);
             if (listIndex == questionTest.QuestionTest[test_num][difficult].length-1) {

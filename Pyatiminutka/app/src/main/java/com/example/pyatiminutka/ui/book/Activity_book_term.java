@@ -39,8 +39,6 @@ public class Activity_book_term extends AppCompatActivity {
         //Проверка установленной темы
         LoadTheme.LoadTheme(this);
 
-        StatusBarColor.StatusBarColor(R.color.colorPrimary, R.color.colorPrimaryNight,this);
-
         //actionBar.hide();
         setContentView(R.layout.activity_book_term);
 
