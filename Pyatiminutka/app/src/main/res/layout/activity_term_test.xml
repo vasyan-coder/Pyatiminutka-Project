@@ -58,14 +58,13 @@
                     android:padding="10dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        style="@style/Block_of_info"
                         android:id="@+id/constraintLayout3"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="5dp"
                         android:layout_marginBottom="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/rounded_corners4"
-                        android:elevation="@dimen/shadow_two"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/constraintLayout2"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -150,13 +149,12 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        style="@style/Block_of_info"
                         android:id="@+id/constraintLayout2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/rounded_corners4"
-                        android:elevation="@dimen/shadow_two"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintHorizontal_weight="0.5"
@@ -239,13 +237,12 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        style="@style/Block_of_info"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="15dp"
                         android:layout_marginBottom="5dp"
-                        android:background="@drawable/rounded_corners4"
-                        android:elevation="@dimen/shadow_two"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
@@ -316,13 +313,13 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <Button
+                    style="@style/Block_of_info"
                     android:id="@+id/button_start_quiz"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/rounded_corners5"
                     android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
                     android:onClick="clickButton_start_quiz"
                     android:paddingHorizontal="15dp"
@@ -340,14 +337,13 @@
                 android:layout_height="wrap_content">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    style="@style/Button_block"
                     android:id="@+id/btn_achievement"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="5dp"
-                    android:background="@drawable/rounded_corners4"
-                    android:elevation="@dimen/shadow"
                     android:padding="15dp"
                     app:layout_constraintEnd_toStartOf="@+id/btn_top"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -403,14 +399,13 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    style="@style/Button_block"
                     android:id="@+id/btn_top"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
-                    android:background="@drawable/rounded_corners4"
-                    android:elevation="@dimen/shadow"
                     android:padding="15dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"

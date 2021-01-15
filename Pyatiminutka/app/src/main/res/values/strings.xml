@@ -285,6 +285,8 @@
     <string name="text_notifications">Уведомления</string>
     <string name="text_right_answer">Верный ответ</string>
     <string name="text_selected_answer">Выбранный ответ</string>
+    <string name="text_change">Изменить</string>
+    <string name="text_answer">Ответить</string>
 
 
 </resources>

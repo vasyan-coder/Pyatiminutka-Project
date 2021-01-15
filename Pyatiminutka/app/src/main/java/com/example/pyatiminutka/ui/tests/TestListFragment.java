@@ -49,7 +49,7 @@ public class TestListFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
 
         int id = v.getId();
-        if (id == R.id.rel_termodinamika) {
+        if (id == R.id.rel_thermodynamics) {
             Intent intent = new Intent(getActivity(), Activity_term_test.class);
             AppConstants.map_test_number.put("test_num", 0);
             startActivity(intent);
@@ -68,7 +68,7 @@ public class TestListFragment extends Fragment implements View.OnClickListener{
 
 
     private void findById(View v){
-        rel_thermodynamics = v.findViewById(R.id.rel_termodinamika);
+        rel_thermodynamics = v.findViewById(R.id.rel_thermodynamics);
         favourite_test1 = v.findViewById(R.id.favourite_test1);
         rel_mechanics = v.findViewById(R.id.mehanika);
     }

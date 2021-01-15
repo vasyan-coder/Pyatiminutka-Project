@@ -254,13 +254,12 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    style="@style/Block_of_info"
                     android:id="@+id/constraintLayout8"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
                     android:layout_marginTop="15dp"
-                    android:background="@drawable/rounded_corners4"
-                    android:elevation="@dimen/shadow_two"
                     android:paddingVertical="20dp"
                     app:layout_constraintEnd_toStartOf="@+id/constraintLayout10"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -291,13 +290,12 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    style="@style/Block_of_info"
                     android:id="@+id/constraintLayout9"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
                     android:layout_marginTop="15dp"
-                    android:background="@drawable/rounded_corners4"
-                    android:elevation="@dimen/shadow_two"
                     android:paddingVertical="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -328,13 +326,12 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    style="@style/Block_of_info"
                     android:id="@+id/constraintLayout10"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
                     android:layout_marginTop="15dp"
-                    android:background="@drawable/rounded_corners4"
-                    android:elevation="@dimen/shadow_two"
                     android:paddingVertical="20dp"
                     app:layout_constraintEnd_toStartOf="@+id/constraintLayout9"
                     app:layout_constraintHorizontal_bias="0.5"

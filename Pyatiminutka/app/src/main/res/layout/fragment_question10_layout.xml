@@ -107,11 +107,11 @@
                 android:id="@+id/changeq10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/text_view_q10"
+                android:layout_toStartOf="@id/text_view_q10"
                 android:alpha="0.4"
                 android:background="@drawable/rounded_corners2"
                 android:enabled="false"
-                android:text="Изменить"
+                android:text="@string/text_change"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
 
@@ -127,9 +127,9 @@
                 android:id="@+id/fixq10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/text_view_q10"
+                android:layout_toEndOf="@id/text_view_q10"
                 android:background="@drawable/rounded_corners"
-                android:text="Ответить"
+                android:text="@string/text_answer"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
         </RelativeLayout>
