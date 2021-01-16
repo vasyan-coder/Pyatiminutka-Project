@@ -297,10 +297,10 @@ public class QuestionTest extends Activity {
                             0,0,0,0,0,0,0,0,0,0
                     },
                     { //средняя сложность
-                            0,0,0,0,R.drawable.ic_chart_term_medium_q5,0,0,0,0,0
+                            0,0,0,0,R.drawable.ic_chart_term_medium_q5,0,R.drawable.ic_chart_term_medium_q7,0,0,0
                     },
                     { //высокая сложность
-                            0,0,0,0,0,0,0,0,0,0
+                            0,0,R.drawable.ic_chart_term_hard_q3,R.drawable.ic_chart_term_hard_q4,0,0,0,0,R.drawable.ic_chart_term_hard_q9,R.drawable.ic_chart_term_hard_q10
                     }
             }
 

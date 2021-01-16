@@ -66,6 +66,9 @@
     <style name="ToolbarColoredBackArrow" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:textColorSecondary">@color/white</item>
         <item name="android:textColorPrimary">@color/white</item>
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
+        <item name="colorControlHighlight">#42FAFFED</item>
     </style>
 
     <style name="Block_of_info">

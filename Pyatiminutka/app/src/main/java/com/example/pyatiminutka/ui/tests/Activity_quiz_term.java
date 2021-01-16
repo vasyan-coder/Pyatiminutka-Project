@@ -126,9 +126,10 @@ public class Activity_quiz_term extends AppCompatActivity {
 
     private void settingsToolBar(){
         setSupportActionBar(toolbar);
-        //Кнопка назад
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
     }
 
     private void findById() {

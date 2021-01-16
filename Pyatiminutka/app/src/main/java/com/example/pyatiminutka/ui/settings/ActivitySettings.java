@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.graphics.PorterDuff;
@@ -25,17 +26,20 @@ public class ActivitySettings extends AppCompatActivity {
     private LinearLayout purple_background, dark_background;
     private View purple_circle, dark_circle;
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //Проверка установленной темы
-        LoadTheme loadTheme = new LoadTheme();
         LoadTheme.LoadTheme(this);
 
         setContentView(R.layout.activity_settings);
 
         findById();
+
+        settingsToolBar();
 
         dark_circle.getBackground().setColorFilter(this.getResources().getColor(R.color.colorPrimaryNight), PorterDuff.Mode.SRC_ATOP);
 
@@ -75,5 +79,15 @@ public class ActivitySettings extends AppCompatActivity {
         purple_circle = findViewById(R.id.purple_circle);
         dark_background = findViewById(R.id.dark_background);
         dark_circle = findViewById(R.id.dark_circle);
+
+        toolbar=findViewById(R.id.toolbar);
+    }
+
+    private void settingsToolBar(){
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
     }
 }

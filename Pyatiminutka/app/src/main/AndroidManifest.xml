@@ -16,7 +16,7 @@
         <activity android:name=".ui.push.activity_push" />
         <activity
             android:name=".ui.settings.ActivitySettings"
-            android:label="@string/text_settings"
+            android:label=""
             />
         <activity
             android:name=".ui.tests.Activity_quiz_term" />
