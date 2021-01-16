@@ -7,23 +7,22 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pyatiminutka.Models.Adapters.TestsAdapter;
+import com.example.pyatiminutka.Models.DataBase.QuestionTest;
 import com.example.pyatiminutka.Models.constants.AppConstants;
 import com.example.pyatiminutka.R;
 
-public class TestListFragment extends Fragment implements View.OnClickListener{
+public class TestListFragment extends Fragment{
 
-    private RelativeLayout rel_thermodynamics;
-    private RelativeLayout rel_mechanics;
-
-    private ImageView favourite_test1;
-
-    private int choose;
-
+    private RecyclerView recyclerView;
     
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -32,45 +31,17 @@ public class TestListFragment extends Fragment implements View.OnClickListener{
 
         findById(root);
 
-
-        //Фон кнопок теста
-        rel_thermodynamics.getBackground().setColorFilter(getContext().getResources()
-                .getColor(R.color.btn_red), PorterDuff.Mode.SRC_ATOP);
-        rel_mechanics.getBackground().setColorFilter(getContext().getResources()
-                .getColor(R.color.btn_yellow), PorterDuff.Mode.SRC_ATOP);
-
-
-        favourite_test1.setOnClickListener(this);
-        rel_thermodynamics.setOnClickListener(this);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        TestsAdapter testsAdapter = new TestsAdapter(QuestionTest.Question_title, getActivity());
+        recyclerView.setAdapter(testsAdapter);
 
         return root;
-    }
-    @Override
-    public void onClick(View v) {
-
-        int id = v.getId();
-        if (id == R.id.rel_thermodynamics) {
-            Intent intent = new Intent(getActivity(), Activity_term_test.class);
-            AppConstants.map_test_number.put("test_num", 0);
-            startActivity(intent);
-        } else if (id == R.id.favourite_test1) {
-            Resources res = getResources();
-            if (choose == 0) {
-                choose = 1;
-                favourite_test1.setImageDrawable(res.getDrawable(R.drawable.ic_baseline_star_24));
-            }
-            else {
-                choose = 0;
-                favourite_test1.setImageDrawable(res.getDrawable(R.drawable.ic_baseline_star_border_24));
-            }
-        }
     }
 
 
     private void findById(View v){
-        rel_thermodynamics = v.findViewById(R.id.rel_thermodynamics);
-        favourite_test1 = v.findViewById(R.id.favourite_test1);
-        rel_mechanics = v.findViewById(R.id.mehanika);
+        recyclerView = v.findViewById(R.id.recyclerView_test);
     }
 
 }

@@ -49,4 +49,8 @@ public class AppConstants {
 
     //Для фрагментов BottomNav
     public static final Map<String, Integer> map_btmNav = new HashMap<>();
+
+    public static String KEY_SCORE_EASY_TERM = "score_easy";
+    public static String KEY_SCORE_MEDIUM_TERM = "score_medium";
+    public static String KEY_SCORE_HARD_TERM = "score_hard";
 }

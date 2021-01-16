@@ -34,6 +34,8 @@
     <color name="btn_red">#ED6F6F</color>
     <color name="btn_yellow">#EDC76F</color>
     <color name="green">#5FB371</color>
+    <color name="btn_purple">#AD95F0</color>
+
 
     <!--Цвета для статистики-->
     <color name="progress_green">#03EC36</color>

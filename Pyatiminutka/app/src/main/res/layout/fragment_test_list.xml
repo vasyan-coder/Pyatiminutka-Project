@@ -5,97 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/activity_padding"
+
     tools:context=".ui.tests.TestListFragment">
 
 
-    <RelativeLayout
-        android:id="@+id/rel_thermodynamics"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
-        android:background="@drawable/rounded_corners7"
-        android:elevation="@dimen/shadow_two"
-        android:onClick="onClick"
-        android:padding="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/mehanika"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/title_test1"
-            style="@style/Twice_title_Text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:text="@string/text_thermodynamics"
-            android:textSize="18sp" />
-
-        <ImageView
-            android:id="@+id/icon_test_1"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_below="@id/title_test1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="35dp"
-            android:src="@drawable/ic_thermometer" />
-
-        <ImageView
-            android:id="@+id/favourite_test1"
-            android:layout_width="53dp"
-            android:layout_height="53dp"
-            android:layout_below="@id/icon_test_1"
-            android:layout_alignParentEnd="true"
-            android:onClick="onClick"
-            android:padding="5dp"
-            android:src="@drawable/ic_baseline_star_border_24" />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/mehanika"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:background="@drawable/rounded_corners7"
-        android:elevation="@dimen/shadow_two"
-        android:padding="10dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_test"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_padding"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/rel_thermodynamics"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/title_test2"
-            style="@style/Twice_title_Text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:text="@string/text_electricity"
-            android:textSize="18sp" />
-
-        <ImageView
-            android:id="@+id/icon_test_2"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_below="@id/title_test2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="35dp"
-            android:src="@drawable/ic_light_24" />
-
-        <ImageView
-            android:layout_width="53dp"
-            android:layout_height="53dp"
-            android:layout_below="@+id/icon_test_2"
-            android:layout_alignParentEnd="true"
-            android:onClick="onClick"
-            android:padding="5dp"
-            android:src="@drawable/ic_baseline_star_border_24" />
-
-    </RelativeLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

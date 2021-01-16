@@ -17,7 +17,7 @@ import com.example.pyatiminutka.Models.DataBase.QuestionTest;
 import com.example.pyatiminutka.Models.constants.AppConstants;
 import com.example.pyatiminutka.R;
 
-public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.ResultListViewHolder>{
+public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.ResultListViewHolder> {
 
     private final QuestionTest questionTest = new QuestionTest();
 
@@ -31,7 +31,7 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
 
     private final int test_num = AppConstants.map_test_number.get("test_num");
 
-    private final int difficult = AppConstants.map_difficult.get("Difficult")-1;
+    private final int difficult = AppConstants.map_difficult.get("Difficult") - 1;
 
     public ResultListAdapter(int numberOfItems, int[] questions, int[] icons, Context context) {
         numberItems = numberOfItems;
@@ -87,7 +87,6 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
         View divider;
 
 
-
         public ResultListViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -116,7 +115,7 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
             }
 
             question_final_text.setText(rQuestions[listIndex]);
-            if (listIndex == questionTest.QuestionTest[test_num][difficult].length-1) {
+            if (listIndex == questionTest.QuestionTest[test_num][difficult].length - 1) {
                 divider.setVisibility(View.INVISIBLE);
             }
             image1.setImageResource(rIcons[QuestionTest.incorrect_results[listIndex]]);
