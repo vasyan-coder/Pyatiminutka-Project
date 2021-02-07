@@ -7,18 +7,9 @@
     <item android:id="@+id/textEnlarge"
         android:title="@string/support_text_enlarge"
         android:icon="@drawable/ic_baseline_add_16"
-        android:orderInCategory="2"
-        app:showAsAction="ifRoom"/>
+        android:orderInCategory="2" />
     <item android:id="@+id/textReduce"
         android:title="@string/support_text_reduce"
         android:icon="@drawable/ic_baseline_remove_16"
-        android:orderInCategory="3"
-        app:showAsAction="ifRoom"/>
-    <item android:id="@+id/textsize"
-        android:icon="@drawable/ic_textsize_24"
-        android:title=""
-        android:enabled="false"
-        android:orderInCategory="1"
-        app:showAsAction="always|withText|collapseActionView"
-        tools:ignore="AppCompatResource" />
+        android:orderInCategory="3" />
 </menu>

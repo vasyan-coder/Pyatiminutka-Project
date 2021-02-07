@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
     android:paddingHorizontal="10dp"
-    android:paddingTop="10dp"
-    android:layout_marginTop="10dp">
+    android:paddingTop="10dp">
 
     <LinearLayout
         android:id="@+id/linear_layout10"
@@ -22,24 +21,23 @@
 
         <TextView
             android:id="@+id/text_view11"
-            style="@style/Twice_title_Text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/PrimaryText"
+
             android:text="Текст первого вопроса" />
 
         <ImageView
             android:id="@+id/image_view"
             android:layout_width="210dp"
             android:layout_height="210dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="15dp"
-            android:visibility="gone"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:tint="?attr/colorMainText"
+            android:visibility="gone" />
 
         <TextView
-            style="@style/Third_title_Text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/SecondaryText"
+
             android:layout_marginTop="13dp"
             android:layout_marginBottom="@dimen/text_margin_bottom"
             android:text="@string/text_right_answer" />
@@ -47,44 +45,39 @@
 
         <TextView
             android:id="@+id/text_view12"
-            style="@style/Text_Style"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/SecondaryText"
+
             android:layout_marginStart="20dp"
             android:layout_marginBottom="@dimen/text_margin_bottom"
-            android:text="Первый вариант" />
+            android:text="Первый вариант"
+            android:textStyle="normal" />
 
         <TextView
             android:id="@+id/text_view13"
-            style="@style/Text_Style"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/SecondaryText"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="@dimen/text_margin_bottom"
-            android:text="Первый вариант" />
+            android:text="Первый вариант"
+            android:textStyle="normal" />
 
         <TextView
             android:id="@+id/text_view18"
-            style="@style/Text_Style"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/SecondaryText"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="@dimen/text_margin_bottom"
-            android:text="Первый вариант" />
+            android:text="Первый вариант"
+            android:textStyle="normal" />
 
         <TextView
             android:id="@+id/text_view19"
-            style="@style/Text_Style"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/SecondaryText"
             android:layout_marginStart="20dp"
-            android:text="Первый вариант" />
+            android:text="Первый вариант"
+            android:textStyle="normal" />
 
 
         <TextView
-            style="@style/Third_title_Text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/SecondaryText"
             android:layout_marginTop="13dp"
             android:layout_marginBottom="@dimen/text_margin_bottom"
             android:text="@string/text_selected_answer" />
@@ -126,24 +119,25 @@
 
         <TextView
             android:id="@+id/text_view20"
-            style="@style/Text_Style"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/SecondaryText"
             android:layout_marginStart="20dp"
             android:text="Задание пропущено"
+            android:textStyle="normal"
             android:visibility="invisible" />
     </LinearLayout>
+
     <ImageButton
         android:id="@+id/image_button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:background="@drawable/rounded_corners4"
-        android:padding="10dp"
+        android:background="@android:color/transparent"
+        android:elevation="@dimen/shadow_two"
+        android:padding="8dp"
         android:src="@drawable/ic_baseline_info_24"
+        android:tint="?attr/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:elevation="@dimen/shadow_two"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/image_button2"
@@ -151,12 +145,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_toStartOf="@id/image_button1"
-        android:background="@drawable/rounded_corners4"
-        android:padding="10dp"
+        android:background="@android:color/transparent"
+        android:elevation="@dimen/shadow_two"
+        android:padding="8dp"
         android:src="@drawable/ic_baseline_ondemand_video_24"
+        android:tint="?attr/colorAccent"
         app:layout_constraintEnd_toStartOf="@+id/image_button1"
-        app:layout_constraintTop_toTopOf="parent"
-        android:elevation="@dimen/shadow_two"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/image1"
@@ -175,7 +170,7 @@
         android:layout_height="1dp"
         android:layout_alignBottom="@id/image1"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
+        android:background="@color/silver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image1"
         tools:layout_editor_absoluteX="10dp" />

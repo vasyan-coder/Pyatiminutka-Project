@@ -4,11 +4,16 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccentDark">@color/colorAccentDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorText">@color/colorTextBlack</item>
-        <item name="colorText2">@color/colorText2</item>
-        <item name="colorBackgroundBlocks">@color/background2</item>
-        <item name="android:windowBackground">@color/colorBackgroundWhite</item>
+        <item name="colorMainText">@color/black</item>
+        <item name="colorSecondaryText">@color/text_default</item>
+        <item name="colorBackgroundBlocks">@color/white</item>
+        <item name="colorDivider">@color/silver</item>
+
+
+
+        <item name="android:windowBackground">@color/white</item>
     </style>
 
     <style name="AppDarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -16,16 +21,37 @@
         <item name="colorPrimary">@color/colorPrimaryNight</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkNight</item>
         <item name="colorAccent">@color/colorAccentNight</item>
-        <item name="colorText">@color/white</item>
-        <item name="colorText2">@color/colorText2Night</item>
+        <item name="colorMainText">@color/white</item>
+        <item name="colorSecondaryText">@color/colorText2Night</item>
         <item name="colorBackgroundBlocks">@color/colorBackgroundBlocks</item>
         <item name="android:windowBackground">@color/colorBackgroundBlack</item>
     </style>
 
 
+    <style name="Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="PrimaryText" parent="Text">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?attr/colorMainText</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SecondaryText" parent="Text">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?attr/colorMainText</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ThirdText" parent="Text">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?attr/colorSecondaryText</item>
+    </style>
+
+
     <style name="ToolBarStyle" parent="">
-        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
-        <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
     </style>
 
     <style name="Twice_title_Text" parent="@android:style/TextAppearance">
@@ -63,12 +89,12 @@
         <item name="colorBackgroundBlocks">@color/colorPrimary</item>
     </style>
 
-    <style name="ToolbarColoredBackArrow" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:textColorSecondary">@color/white</item>
-        <item name="android:textColorPrimary">@color/white</item>
+    <style name="ToolbarColoredBackArrow" parent="Theme.AppCompat.Light">
+        <item name="android:textColorSecondary">?attr/colorMainText</item>
         <item name="selectableItemBackground">?android:selectableItemBackground</item>
         <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
-        <item name="colorControlHighlight">#42FAFFED</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="paddingEnd">0dp</item>
     </style>
 
     <style name="Block_of_info">
@@ -80,5 +106,13 @@
         <item name="android:background">@drawable/rounded_corners4</item>
         <item name="android:elevation">@dimen/shadow</item>
     </style>
+
+    <style name="Theme.Scroll.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Scroll.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
+        <item name="android:elevation">@dimen/shadow</item>
+    </style>
+
+
 
 </resources>

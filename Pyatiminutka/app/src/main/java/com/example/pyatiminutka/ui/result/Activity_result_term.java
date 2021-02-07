@@ -5,12 +5,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -58,10 +60,14 @@ public class Activity_result_term extends AppCompatActivity {
     private ResultListAdapter resultListAdapter;
     private RecyclerView recyclerView;
 
-    private ConstraintLayout block_two_final_term;
+    private ImageView imageView_win_cup;
+
+    private Toolbar toolbar;
+
+    private String time_str;
+    private long time_long;
 
     private final QuestionTest questionTest = new QuestionTest();
-
 
     private int[] mQuestions_easy = questionTest.QuestionTest[test_num][0];
 
@@ -81,12 +87,18 @@ public class Activity_result_term extends AppCompatActivity {
         LoadTheme.LoadTheme(this);
 
         StatusBarColor.StatusBarColor(R.color.background2, R.color.colorBackgroundBlocks, this);
-
-
         setContentView(R.layout.activity_result_term);
+
         findById();
 
+        toolbar.setTitle(QuestionTest.Question_title[test_num]);
 
+        //Настройка toolbar
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -111,8 +123,10 @@ public class Activity_result_term extends AppCompatActivity {
 
         //Получение времени
         Intent intent = getIntent();
-        String time = intent.getStringExtra("time");
-        test_time.append(" " + time);
+        time_str = intent.getStringExtra(AppConstants.KEY_INTENT_TIME_TEXT);
+        test_time.append(" " + time_str);
+
+        time_long = intent.getLongExtra(AppConstants.KEY_INTENT_TIME_MLS, 0);
 
         Log.d("myLogs", "Массив правильных результатов" + Arrays.toString(QuestionTest.results));
         Log.d("myLogs", "Массив неправильных результатов" + Arrays.toString(QuestionTest.incorrect_results));
@@ -158,16 +172,18 @@ public class Activity_result_term extends AppCompatActivity {
     }
 
     private void findById() {
+        nestedScrollView = findViewById(R.id.scroll_guide_answers);
+
         text_new_record = findViewById(R.id.text_new_record);
         text_result_correct_ans = findViewById(R.id.text_result_correct_ans);
         text_result_incorrect_ans = findViewById(R.id.text_result_incorrect_ans);
         text_result_skip_ans = findViewById(R.id.text_result_skip_ans);
-        block_two_final_term = findViewById(R.id.block_two_final_term);
+        imageView_win_cup = findViewById(R.id.imageView_win_cup);
         recyclerView = findViewById(R.id.list_view1); //Список
         test_time = findViewById(R.id.test_time); //Таймер
-        test_name_final = findViewById(R.id.test_name_final); //Вывод уровня сложности
+        //test_name_final = findViewById(R.id.test_name_final); //Вывод уровня сложности
 
-        test_title = findViewById(R.id.test_title);
+        //test_title = findViewById(R.id.test_title);
 
         //Статистика
         text_percent_right = findViewById(R.id.text_percent_right);
@@ -177,7 +193,18 @@ public class Activity_result_term extends AppCompatActivity {
         progress_wrong = findViewById(R.id.progress_wrong);
         progress_skip = findViewById(R.id.progress_skip);
 
-        nestedScrollView = findViewById(R.id.scroll_guide_answers);
+        toolbar = findViewById(R.id.toolbar3);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            Intent refresh = new Intent(Activity_result_term.this, Activity_term_test.class);
+            startActivity(refresh);//Start the same Activity
+            finish(); //finish Activity.
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void viewHeaderInf() {
@@ -202,16 +229,16 @@ public class Activity_result_term extends AppCompatActivity {
         text_result_incorrect_ans.setText(String.valueOf(count_incorrect_answers));
 
         //Вывод уровня сложности и заголовка
-        if (difficult == 0) {
-            test_name_final.setText("(" + getResources().getString(R.string.text_difficult_easy2) + ")");
-        } else if (difficult == 1) {
-            test_name_final.setText("(" + getResources().getString(R.string.text_difficult_medium2) + ")");
-        }
-        if (difficult == 2) {
-            test_name_final.setText("(" + getResources().getString(R.string.text_difficult_hard2) + ")");
-        }
-
-        test_title.setText(QuestionTest.Question_title[test_num]);
+//        if (difficult == 0) {
+//            ti_name_final.setText("(" + getResources().getString(R.string.text_difficult_easy2) + ")");
+//        } else if (difficult == 1) {
+//            test_name_final.setText("(" + getResources().getString(R.string.text_difficult_medium2) + ")");
+//        }
+//        if (difficult == 2) {
+//            test_name_final.setText("(" + getResources().getString(R.string.text_difficult_hard2) + ")");
+//        }
+//
+//        test_title.setText(QuestionTest.Question_title[test_num]);
     }
 
     private void notificationViewNewScore() {
@@ -225,18 +252,25 @@ public class Activity_result_term extends AppCompatActivity {
 
             if (myPreferences.contains("score_easy")) {
                 if (count_correct_answers == myPreferences.getInt("score_easy", 0)) {
-                    block_two_final_term.setVisibility(View.GONE);
+                    imageView_win_cup.setVisibility(View.GONE);
+                    text_new_record.setVisibility(View.GONE);
                 } else if (count_correct_answers < myPreferences.getInt("score_easy", 0)) {
-                    block_two_final_term.setVisibility(View.GONE);
+                    imageView_win_cup.setVisibility(View.GONE);
+                    text_new_record.setVisibility(View.GONE);
                 } else if (count_correct_answers > myPreferences.getInt("score_easy", 0)) {
                     myEditor.putInt("score_easy", count_correct_answers);
+                    myEditor.putString(AppConstants.KEY_MAP_STR_TIME_SCORE_EASY_1, time_str);
+                    myEditor.putLong(AppConstants.KEY_MAP_LONG_TIME_SCORE_EASY_1, time_long);
                     myEditor.commit();
                 }
             } else if (count_correct_answers != 0) {
                 myEditor.putInt("score_easy", count_correct_answers);
+                myEditor.putString(AppConstants.KEY_MAP_STR_TIME_SCORE_EASY_1, time_str);
+                myEditor.putLong(AppConstants.KEY_MAP_LONG_TIME_SCORE_EASY_1, time_long);
                 myEditor.commit();
             } else if (count_correct_answers == 0) {
-                block_two_final_term.setVisibility(View.GONE);
+                imageView_win_cup.setVisibility(View.GONE);
+                text_new_record.setVisibility(View.GONE);
             }
 
         } else if (difficult == 1) {
@@ -244,40 +278,54 @@ public class Activity_result_term extends AppCompatActivity {
 
             if (myPreferences.contains("score_medium")) {
                 if (count_correct_answers == myPreferences.getInt("score_medium", 0)) {
-                    block_two_final_term.setVisibility(View.GONE);
+                    imageView_win_cup.setVisibility(View.GONE);
+                    text_new_record.setVisibility(View.GONE);
                 } else if (count_correct_answers < myPreferences.getInt("score_medium", 0)) {
-                    block_two_final_term.setVisibility(View.GONE);
+                    imageView_win_cup.setVisibility(View.GONE);
+                    text_new_record.setVisibility(View.GONE);
                 } else if (count_correct_answers > myPreferences.getInt("score_medium", 0)) {
                     myEditor.putInt("score_medium", count_correct_answers);
+                    myEditor.putString(AppConstants.KEY_MAP_STR_TIME_SCORE_MEDIUM_1, time_str);
+                    myEditor.putLong(AppConstants.KEY_MAP_LONG_TIME_SCORE_MEDIUM_1, time_long);
                     myEditor.commit();
                 }
             } else if (count_correct_answers != 0) {
                 myEditor.putInt("score_medium", count_correct_answers);
+                myEditor.putString(AppConstants.KEY_MAP_STR_TIME_SCORE_MEDIUM_1, time_str);
+                myEditor.putLong(AppConstants.KEY_MAP_LONG_TIME_SCORE_MEDIUM_1, time_long);
                 myEditor.commit();
             } else if (count_correct_answers == 0) {
-                block_two_final_term.setVisibility(View.GONE);
+                imageView_win_cup.setVisibility(View.GONE);
+                text_new_record.setVisibility(View.GONE);
             }
 
         } else if (difficult == 2) {
 
             if (myPreferences.contains("score_hard")) {
                 if (count_correct_answers == myPreferences.getInt("score_hard", 0)) {
-                    block_two_final_term.setVisibility(View.GONE);
+                    imageView_win_cup.setVisibility(View.GONE);
+                    text_new_record.setVisibility(View.GONE);
                 } else if (count_correct_answers <= myPreferences.getInt("score_hard", 0)) {
-                    block_two_final_term.setVisibility(View.GONE);
+                    imageView_win_cup.setVisibility(View.GONE);
+                    text_new_record.setVisibility(View.GONE);
                 } else if (count_correct_answers > myPreferences.getInt("score_hard", 0)) {
                     myEditor.putInt("score_hard", count_correct_answers);
+                    myEditor.putString(AppConstants.KEY_MAP_STR_TIME_SCORE_HARD_1, time_str);
+                    myEditor.putLong(AppConstants.KEY_MAP_LONG_TIME_SCORE_HARD_1, time_long);
                     myEditor.commit();
                 }
             } else if (count_correct_answers != 0) {
                 myEditor.putInt("score_hard", count_correct_answers);
+                myEditor.putString(AppConstants.KEY_MAP_STR_TIME_SCORE_HARD_1, time_str);
+                myEditor.putLong(AppConstants.KEY_MAP_LONG_TIME_SCORE_HARD_1, time_long);
                 myEditor.commit();
             } else if (count_correct_answers == 0) {
-                block_two_final_term.setVisibility(View.GONE);
+                imageView_win_cup.setVisibility(View.GONE);
+                text_new_record.setVisibility(View.GONE);
             }
 
         }
-        text_new_record.setText(String.valueOf(count_correct_answers));
+        text_new_record.append(" " + String.valueOf(count_correct_answers));
     }
 
     private void saveTestInf() {
@@ -288,12 +336,18 @@ public class Activity_result_term extends AppCompatActivity {
 
         if (difficult == 0) {
             myEditor.putInt("last_result_test_term_easy", count_correct_answers);
+            myEditor.putString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_EASY_1, time_str);
+            myEditor.putLong(AppConstants.KEY_MAP_LONG_TIME_LAST_SCORE_EASY_1, time_long);
             myEditor.apply();
         } else if (difficult == 1) {
             myEditor.putInt("last_result_test_term_medium", count_correct_answers);
+            myEditor.putString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_MEDIUM_1, time_str);
+            myEditor.putLong(AppConstants.KEY_MAP_LONG_TIME_LAST_SCORE_MEDIUM_1, time_long);
             myEditor.commit();
         } else if (difficult == 2) {
             myEditor.putInt("last_result_test_term_hard", count_correct_answers);
+            myEditor.putString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_HARD_1, time_str);
+            myEditor.putLong(AppConstants.KEY_MAP_LONG_TIME_LAST_SCORE_HARD_1, time_long);
             myEditor.commit();
         }
     }

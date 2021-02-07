@@ -19,7 +19,8 @@
             android:label=""
             />
         <activity
-            android:name=".ui.tests.Activity_quiz_term" />
+            android:name=".ui.tests.Activity_quiz_term"
+            android:label=""/>
         <activity
             android:name=".ui.tests.Activity_term_test"
             android:label=""/>

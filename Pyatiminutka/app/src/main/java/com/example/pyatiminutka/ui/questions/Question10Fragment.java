@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -30,6 +31,11 @@ public class Question10Fragment extends Fragment {
     private CheckBox answer_three;
     private CheckBox answer_four;
 
+    private CardView card_answer_one;
+    private CardView card_answer_two;
+    private CardView card_answer_three;
+    private CardView card_answer_four;
+
     private int textquestion;
     private int answer_one_text;
     private int answer_two_text;
@@ -41,8 +47,8 @@ public class Question10Fragment extends Fragment {
     private int correctAnswer4;
     private ImageView test_image;
 
-    private Button fix_question;
-    private Button change_question;
+    private CardView fix_question;
+    private CardView change_question;
 
     private int score_new_form = 0;
 
@@ -67,6 +73,8 @@ public class Question10Fragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_question10_layout, container, false);
 
         findByIdFragment(root);
+
+        change_question.setEnabled(false);
 
         change_question.setAlpha(0.6f);
         anim1 = new AlphaAnimation(0.6f, 1.0f);
@@ -123,6 +131,39 @@ public class Question10Fragment extends Fragment {
 
 
         Log.d("myLogs", "Правильные ответы " + correctAnswer1 + correctAnswer2 + correctAnswer3 + correctAnswer4);
+
+
+        View.OnClickListener onClickListener2 = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.card_answer_one:
+                        if (answer_one.isChecked())
+                            answer_one.setChecked(false);
+                        else
+                            answer_one.setChecked(true);
+                        break;
+                    case R.id.card_answer_two:
+                        if (answer_two.isChecked())
+                            answer_two.setChecked(false);
+                        else
+                            answer_two.setChecked(true);
+                        break;
+                    case R.id.card_answer_three:
+                        if (answer_three.isChecked())
+                            answer_three.setChecked(false);
+                        else
+                            answer_three.setChecked(true);
+                        break;
+                    case R.id.card_answer_four:
+                        if (answer_four.isChecked())
+                            answer_four.setChecked(false);
+                        else
+                            answer_four.setChecked(true);
+                        break;
+                }
+            }
+        };
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
@@ -234,6 +275,11 @@ public class Question10Fragment extends Fragment {
         fix_question.setOnClickListener(onClickListener);
         change_question.setOnClickListener(onClickListener);
 
+        card_answer_one.setOnClickListener(onClickListener2);
+        card_answer_two.setOnClickListener(onClickListener2);
+        card_answer_three.setOnClickListener(onClickListener2);
+        card_answer_four.setOnClickListener(onClickListener2);
+
         return root;
     }
 
@@ -250,57 +296,73 @@ public class Question10Fragment extends Fragment {
         change_question = v.findViewById(R.id.changeq10);
 
         viewPager = getActivity().findViewById(R.id.view_pager);
+
+        card_answer_one = v.findViewById(R.id.card_answer_one);
+        card_answer_two = v.findViewById(R.id.card_answer_two);
+        card_answer_three = v.findViewById(R.id.card_answer_three);
+        card_answer_four = v.findViewById(R.id.card_answer_four);
     }
 
     private void AnimQuestionFadeIn() {
+        card_answer_one.setEnabled(false);
+        card_answer_two.setEnabled(false);
+        card_answer_three.setEnabled(false);
+        card_answer_four.setEnabled(false);
+
         answer_one.setEnabled(false);
         answer_two.setEnabled(false);
         answer_three.setEnabled(false);
         answer_four.setEnabled(false);
-
-        fix_question.startAnimation(anim2);
+//
+//        fix_question.startAnimation(anim2);
         fix_question.setAlpha(.6f);
-
+//
         fix_question.setEnabled(false);
-
-        change_question.startAnimation(anim1);
+//
+//        change_question.startAnimation(anim1);
         change_question.setAlpha(1.0f);
-
+//
         change_question.setEnabled(true);
-
-        answer_one.startAnimation(anim2);
-        answer_two.startAnimation(anim2);
-        answer_three.startAnimation(anim2);
-        answer_four.startAnimation(anim2);
-        answer_one.setAlpha(.6f);
-        answer_two.setAlpha(.6f);
-        answer_three.setAlpha(.6f);
-        answer_four.setAlpha(.6f);
+//
+//        answer_one.startAnimation(anim2);
+//        answer_two.startAnimation(anim2);
+//        answer_three.startAnimation(anim2);
+//        answer_four.startAnimation(anim2);
+//        answer_one.setAlpha(.6f);
+//        answer_two.setAlpha(.6f);
+//        answer_three.setAlpha(.6f);
+//        answer_four.setAlpha(.6f);
     }
 
     private void AnimQuestionFadeFrom() {
+        card_answer_one.setEnabled(true);
+        card_answer_two.setEnabled(true);
+        card_answer_three.setEnabled(true);
+        card_answer_four.setEnabled(true);
+//
         answer_one.setEnabled(true);
         answer_two.setEnabled(true);
         answer_three.setEnabled(true);
         answer_four.setEnabled(true);
 
-        fix_question.startAnimation(anim1);
+
+//        fix_question.startAnimation(anim1);
         fix_question.setAlpha(1.0f);
-
+//
         fix_question.setEnabled(true);
-
-        change_question.startAnimation(anim2);
+//
+//        change_question.startAnimation(anim1);
         change_question.setAlpha(.6f);
-
+//
         change_question.setEnabled(false);
-
-        answer_one.startAnimation(anim1);
-        answer_two.startAnimation(anim1);
-        answer_three.startAnimation(anim1);
-        answer_four.startAnimation(anim1);
-        answer_one.setAlpha(1.0f);
-        answer_two.setAlpha(1.0f);
-        answer_three.setAlpha(1.0f);
-        answer_four.setAlpha(1.0f);
+//
+//        answer_one.startAnimation(anim1);
+//        answer_two.startAnimation(anim1);
+//        answer_three.startAnimation(anim1);
+//        answer_four.startAnimation(anim1);
+//        answer_one.setAlpha(1.0f);
+//        answer_two.setAlpha(1.0f);
+//        answer_three.setAlpha(1.0f);
+//        answer_four.setAlpha(1.0f);
     }
 }

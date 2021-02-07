@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,10 +50,7 @@ public class TestsAdapter extends RecyclerView.Adapter<TestsAdapter.TestsAdapter
 
         View view = inflater.inflate(layoutIdForListItem, parent, false);
 
-        TestsAdapter.TestsAdapterViewHolder viewHolder = new TestsAdapter.TestsAdapterViewHolder(view);
-
-
-        return viewHolder;
+        return new TestsAdapterViewHolder(view);
     }
 
     @Override
@@ -70,7 +68,7 @@ public class TestsAdapter extends RecyclerView.Adapter<TestsAdapter.TestsAdapter
         TextView test_title;
         ImageView test_icon;
 
-        ConstraintLayout btn_background;
+        CardView btn_background;
 
         ProgressBar easy;
         ProgressBar medium;
@@ -86,9 +84,9 @@ public class TestsAdapter extends RecyclerView.Adapter<TestsAdapter.TestsAdapter
             medium = itemView.findViewById(R.id.progressBar5);
             hard = itemView.findViewById(R.id.progressBar4);
 
-            btn_background = itemView.findViewById(R.id.constraintLayout);
+            btn_background = itemView.findViewById(R.id.card_question);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            btn_background.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     AppConstants.map_test_number.put("test_num", getAdapterPosition());

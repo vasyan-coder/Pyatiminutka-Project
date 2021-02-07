@@ -6,119 +6,190 @@
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/background2"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        tools:ignore="MissingConstraints">
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorBackgroundBlocks"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="15dp">
-
-            <TextView
-                android:id="@+id/test_name_final"
-                style="@style/Twice_title_Text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="§15 Электродинамика (Легко)"
-                tools:layout_editor_absoluteX="119dp"
-                tools:layout_editor_absoluteY="16dp" />
-
-        </RelativeLayout>
-
-    </androidx.appcompat.widget.Toolbar>
-
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_guide_answers"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar3">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:orientation="vertical">
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_corners_bottom"
-                android:elevation="@dimen/shadow">
+                android:layout_height="wrap_content">
 
-                <View
-                    android:id="@+id/view2"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginHorizontal="30dp"
-                    android:background="@color/white"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_editor_absoluteX="30dp" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar2"
+                <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                    android:id="@+id/progress_skip"
                     android:layout_width="187dp"
                     android:layout_height="187dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:cpb_background_progressbar_color="@android:color/transparent"
+                    app:cpb_progress="0"
+                    app:cpb_progressbar_color="@color/progress_silver"
+                    app:cpb_progressbar_width="25dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-                <View
-                    android:id="@+id/view"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginHorizontal="30dp"
-                    android:background="@color/white"
-                    app:layout_constraintTop_toBottomOf="@+id/progressBar2"
-                    tools:layout_editor_absoluteX="16dp" />
+                <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                    android:id="@+id/progress_wrong"
+                    android:layout_width="187dp"
+                    android:layout_height="187dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:cpb_background_progressbar_color="@android:color/transparent"
+                    app:cpb_progress="0"
+                    app:cpb_progressbar_color="@color/progress_red"
+                    app:cpb_progressbar_width="25dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+                <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                    android:id="@+id/progress_right"
+                    android:layout_width="187dp"
+                    android:layout_height="187dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:cpb_background_progressbar_color="@android:color/transparent"
+                    app:cpb_progress="0"
+                    app:cpb_progressbar_color="@color/progress_green"
+                    app:cpb_progressbar_width="25dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15dp"
-                    android:background="@drawable/rounded_corners4"
-                    android:elevation="@dimen/shadow"
-                    android:padding="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@+id/progress_skip"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/progressBar2">
+                    app:layout_constraintTop_toTopOf="@+id/progress_skip">
 
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_baseline_timer_24"
+                    <View
+                        android:id="@+id/view3"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="16dp"
+                        android:background="@color/progress_green"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        style="@style/Twice_title_Text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="Пройден за 10:10"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:id="@+id/text_percent_right"
+                        style="@style/SecondaryText"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/text_correct"
+                        app:layout_constraintBottom_toBottomOf="@+id/view3"
+                        app:layout_constraintStart_toEndOf="@+id/view3"
+                        app:layout_constraintTop_toTopOf="@+id/view3" />
+
+                    <View
+                        android:id="@+id/view4"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/progress_red"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+                    <TextView
+                        android:id="@+id/text_percent_wrong"
+                        style="@style/SecondaryText"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/text_incorrect"
+                        app:layout_constraintBottom_toBottomOf="@+id/view4"
+                        app:layout_constraintStart_toEndOf="@+id/view4"
+                        app:layout_constraintTop_toTopOf="@+id/view4" />
+
+                    <View
+                        android:id="@+id/view5"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/progress_silver"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+                    <TextView
+                        android:id="@+id/text_percent_skip"
+                        style="@style/SecondaryText"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/text_skip"
+                        app:layout_constraintBottom_toBottomOf="@+id/view5"
+                        app:layout_constraintStart_toEndOf="@+id/view5"
+                        app:layout_constraintTop_toTopOf="@+id/view5" />
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/ic_baseline_timer_24"
+                        app:layout_constraintEnd_toEndOf="@+id/view5"
+                        app:layout_constraintStart_toStartOf="@+id/view5"
+                        app:layout_constraintTop_toBottomOf="@+id/view5" />
+
+                    <TextView
+                        android:id="@+id/test_time"
+                        style="@style/SecondaryText"
+                        android:layout_marginStart="8dp"
+                        android:text="Время: "
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+                        app:layout_constraintStart_toEndOf="@+id/imageView7"
+                        app:layout_constraintTop_toTopOf="@+id/imageView7" />
+
+                    <ImageView
+                        android:id="@+id/imageView_win_cup"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/ic_win_cup"
+                        app:layout_constraintEnd_toEndOf="@+id/view5"
+                        app:layout_constraintStart_toStartOf="@+id/view5"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+                    <TextView
+                        android:id="@+id/text_new_record"
+                        style="@style/SecondaryText"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/text_new_score"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView_win_cup"
+                        app:layout_constraintStart_toEndOf="@+id/imageView_win_cup"
+                        app:layout_constraintTop_toTopOf="@+id/imageView_win_cup" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/silver"
+                    app:layout_constraintTop_toBottomOf="@+id/progress_skip" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout8"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/rounded_corners4"
-                    android:elevation="@dimen/shadow"
+                    android:layout_marginTop="15dp"
                     android:paddingVertical="20dp"
                     app:layout_constraintEnd_toStartOf="@+id/constraintLayout10"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -127,19 +198,16 @@
 
                     <TextView
                         android:id="@+id/textView3"
-                        style="@style/Twice_title_Text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Верно"
+                        style="@style/PrimaryText"
+                        android:text="@string/text_correct"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/text_result_correct_ans"
-                        style="@style/Twice_title_Text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/PrimaryText"
+                        android:layout_marginTop="8dp"
                         android:text="7"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -152,10 +220,8 @@
                     android:id="@+id/constraintLayout9"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/rounded_corners4"
-                    android:elevation="@dimen/shadow"
+                    android:layout_marginTop="15dp"
                     android:paddingVertical="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -164,19 +230,16 @@
 
                     <TextView
                         android:id="@+id/textView4"
-                        style="@style/Twice_title_Text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Пропущено"
+                        style="@style/PrimaryText"
+                        android:text="@string/text_skip"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/text_result_skip_ans"
-                        style="@style/Twice_title_Text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/PrimaryText"
+                        android:layout_marginTop="8dp"
                         android:text="3"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -189,10 +252,8 @@
                     android:id="@+id/constraintLayout10"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/rounded_corners4"
-                    android:elevation="@dimen/shadow"
+                    android:layout_marginTop="15dp"
                     android:paddingVertical="20dp"
                     app:layout_constraintEnd_toStartOf="@+id/constraintLayout9"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -200,94 +261,46 @@
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
 
                     <TextView
-                        android:id="@+id/textView5"
-                        style="@style/Twice_title_Text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Неверно"
+                        android:id="@+id/text_title_test"
+                        style="@style/PrimaryText"
+                        android:text="@string/text_incorrect"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/text_result_incorrect_ans"
-                        style="@style/Twice_title_Text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/PrimaryText"
+                        android:layout_marginTop="8dp"
                         android:text="1"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/block_two_final_term"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="30dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/rounded_corners4"
-                    android:elevation="@dimen/shadow"
-                    android:padding="5dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout10">
-
-                    <ImageView
-                        android:id="@+id/imageView2"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:src="@drawable/ic_up_statistics"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="Новый рекорд"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView2"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/text_new_record"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="25dp"
-                        android:text="7"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toBottomOf="@+id/text_title_test" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <ListView
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/silver" />
+
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/list_view1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="13dp"
-                android:background="@drawable/rounded_corners3"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rounded_corners31"
                 android:cacheColorHint="@color/white"
                 android:divider="@android:color/white"
                 android:dividerHeight="1dip"
-                android:elevation="@dimen/shadow_two"/>
+                android:elevation="@dimen/shadow_two"
+                app:layout_constraintTop_toBottomOf="parent" />
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,10 +15,7 @@
         android:id="@+id/searchFilter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="?attr/colorText2"
         android:hint="@string/text_search"
-        android:textColor="?attr/colorText2"
-        android:textColorHint="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,7 +24,7 @@
         android:id="@+id/list_book"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="?attr/colorText2"
+        android:divider="?attr/colorDivider"
         android:dividerHeight="0dp"
         android:textSize="40sp"
         app:layout_constraintTop_toBottomOf="@+id/searchFilter" />

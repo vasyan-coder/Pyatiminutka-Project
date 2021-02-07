@@ -18,7 +18,7 @@
         android:layout_centerVertical="true"
         android:layout_marginTop="20dp"
         android:text="Электродинамика"
-        android:textColor="?attr/colorText"
+        android:textColor="?attr/colorMainText"
         android:textSize="14sp"
         android:textStyle="bold" />
 
@@ -29,12 +29,12 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:src="@drawable/ic_baseline_arrow_forward_ios_24"
-        app:tint="?attr/colorText" />
+        app:tint="?attr/colorAccent" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@+id/text_view31"
         android:layout_marginHorizontal="6dp"
-        android:background="?attr/colorText2" />
+        android:background="?attr/colorDivider" />
 </RelativeLayout>

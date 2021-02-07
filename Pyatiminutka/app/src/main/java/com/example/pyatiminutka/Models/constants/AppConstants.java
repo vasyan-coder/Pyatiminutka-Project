@@ -5,6 +5,31 @@ import java.util.Map;
 
 public class AppConstants {
 
+    //Номер выбранной книги
+    public static final Map<String, Integer> map_book_number = new HashMap<>();
+    public static final String KEY_MAP_BOOK_NUMBER = "book_number";
+    public static final String KEY_MAP_DIFFICULT = "Difficult";
+    public static final String KEY_MAP_STR_TIME_SCORE_EASY_1 = "str_time_score_easy_1";
+    public static final String KEY_MAP_STR_TIME_SCORE_MEDIUM_1 = "str_time_score_medium_1";
+    public static final String KEY_MAP_STR_TIME_SCORE_HARD_1 = "str_time_score_hard_1";
+    public static final String KEY_MAP_STR_TIME_LAST_SCORE_EASY_1 = "str_time_last_score_easy_1";
+    public static final String KEY_MAP_STR_TIME_LAST_SCORE_MEDIUM_1 = "str_time_last_score_medium_1";
+    public static final String KEY_MAP_STR_TIME_LAST_SCORE_HARD_1 = "str_time_last_score_hard_1";
+
+    public static final String KEY_MAP_LONG_TIME_SCORE_EASY_1 = "long_time_score_easy_1";
+    public static final String KEY_MAP_LONG_TIME_SCORE_MEDIUM_1 = "long_time_score_medium_1";
+    public static final String KEY_MAP_LONG_TIME_SCORE_HARD_1 = "long_time_score_hard_1";
+    public static final String KEY_MAP_LONG_TIME_LAST_SCORE_EASY_1 = "long_time_last_score_easy_1";
+    public static final String KEY_MAP_LONG_TIME_LAST_SCORE_MEDIUM_1 = "long_time_last_score_medium_1";
+    public static final String KEY_MAP_LONG_TIME_LAST_SCORE_HARD_1 = "long_time_last_score_hard_1";
+
+    public static final String KEY_INTENT_TIME_MLS = "time_mls";
+    public static final String KEY_INTENT_TIME_TEXT = "time";
+
+    //Запоминание скролла в книгах
+    public static final Map<String, Integer> map_scroll_y = new HashMap<>();
+    public static final String KEY_MAP_SCROLL_Y = "scroll_y";
+
     //Сложность
     public static final Map<String, Integer> map_difficult = new HashMap<>();
 

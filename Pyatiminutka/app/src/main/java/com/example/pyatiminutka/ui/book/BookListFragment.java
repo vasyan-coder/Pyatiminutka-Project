@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pyatiminutka.Models.Adapters.BooksAdapter;
+import com.example.pyatiminutka.Models.constants.AppConstants;
 import com.example.pyatiminutka.Models.items.BookItem;
 import com.example.pyatiminutka.R;
 
@@ -89,14 +90,12 @@ public class BookListFragment extends Fragment implements BooksAdapter.OnNoteLis
     public void onNoteClick(int position) {
 
         if (position == 0) {
-            Intent intent = new Intent(getContext(), Activity_book_term.class);
-            String numbook = "0";
-            intent.putExtra("numbook", numbook);
+            AppConstants.map_book_number.put(AppConstants.KEY_MAP_BOOK_NUMBER, position);
+            Intent intent = new Intent(getContext(), Activity_book_term.class);;
             startActivity(intent);
         } else if (position == 1) {
+            AppConstants.map_book_number.put(AppConstants.KEY_MAP_BOOK_NUMBER, position);
             Intent intent = new Intent(getContext(), Activity_book_term.class);
-            String numbook = "1";
-            intent.putExtra("numbook", numbook);
             startActivity(intent);
         }
     }

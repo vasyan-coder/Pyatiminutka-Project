@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,129 +8,208 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingHorizontal="@dimen/activity_padding_horizontal">
+        android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/question10text"
+            style="@style/PrimaryText"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="16dp"
+            android:text="10 вопрос:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/test_image"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            app:tint="?attr/colorMainText" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/silver" />
+
+        <LinearLayout
             android:id="@+id/relative_layout_q10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_corners3"
-            android:elevation="@dimen/shadow_two"
-            android:padding="@dimen/activity_padding">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_answer_one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingTop="13dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/question10text"
-                    style="@style/Twice_title_Text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/text_margin_bottom"
-                    android:layout_marginTop="@dimen/check_box_top"
-                    android:text="10 вопрос:"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:id="@+id/test_image"
-                    android:layout_width="300dp"
-                    android:layout_height="300dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="15dp" />
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:elevation="@dimen/shadow_two"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="10dp">
 
                 <CheckBox
                     android:id="@+id/answer_one_q10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/check_box_horizontal"
-                    android:layout_marginTop="@dimen/check_box_top"
-                    android:buttonTint="@color/white"
+                    android:layout_margin="16dp"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:focusable="false"
                     android:text="1 вариант ответа"
-                    android:textColor="@color/white" />
+                    android:textColor="?attr/colorMainText"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_answer_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:elevation="@dimen/shadow_two"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="10dp">
 
                 <CheckBox
                     android:id="@+id/answer_two_q10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/check_box_horizontal"
-                    android:layout_marginTop="@dimen/check_box_top"
-                    android:buttonTint="@color/white"
+                    android:layout_margin="16dp"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:focusable="false"
                     android:text="2 вариант ответа"
-                    android:textColor="@color/white" />
+                    android:textColor="?attr/colorMainText"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_answer_three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:elevation="@dimen/shadow_two"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="10dp">
 
                 <CheckBox
                     android:id="@+id/answer_three_q10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/check_box_horizontal"
-                    android:layout_marginTop="@dimen/check_box_top"
-                    android:layout_marginBottom="13dp"
-                    android:buttonTint="@color/white"
+                    android:layout_margin="16dp"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:focusable="false"
                     android:text="3 вариант ответа"
-                    android:textColor="@color/white" />
+                    android:textColor="?attr/colorMainText"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_answer_four"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:clickable="true"
+                android:elevation="@dimen/shadow_two"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="10dp">
 
                 <CheckBox
                     android:id="@+id/answer_four_q10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/check_box_horizontal"
-                    android:layout_marginTop="13dp"
-                    android:layout_marginBottom="13dp"
-                    android:buttonTint="@color/white"
+                    android:layout_margin="16dp"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:focusable="false"
                     android:text="4 вариант ответа"
-                    android:textColor="@color/white" />
+                    android:textColor="?attr/colorMainText"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/changeq10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="0.5"
+                    android:backgroundTint="?attr/colorAccent"
+                    android:clickable="true"
+                    android:elevation="@dimen/shadow_two"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="5dp">
+
+                    <TextView
+                        style="@style/PrimaryText"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="8dp"
+                        android:background="@android:color/transparent"
+                        android:padding="10dp"
+                        android:text="@string/text_change"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fixq10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="0.5"
+                    android:backgroundTint="@color/green"
+                    android:clickable="true"
+                    android:elevation="@dimen/shadow_two"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="5dp">
+
+                    <TextView
+                        style="@style/PrimaryText"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="8dp"
+                        android:background="@android:color/transparent"
+                        android:padding="10dp"
+                        android:text="@string/text_answer"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+
             </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:background="@drawable/rounded_corners3"
-            android:elevation="@dimen/shadow_two"
-            android:padding="@dimen/activity_padding"
-            android:layout_marginBottom="10dp">
-
-
-            <Button
-                android:id="@+id/changeq10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toStartOf="@id/text_view_q10"
-                android:alpha="0.4"
-                android:background="@drawable/rounded_corners2"
-                android:enabled="false"
-                android:text="@string/text_change"
-                android:textColor="@android:color/white"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/text_view_q10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_marginHorizontal="5dp" />
-
-            <Button
-                android:id="@+id/fixq10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/text_view_q10"
-                android:background="@drawable/rounded_corners"
-                android:text="@string/text_answer"
-                android:textColor="@android:color/white"
-                android:textStyle="bold" />
-        </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

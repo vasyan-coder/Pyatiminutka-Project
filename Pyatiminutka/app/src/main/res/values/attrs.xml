@@ -3,10 +3,13 @@
     <attr name="colorPrimary" format="color" />
     <attr name="colorPrimaryDark" format="color" />
     <attr name="colorAccent" format="color" />
+    <attr name="colorAccentDark" format="color" />
     <attr name="colorBackgroundActivity" format="color" />
-    <attr name="colorText" format="color" />
+    <attr name="colorMainText" format="color" />
+    <attr name="colorSecondaryText" format="color" />
     <attr name="colorBackgroundBlocks" format="color" />
-    <attr name="colorText2" format="color" />
+    <attr name="colorDivider" format="color" />
+
 
     <declare-styleable name="CircleProgressBar">
         <attr name="min" format="integer" />

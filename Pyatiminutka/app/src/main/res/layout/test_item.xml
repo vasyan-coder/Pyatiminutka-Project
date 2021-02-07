@@ -5,124 +5,134 @@
     android:layout_height="wrap_content"
     android:padding="@dimen/activity_padding">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corners7"
-        android:padding="8dp"
-        android:elevation="@dimen/shadow_two"
-        android:layout_marginBottom="1dp">
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="10dp"
+        android:backgroundTint="@color/btn_purple"
+        android:foreground="?android:attr/selectableItemBackground">
 
-        <TextView
-            android:id="@+id/textView7"
-            style="@style/Twice_title_Text"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:text="Термодинамика"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginBottom="1dp"
+            android:elevation="@dimen/shadow_two"
+            android:padding="8dp">
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_thermometer"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textView7"
+                style="@style/Twice_title_Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="Термодинамика"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_thermometer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            android:src="@drawable/ic_baseline_star_border_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
 
-        <ProgressBar
-            android:id="@+id/progressBar3"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:layout_marginTop="4dp"
-            android:paddingVertical="5dp"
-            android:progress="10"
-            android:progressBackgroundTint="@color/red"
-            android:progressDrawable="@drawable/curved_progress_bar"
-            android:progressTint="@color/progress_green"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+                android:src="@drawable/ic_baseline_star_border_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
-        <ProgressBar
-            android:id="@+id/progressBar5"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:layout_marginTop="4dp"
-            android:paddingVertical="5dp"
-            android:progress="10"
-            android:progressBackgroundTint="@color/red"
-            android:progressDrawable="@drawable/curved_progress_bar"
-            android:progressTint="@color/progress_green"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progressBar3" />
+            <ProgressBar
+                android:id="@+id/progressBar3"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginTop="4dp"
+                android:paddingVertical="5dp"
+                android:progress="10"
+                android:progressBackgroundTint="@color/red"
+                android:progressDrawable="@drawable/curved_progress_bar"
+                android:progressTint="@color/progress_green"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
-        <ProgressBar
-            android:id="@+id/progressBar4"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:layout_marginTop="4dp"
-            android:paddingVertical="5dp"
-            android:progress="10"
-            android:progressBackgroundTint="@color/red"
-            android:progressDrawable="@drawable/curved_progress_bar"
-            android:progressTint="@color/progress_green"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progressBar5" />
+            <ProgressBar
+                android:id="@+id/progressBar5"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginTop="4dp"
+                android:paddingVertical="5dp"
+                android:progress="10"
+                android:progressBackgroundTint="@color/red"
+                android:progressDrawable="@drawable/curved_progress_bar"
+                android:progressTint="@color/progress_green"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBar3" />
 
-        <TextView
-            android:id="@+id/textView8"
-            style="@style/Third_title_Text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Легко"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/progressBar3"
-            app:layout_constraintStart_toStartOf="parent" />
+            <ProgressBar
+                android:id="@+id/progressBar4"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginTop="4dp"
+                android:paddingVertical="5dp"
+                android:progress="10"
+                android:progressBackgroundTint="@color/red"
+                android:progressDrawable="@drawable/curved_progress_bar"
+                android:progressTint="@color/progress_green"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBar5" />
 
-        <TextView
-            android:id="@+id/textView9"
-            style="@style/Third_title_Text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Средне"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/progressBar5"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/textView8"
+                style="@style/Third_title_Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Легко"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/progressBar3"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/textView10"
-            style="@style/Third_title_Text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Тяжело"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/progressBar4"
-            app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/textView9"
+                style="@style/Third_title_Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Средне"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/progressBar5"
+                app:layout_constraintStart_toStartOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/textView10"
+                style="@style/Third_title_Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Тяжело"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/progressBar4"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </FrameLayout>

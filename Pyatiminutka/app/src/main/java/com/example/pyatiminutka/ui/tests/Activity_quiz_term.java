@@ -3,17 +3,25 @@ package com.example.pyatiminutka.ui.tests;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.cardview.widget.CardView;
+import androidx.core.widget.NestedScrollView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.pyatiminutka.Models.Func.LoadTheme;
@@ -42,10 +50,15 @@ public class Activity_quiz_term extends AppCompatActivity {
 
     private Toolbar toolbar;
 
+    private CardView button_finish;
+    private ImageView button_back;
+
+    private TextView text_title_test;
+
     private QuestionTest questionTest = new QuestionTest();
 
     private final int test_num = AppConstants.map_test_number.get("test_num");
-    private final int difficult = AppConstants.map_difficult.get("Difficult")-1;
+    private final int difficult = AppConstants.map_difficult.get("Difficult") - 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +74,7 @@ public class Activity_quiz_term extends AppCompatActivity {
 
         findById();
 
-        settingsToolBar();
+        text_title_test.setText(QuestionTest.Question_title[test_num]);
 
         //Настройка табов
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
@@ -71,14 +84,50 @@ public class Activity_quiz_term extends AppCompatActivity {
         tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabs.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
 
+        //Настройка таймера перед запуском
+        chronometer_test_term.setBase(SystemClock.elapsedRealtime());
+
+        button_finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder a_builder1 = new AlertDialog.Builder(Activity_quiz_term.this);
+                a_builder1.setMessage("Вы хотите завершить тест?")
+                        .setCancelable(true)
+                        .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                long elapsedMillis = SystemClock.elapsedRealtime() - chronometer_test_term.getBase();
+                                chronometer_test_term.stop();
+                                Intent intent = new Intent(Activity_quiz_term.this, Activity_result_term.class);
+                                intent.putExtra(AppConstants.KEY_INTENT_TIME_TEXT, chronometer_test_term.getText().toString());
+                                intent.putExtra(AppConstants.KEY_INTENT_TIME_MLS, elapsedMillis);
+                                Log.d("myLogs", "Полученное время " + elapsedMillis);
+
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = a_builder1.create();
+                alert.setTitle("Завершение теста");
+                alert.show();
+            }
+        });
+
+        button_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                exitAlert();
+            }
+        });
+
         //Запуск таймера
         chronometer_test_term.start();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_test, menu);
-        return true;
     }
 
     @Override
@@ -108,7 +157,7 @@ public class Activity_quiz_term extends AppCompatActivity {
             AlertDialog alert = a_builder1.create();
             alert.setTitle("Завершение теста");
             alert.show();
-        } else if (id == android.R.id.home){
+        } else if (id == android.R.id.home) {
             //Место для уточнения выхода
             exitAlert();
 
@@ -119,24 +168,20 @@ public class Activity_quiz_term extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         //Место для уточнения выхода
         exitAlert();
     }
 
-    private void settingsToolBar(){
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
-    }
 
     private void findById() {
         viewPager = findViewById(R.id.view_pager);
         tabs = findViewById(R.id.tabs);
         chronometer_test_term = findViewById(R.id.chronometer_test_term);
         toolbar = findViewById(R.id.toolbar);
+        button_finish = findViewById(R.id.button_finish);
+        button_back = findViewById(R.id.button_back);
+        text_title_test = findViewById(R.id.text_title_test);
     }
 
     private void exitAlert() {
