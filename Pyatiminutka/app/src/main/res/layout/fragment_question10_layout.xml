@@ -22,11 +22,11 @@
 
         <ImageView
             android:id="@+id/test_image"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            app:tint="?attr/colorMainText" />
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="15dp" />
 
         <View
             android:layout_width="match_parent"
@@ -47,7 +47,6 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
                 android:clickable="true"
-                android:elevation="@dimen/shadow_two"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="10dp">

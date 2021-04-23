@@ -11,6 +11,7 @@ import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,6 +31,10 @@ public class TestListFragment extends Fragment{
         View root = inflater.inflate(R.layout.fragment_test_list, container, false);
 
         findById(root);
+
+        Toolbar toolbar = getActivity().findViewById(R.id.toolbar2);
+        toolbar.setElevation(getResources().getDimension(R.dimen.shadow));
+        toolbar.setBackgroundColor(getResources().getColor(R.color.white));
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
         recyclerView.setLayoutManager(gridLayoutManager);

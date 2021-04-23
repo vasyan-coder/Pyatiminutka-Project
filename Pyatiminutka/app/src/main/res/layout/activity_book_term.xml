@@ -14,11 +14,12 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-            <TextView
+            <WebView
                 android:layout_marginTop="25dp"
                 android:id="@+id/text_term"
+                android:padding="8dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:textColor="?attr/colorSecondaryText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -84,6 +85,7 @@
         android:focusable="true"
         app:borderWidth="0dp"
         app:fabSize="mini"
+        android:visibility="gone"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|center"
         app:rippleColor="@color/ripple_silver"

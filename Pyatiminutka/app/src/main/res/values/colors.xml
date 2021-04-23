@@ -17,6 +17,7 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorAccent">#6C38FF</color>
     <color name="colorAccentDark">#9974FF</color>
+    <color name="colorAccentSecondary">#DDCDFF</color>
     <color name="colorPrimaryDark">#505050</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
@@ -39,6 +40,13 @@
     <color name="colorBackgroundBlack">#04334E</color>
     <color name="colorBackgroundBlocks">#1A1B22</color>
 
+
+    <!--цвета для иконок с тестами-->
+    <color name="test_1">#BAE3F4</color>
+    <color name="test_2">#F6CFCF</color>
+    <color name="test_3">#FDFF9C</color>
+    <color name="test_4">#B2F6A7</color>
+    <color name="test_5">#D9C5F2</color>
 
 <!--    ripple effect-->
     <color name="ripple_silver">#42FAFFED</color>

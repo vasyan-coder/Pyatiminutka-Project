@@ -2,6 +2,7 @@ package com.example.pyatiminutka.ui.questions;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -88,13 +89,13 @@ public class Question10Fragment extends Fragment {
         currentView = args.getInt(AppConstants.ARG_SECTION_NUMBER) - 1;
         currentView1 = Integer.toString(currentView);
 
-        Log.d("myLogs", "Возвращаемая позиция TabLayout " + currentView);
+//        Log.d("myLogs", "Возвращаемая позиция TabLayout " + currentView);
 
         //Возвращение данных вопроса по номеру текущего таба (currentView)
         textquestion = questionTest.QuestionTest[test_num][difficult][currentView]; //Текст вопроса
         question10text.setText(textquestion);
 
-
+        Log.d("myLogs", String.valueOf(questionTest.choiceans[test_num][difficult][currentView][0]));
         answer_one_text = questionTest.choiceans[test_num][difficult][currentView][0]; //текст первого варианта ответа
         if (getString(answer_one_text).equals("000")) {
             answer_one.setVisibility(View.GONE);
@@ -117,6 +118,22 @@ public class Question10Fragment extends Fragment {
             answer_four.setText(answer_four_text);
         answer_four.setText(answer_four_text);
 
+//        answer_four.setButtonDrawable(QuestionTest.imageAnswers[test_num][difficult][currentView][0]);
+//        answer_four.setButtonDrawable(QuestionTest.imageAnswers[test_num][difficult][currentView][1]);
+//        answer_four.setButtonDrawable(QuestionTest.imageAnswers[test_num][difficult][currentView][2]);
+//        answer_four.setButtonDrawable(QuestionTest.imageAnswers[test_num][difficult][currentView][3]);
+
+//        Drawable i1 = getContext().getResources().getDrawable(QuestionTest.imageAnswers[test_num][difficult][currentView][0]);
+//        i1.setBounds(0,0,150,150);
+        answer_one.setCompoundDrawablesWithIntrinsicBounds(
+                QuestionTest.imageAnswers[test_num][difficult][currentView][0], 0, 0, 0);
+        answer_two.setCompoundDrawablesWithIntrinsicBounds(
+                QuestionTest.imageAnswers[test_num][difficult][currentView][1], 0, 0, 0);
+        answer_three.setCompoundDrawablesWithIntrinsicBounds(
+                QuestionTest.imageAnswers[test_num][difficult][currentView][2], 0, 0, 0);
+        answer_four.setCompoundDrawablesWithIntrinsicBounds(
+                QuestionTest.imageAnswers[test_num][difficult][currentView][3], 0, 0, 0);
+
         correctAnswer1 = questionTest.correctAnswer[test_num][difficult][currentView][0];
         correctAnswer2 = questionTest.correctAnswer[test_num][difficult][currentView][1];
         correctAnswer3 = questionTest.correctAnswer[test_num][difficult][currentView][2];
@@ -130,7 +147,7 @@ public class Question10Fragment extends Fragment {
         }
 
 
-        Log.d("myLogs", "Правильные ответы " + correctAnswer1 + correctAnswer2 + correctAnswer3 + correctAnswer4);
+//        Log.d("myLogs", "Правильные ответы " + correctAnswer1 + correctAnswer2 + correctAnswer3 + correctAnswer4);
 
 
         View.OnClickListener onClickListener2 = new View.OnClickListener() {
@@ -179,7 +196,7 @@ public class Question10Fragment extends Fragment {
                                 score_new_form += 1;
                             } else if (correctAnswer2 == 0 && answer_two.isChecked()) {
                                 score_new_form += 4;
-                                Log.d("myLogs", "Счётчик увеличился");
+//                                Log.d("myLogs", "Счётчик увеличился");
                             }
 
 
@@ -210,9 +227,9 @@ public class Question10Fragment extends Fragment {
                         } else if (!answer_one.isChecked() && !answer_two.isChecked() &&
                                 !answer_three.isChecked() && !answer_four.isChecked()) {
                             AlertDialog.Builder a_builder = new AlertDialog.Builder(getContext());
-                            a_builder.setMessage("Вы не выбрали ниодного варианта ответа")
+                            a_builder.setMessage(getResources().getString(R.string.text_no_answer))
                                     .setCancelable(true)
-                                    .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                                    .setPositiveButton(getResources().getString(R.string.text_yes), new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             AnimQuestionFadeIn();
@@ -224,7 +241,7 @@ public class Question10Fragment extends Fragment {
 
                                         }
                                     })
-                                    .setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                                    .setNegativeButton(getResources().getString(R.string.text_no), new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             QuestionTest.skip_answers[currentView] = 1;
@@ -234,7 +251,7 @@ public class Question10Fragment extends Fragment {
                                         }
                                     });
                             AlertDialog alert = a_builder.create();
-                            alert.setTitle("Пропустить вопрос?");
+                            alert.setTitle(getString(R.string.text_skip_question));
                             alert.show();
                         }
 

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "440332140811",
+    "project_id": "pyatiminutka-34b3c",
+    "storage_bucket": "pyatiminutka-34b3c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440332140811:android:8a34e05f36f059df39620e",
+        "android_client_info": {
+          "package_name": "com.example.pyatiminutka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440332140811-827cla7eqev3k3ahvptvs5p6cfrb40ur.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pyatiminutka",
+            "certificate_hash": "4a02124d1909c5765eba20e3b81eba976d9aeca4"
+          }
+        },
+        {
+          "client_id": "440332140811-p0jr6jb08n877bab4a63sfmct1a03po3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP7ZRgRJJvqdtx3CnD0a8Brxi6dhd3x2M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440332140811-p0jr6jb08n877bab4a63sfmct1a03po3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

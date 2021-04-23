@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
@@ -40,40 +41,37 @@
                     android:id="@+id/progress_skip"
                     android:layout_width="187dp"
                     android:layout_height="187dp"
-                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     app:cpb_background_progressbar_color="@android:color/transparent"
                     app:cpb_progress="0"
                     app:cpb_progressbar_color="@color/progress_silver"
                     app:cpb_progressbar_width="25dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <com.mikhaellopez.circularprogressbar.CircularProgressBar
                     android:id="@+id/progress_wrong"
                     android:layout_width="187dp"
                     android:layout_height="187dp"
-                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     app:cpb_background_progressbar_color="@android:color/transparent"
                     app:cpb_progress="0"
                     app:cpb_progressbar_color="@color/progress_red"
                     app:cpb_progressbar_width="25dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <com.mikhaellopez.circularprogressbar.CircularProgressBar
                     android:id="@+id/progress_right"
                     android:layout_width="187dp"
                     android:layout_height="187dp"
-                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     app:cpb_background_progressbar_color="@android:color/transparent"
                     app:cpb_progress="0"
                     app:cpb_progressbar_color="@color/progress_green"
                     app:cpb_progressbar_width="25dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
@@ -152,7 +150,7 @@
                         android:id="@+id/test_time"
                         style="@style/SecondaryText"
                         android:layout_marginStart="8dp"
-                        android:text="Время: "
+                        android:text="@string/text_time"
                         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
                         app:layout_constraintStart_toEndOf="@+id/imageView7"
                         app:layout_constraintTop_toTopOf="@+id/imageView7" />
@@ -195,12 +193,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="15dp"
                     android:paddingVertical="20dp"
                     app:layout_constraintEnd_toStartOf="@+id/constraintLayout10"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
                         android:id="@+id/textView3"
@@ -214,7 +211,7 @@
                         android:id="@+id/text_result_correct_ans"
                         style="@style/PrimaryText"
                         android:layout_marginTop="8dp"
-                        android:text="7"
+                        android:text="0"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -227,12 +224,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="15dp"
                     android:paddingVertical="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/constraintLayout10"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
                         android:id="@+id/textView4"
@@ -246,7 +242,7 @@
                         android:id="@+id/text_result_skip_ans"
                         style="@style/PrimaryText"
                         android:layout_marginTop="8dp"
-                        android:text="3"
+                        android:text="0"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -259,12 +255,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="15dp"
                     android:paddingVertical="20dp"
                     app:layout_constraintEnd_toStartOf="@+id/constraintLayout9"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/constraintLayout8"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
                         android:id="@+id/text_title_test"
@@ -278,7 +273,7 @@
                         android:id="@+id/text_result_incorrect_ans"
                         style="@style/PrimaryText"
                         android:layout_marginTop="8dp"
-                        android:text="1"
+                        android:text="0"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/text_title_test" />
@@ -297,11 +292,9 @@
                 android:id="@+id/list_view1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="8dp"
                 android:cacheColorHint="@color/white"
                 android:divider="@android:color/white"
-                android:dividerHeight="1dip"
-                android:elevation="@dimen/shadow_two" />
+                android:dividerHeight="1dip" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

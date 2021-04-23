@@ -1,6 +1,8 @@
 package com.example.pyatiminutka.ui.tests;
 
 import android.animation.ValueAnimator;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -22,6 +24,7 @@ import com.example.pyatiminutka.Models.Func.LoadTheme;
 import com.example.pyatiminutka.Models.Func.StatusBarColor;
 import com.example.pyatiminutka.Models.constants.AppConstants;
 import com.example.pyatiminutka.R;
+import com.example.pyatiminutka.ui.result.Activity_result_term;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
 import org.w3c.dom.Text;
@@ -89,6 +92,9 @@ public class Activity_term_test extends AppCompatActivity implements View.OnClic
 
         setContentView(R.layout.activity_term_test);
 
+        for (int i = 0; i < 11; i++) {
+            QuestionTest.skip_answers[i] = 0;
+        }
 
         findById();
 
@@ -105,38 +111,192 @@ public class Activity_term_test extends AppCompatActivity implements View.OnClic
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
-        if (myPreferences.contains("score_easy")){
-            score_easy_value = myPreferences.getInt("score_easy", 0);
-            text_view_score_time_easy.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_EASY_1,""));
-            text_view_last_score_time_easy.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_EASY_1,""));
+        if (test_num == 0) {
+            if (myPreferences.contains(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_EASY_1)) {
+                text_view_last_score_time_easy.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_EASY_1, ""));
+            }
+            if (myPreferences.contains(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_MEDIUM_1)) {
+                text_view_last_score_time_medium.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_MEDIUM_1, ""));
+            }
+            if (myPreferences.contains(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_HARD_1)) {
+                text_view_last_score_time_hard.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_HARD_1, ""));
+            }
+
+
+            if (myPreferences.contains("score_easy")) {
+                score_easy_value = myPreferences.getInt("score_easy", 0);
+                text_view_score_time_easy.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_EASY_1, ""));
+
+            }
+            if (myPreferences.contains("score_medium")) {
+                score_medium_value = myPreferences.getInt("score_medium", 0);
+                text_view_score_time_medium.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_MEDIUM_1, ""));
+            }
+
+
+            if (myPreferences.contains("score_hard")) {
+                score_hard_value = myPreferences.getInt("score_hard", 0);
+                text_view_score_time_hard.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_HARD_1, ""));
+            }
+
+
+            if (myPreferences.contains("last_result_test_term_easy"))
+                last_score_easy_value = myPreferences.getInt("last_result_test_term_easy", 0);
+            if (myPreferences.contains("last_result_test_term_medium"))
+                last_score_medium_value = myPreferences.getInt("last_result_test_term_medium", 0);
+            if (myPreferences.contains("last_result_test_term_hard"))
+                last_score_hard_value = myPreferences.getInt("last_result_test_term_hard", 0);
+
+        } else if (test_num == 1) {
+            if (myPreferences.contains(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_EASY_2)) {
+                text_view_last_score_time_easy.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_EASY_2, ""));
+            }
+            if (myPreferences.contains(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_MEDIUM_2)) {
+                text_view_last_score_time_medium.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_MEDIUM_2, ""));
+            }
+            if (myPreferences.contains(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_HARD_2)) {
+                text_view_last_score_time_hard.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_HARD_2, ""));
+            }
+
+
+            if (myPreferences.contains(AppConstants.KEY_SCORE_EASY_2)) {
+                score_easy_value = myPreferences.getInt(AppConstants.KEY_SCORE_EASY_2, 0);
+                text_view_score_time_easy.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_EASY_2, ""));
+
+            }
+            if (myPreferences.contains(AppConstants.KEY_SCORE_MEDIUM_2)) {
+                score_medium_value = myPreferences.getInt(AppConstants.KEY_SCORE_MEDIUM_2, 0);
+                text_view_score_time_medium.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_MEDIUM_2, ""));
+            }
+
+
+            if (myPreferences.contains(AppConstants.KEY_SCORE_HARD_2)) {
+                score_hard_value = myPreferences.getInt(AppConstants.KEY_SCORE_HARD_2, 0);
+                text_view_score_time_hard.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_HARD_2, ""));
+            }
+
+
+            if (myPreferences.contains(AppConstants.KEY_LAST_SCORE_EASY_2))
+                last_score_easy_value = myPreferences.getInt(AppConstants.KEY_LAST_SCORE_EASY_2, 0);
+            if (myPreferences.contains(AppConstants.KEY_LAST_SCORE_MEDIUM_2))
+                last_score_medium_value = myPreferences.getInt(AppConstants.KEY_LAST_SCORE_MEDIUM_2, 0);
+            if (myPreferences.contains(AppConstants.KEY_LAST_SCORE_HARD_2))
+                last_score_hard_value = myPreferences.getInt(AppConstants.KEY_LAST_SCORE_HARD_2, 0);
+
+
+        } else if (test_num == 2) {
+            if (myPreferences.contains(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_EASY_3)) {
+                text_view_last_score_time_easy.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_EASY_3, ""));
+            }
+            if (myPreferences.contains(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_MEDIUM_3)) {
+                text_view_last_score_time_medium.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_MEDIUM_3, ""));
+            }
+            if (myPreferences.contains(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_HARD_3)) {
+                text_view_last_score_time_hard.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_HARD_3, ""));
+            }
+
+
+            if (myPreferences.contains(AppConstants.KEY_SCORE_EASY_3)) {
+                score_easy_value = myPreferences.getInt(AppConstants.KEY_SCORE_EASY_3, 0);
+                text_view_score_time_easy.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_EASY_3, ""));
+
+            }
+            if (myPreferences.contains(AppConstants.KEY_SCORE_MEDIUM_3)) {
+                score_medium_value = myPreferences.getInt(AppConstants.KEY_SCORE_MEDIUM_3, 0);
+                text_view_score_time_medium.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_MEDIUM_3, ""));
+            }
+
+
+            if (myPreferences.contains(AppConstants.KEY_SCORE_HARD_3)) {
+                score_hard_value = myPreferences.getInt(AppConstants.KEY_SCORE_HARD_3, 0);
+                text_view_score_time_hard.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_HARD_3, ""));
+            }
+
+
+            if (myPreferences.contains(AppConstants.KEY_LAST_SCORE_EASY_3))
+                last_score_easy_value = myPreferences.getInt(AppConstants.KEY_LAST_SCORE_EASY_3, 0);
+            if (myPreferences.contains(AppConstants.KEY_LAST_SCORE_MEDIUM_3))
+                last_score_medium_value = myPreferences.getInt(AppConstants.KEY_LAST_SCORE_MEDIUM_3, 0);
+            if (myPreferences.contains(AppConstants.KEY_LAST_SCORE_HARD_3))
+                last_score_hard_value = myPreferences.getInt(AppConstants.KEY_LAST_SCORE_HARD_3, 0);
+        } else if (test_num == 3) {
+            if (myPreferences.contains(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_EASY_4)) {
+                text_view_last_score_time_easy.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_EASY_4, ""));
+            }
+            if (myPreferences.contains(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_MEDIUM_4)) {
+                text_view_last_score_time_medium.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_MEDIUM_4, ""));
+            }
+            if (myPreferences.contains(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_HARD_4)) {
+                text_view_last_score_time_hard.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_HARD_4, ""));
+            }
+
+
+            if (myPreferences.contains(AppConstants.KEY_SCORE_EASY_4)) {
+                score_easy_value = myPreferences.getInt(AppConstants.KEY_SCORE_EASY_4, 0);
+                text_view_score_time_easy.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_EASY_4, ""));
+
+            }
+            if (myPreferences.contains(AppConstants.KEY_SCORE_MEDIUM_4)) {
+                score_medium_value = myPreferences.getInt(AppConstants.KEY_SCORE_MEDIUM_4, 0);
+                text_view_score_time_medium.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_MEDIUM_4, ""));
+            }
+
+
+            if (myPreferences.contains(AppConstants.KEY_SCORE_HARD_4)) {
+                score_hard_value = myPreferences.getInt(AppConstants.KEY_SCORE_HARD_4, 0);
+                text_view_score_time_hard.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_HARD_4, ""));
+            }
+
+
+            if (myPreferences.contains(AppConstants.KEY_LAST_SCORE_EASY_4))
+                last_score_easy_value = myPreferences.getInt(AppConstants.KEY_LAST_SCORE_EASY_4, 0);
+            if (myPreferences.contains(AppConstants.KEY_LAST_SCORE_MEDIUM_4))
+                last_score_medium_value = myPreferences.getInt(AppConstants.KEY_LAST_SCORE_MEDIUM_4, 0);
+            if (myPreferences.contains(AppConstants.KEY_LAST_SCORE_HARD_4))
+                last_score_hard_value = myPreferences.getInt(AppConstants.KEY_LAST_SCORE_HARD_4, 0);
+        } else if (test_num == 4) {
+            if (myPreferences.contains(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_EASY_5)) {
+                text_view_last_score_time_easy.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_EASY_5, ""));
+            }
+            if (myPreferences.contains(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_MEDIUM_5)) {
+                text_view_last_score_time_medium.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_MEDIUM_5, ""));
+            }
+            if (myPreferences.contains(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_HARD_5)) {
+                text_view_last_score_time_hard.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_HARD_5, ""));
+            }
+
+
+            if (myPreferences.contains(AppConstants.KEY_SCORE_EASY_5)) {
+                score_easy_value = myPreferences.getInt(AppConstants.KEY_SCORE_EASY_5, 0);
+                text_view_score_time_easy.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_EASY_5, ""));
+
+            }
+            if (myPreferences.contains(AppConstants.KEY_SCORE_MEDIUM_5)) {
+                score_medium_value = myPreferences.getInt(AppConstants.KEY_SCORE_MEDIUM_5, 0);
+                text_view_score_time_medium.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_MEDIUM_5, ""));
+            }
+
+
+            if (myPreferences.contains(AppConstants.KEY_SCORE_HARD_5)) {
+                score_hard_value = myPreferences.getInt(AppConstants.KEY_SCORE_HARD_5, 0);
+                text_view_score_time_hard.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_HARD_5, ""));
+            }
+
+
+            if (myPreferences.contains(AppConstants.KEY_LAST_SCORE_EASY_5))
+                last_score_easy_value = myPreferences.getInt(AppConstants.KEY_LAST_SCORE_EASY_5, 0);
+            if (myPreferences.contains(AppConstants.KEY_LAST_SCORE_MEDIUM_5))
+                last_score_medium_value = myPreferences.getInt(AppConstants.KEY_LAST_SCORE_MEDIUM_5, 0);
+            if (myPreferences.contains(AppConstants.KEY_LAST_SCORE_HARD_5))
+                last_score_hard_value = myPreferences.getInt(AppConstants.KEY_LAST_SCORE_HARD_5, 0);
         }
-        if (myPreferences.contains("score_medium")){
-            score_medium_value = myPreferences.getInt("score_medium", 0);
-            text_view_score_time_medium.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_MEDIUM_1,""));
-            text_view_last_score_time_medium.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_MEDIUM_1,""));
-        }
-
-
-        if (myPreferences.contains("score_hard")){
-            score_hard_value = myPreferences.getInt("score_hard", 0);
-            text_view_score_time_hard.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_SCORE_HARD_1,""));
-            text_view_last_score_time_hard.setText(myPreferences.getString(AppConstants.KEY_MAP_STR_TIME_LAST_SCORE_HARD_1,""));
-        }
-
-
-        if (myPreferences.contains("last_result_test_term_easy"))
-            last_score_easy_value = myPreferences.getInt("last_result_test_term_easy", 0);
-        if (myPreferences.contains("last_result_test_term_medium"))
-            last_score_medium_value = myPreferences.getInt("last_result_test_term_medium", 0);
-        if (myPreferences.contains("last_result_test_term_hard"))
-            last_score_hard_value = myPreferences.getInt("last_result_test_term_hard", 0);
 
         progressBar_easy_last_score.setProgressWithAnimation(
                 last_score_easy_value * 100 / questionTest.QuestionTest[test_num][0].length, (long) 1000);
         startScoreAnimationEasy(
                 0,
                 last_score_easy_value,
-                "/10",
+                "/" + String.valueOf(questionTest.QuestionTest[test_num][0].length),
                 text_easy_last_score); //Анимация последнего результата в цифрах
         startScoreAnimationEasy(
                 0,
@@ -150,7 +310,7 @@ public class Activity_term_test extends AppCompatActivity implements View.OnClic
         startScoreAnimationEasy(
                 0,
                 last_score_medium_value,
-                "/10",
+                "/" + String.valueOf(questionTest.QuestionTest[test_num][1].length),
                 text_medium_last_score); //Анимация последнего результата в цифрах
         startScoreAnimationEasy(
                 0,
@@ -164,14 +324,13 @@ public class Activity_term_test extends AppCompatActivity implements View.OnClic
         startScoreAnimationEasy(
                 0,
                 last_score_hard_value,
-                "/10",
+                "/" + String.valueOf(questionTest.QuestionTest[test_num][2].length),
                 text_hard_last_score); //Анимация последнего результата в цифрах
         startScoreAnimationEasy(
                 0,
                 last_score_hard_value * 100 / questionTest.QuestionTest[test_num][2].length,
                 "%",
-                text_percent_hard_high_score); //Анимация последнего результата в процентах
-
+                text_percent_hard_last_score); //Анимация последнего результата в процентах
 
         //Анимации с рекордом
         progressBar_easy_score.setProgressWithAnimation(
@@ -179,7 +338,7 @@ public class Activity_term_test extends AppCompatActivity implements View.OnClic
         startScoreAnimationEasy(
                 0,
                 score_easy_value,
-                "/10",
+                "/" + String.valueOf(questionTest.QuestionTest[test_num][0].length),
                 text_easy_high_score); //Анимация последнего результата в цифрах
         startScoreAnimationEasy(
                 0,
@@ -192,7 +351,7 @@ public class Activity_term_test extends AppCompatActivity implements View.OnClic
         startScoreAnimationEasy(
                 0,
                 score_medium_value,
-                "/10",
+                "/" + String.valueOf(questionTest.QuestionTest[test_num][1].length),
                 text_medium_high_score); //Анимация последнего результата в цифрах
         startScoreAnimationEasy(
                 0,
@@ -206,13 +365,14 @@ public class Activity_term_test extends AppCompatActivity implements View.OnClic
         startScoreAnimationEasy(
                 0,
                 score_hard_value,
-                "/10",
+                "/" + String.valueOf(questionTest.QuestionTest[test_num][2].length),
                 text_hard_high_score); //Анимация последнего результата в цифрах
         startScoreAnimationEasy(
                 0,
                 score_hard_value * 100 / questionTest.QuestionTest[test_num][2].length,
                 "%",
                 text_percent_hard_high_score); //Анимация последнего результата в процентах
+
 
         cardView_easy.setOnClickListener(this);
         cardView_medium.setOnClickListener(this);
@@ -258,6 +418,7 @@ public class Activity_term_test extends AppCompatActivity implements View.OnClic
         text_view_score_time_hard = findViewById(R.id.text_view_score_time_hard);
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -286,20 +447,72 @@ public class Activity_term_test extends AppCompatActivity implements View.OnClic
 
         switch (v.getId()) {
             case R.id.cardView_easy:
+                cardView_medium.setEnabled(false);
+                cardView_hard.setEnabled(false);
                 AppConstants.map_difficult.put("Difficult", 1);
                 startActivity(intent);
                 finish();
                 break;
             case R.id.cardView_medium:
+                cardView_easy.setEnabled(false);
+                cardView_hard.setEnabled(false);
                 AppConstants.map_difficult.put("Difficult", 2);
                 startActivity(intent);
                 finish();
                 break;
             case R.id.cardView_hard:
-                AppConstants.map_difficult.put("Difficult", 3);
-                startActivity(intent);
-                finish();
+                SharedPreferences myPreferences
+                        = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                SharedPreferences.Editor myEditor = myPreferences.edit();
+
+                if (!myPreferences.contains("hard" + test_num)) {
+                    myEditor.putString("hard" + test_num, "0");
+                    myEditor.apply();
+                }
+
+
+                Log.d("myLogs", "ПЕРВОЕ ВЫПОЛЕНО");
+                if (myPreferences.getString("hard" + test_num, "") == "0") {
+                    Log.d("myLogs", "ВТОРОЕ ВЫПОЛЕНО");
+                    AlertDialog.Builder a_builder1 = new AlertDialog.Builder(Activity_term_test.this);
+                    a_builder1.setMessage(getResources().getString(R.string.text_alert_rating))
+                            .setCancelable(true)
+                            .setPositiveButton(getResources().getString(R.string.text_yes), new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //Log.d("myLogs", String.valueOf(chronometer_test_term.getText().toString()));
+                                    cardView_easy.setEnabled(false);
+                                    cardView_medium.setEnabled(false);
+                                    AppConstants.map_difficult.put("Difficult", 3);
+                                    Intent intent = new Intent(Activity_term_test.this, Activity_quiz_term.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            })
+                            .setNegativeButton(getResources().getString(R.string.text_no), new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog alert = a_builder1.create();
+                    alert.setTitle("");
+                    alert.show();
+                } else {
+                    cardView_easy.setEnabled(false);
+                    cardView_medium.setEnabled(false);
+                    AppConstants.map_difficult.put("Difficult", 3);
+                    Intent intent1 = new Intent(Activity_term_test.this, Activity_quiz_term.class);
+                    startActivity(intent1);
+                    finish();
+                }
+
+
+//                startActivity(intent);
+//                finish();
                 break;
         }
     }
+
+
 }

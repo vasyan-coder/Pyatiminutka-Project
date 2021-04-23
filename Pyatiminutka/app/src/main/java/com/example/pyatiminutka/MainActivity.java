@@ -2,9 +2,10 @@ package com.example.pyatiminutka;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.appcompat.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,9 +15,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.pyatiminutka.Models.Func.LoadTheme;
-import com.example.pyatiminutka.Models.Func.StatusBarColor;
 import com.example.pyatiminutka.Models.constants.AppConstants;
-import com.example.pyatiminutka.ui.book.BookListFragment;
+import com.example.pyatiminutka.ui.theory.TheoryFragment;
 import com.example.pyatiminutka.ui.profile.ProfileFragment;
 import com.example.pyatiminutka.ui.push.push;
 import com.example.pyatiminutka.ui.settings.ActivitySettings;
@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Fragment selectedFragment = null;
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         LoadTheme.LoadTheme(this);
 
         setContentView(R.layout.activity_main);
+
+        toolbar = findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
 
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
@@ -47,11 +52,9 @@ public class MainActivity extends AppCompatActivity {
 //                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
 //                .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-       // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
     }
-
-
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -62,19 +65,20 @@ public class MainActivity extends AppCompatActivity {
                     switch (item.getItemId()) {
                         case R.id.navigation_book_list:
                             AppConstants.map_btmNav.put("map_btmNav", 1);
-                            selectedFragment = new BookListFragment();
+                            selectedFragment = new TheoryFragment();
                             break;
                         case R.id.navigation_test_list:
                             AppConstants.map_btmNav.put("map_btmNav", 2);
                             selectedFragment = new TestListFragment();
                             break;
+                        case R.id.navigation_push:
+                            selectedFragment = new NotificationsFragment();
+                            break;
                         case R.id.navigation_profile:
                             AppConstants.map_btmNav.put("map_btmNav", 3);
                             selectedFragment = new ProfileFragment();
                             break;
-                        case R.id.navigation_notifications:
-                            selectedFragment = new TestListFragment();
-                            break;
+
                     }
 
                     getSupportFragmentManager().beginTransaction()

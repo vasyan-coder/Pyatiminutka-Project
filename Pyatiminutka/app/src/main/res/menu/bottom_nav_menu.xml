@@ -5,7 +5,7 @@
     <item
         android:id="@+id/navigation_book_list"
         android:icon="@drawable/ic_baseline_menu_book_24"
-        android:title="@string/text_books"
+        android:title="@string/text_theory"
         app:showAsAction="withText"/>
 
     <item
@@ -14,17 +14,19 @@
         android:title="@string/text_tests"
         app:showAsAction="withText" />
 
+<!--    <item-->
+<!--        android:id="@+id/navigation_push"-->
+<!--        android:icon="@drawable/ic_baseline_notifications_48"-->
+<!--        android:title="@string/text_notifications"-->
+<!--        app:showAsAction="withText"/>-->
+
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_baseline_account_box_24"
         android:title="@string/text_profile"
         app:showAsAction="withText"/>
 
-    <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_baseline_notifications_48"
-        android:title="@string/text_notifications"
-        app:showAsAction="withText"/>
+
 
 
 

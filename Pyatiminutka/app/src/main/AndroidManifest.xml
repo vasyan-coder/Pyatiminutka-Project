@@ -2,39 +2,72 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pyatiminutka">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
-        android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ActivityChooseRaiting"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".ui.result.Activity_result_term"
-            android:label="@string/text_result" />
-        <activity android:name=".ui.push.push" />
-        <activity android:name=".ui.push.activity_push" />
+            android:name=".TopRateActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.settings.ActivitySettings"
-            android:label=""
-            />
-        <activity
-            android:name=".ui.tests.Activity_quiz_term"
-            android:label=""/>
-        <activity
-            android:name=".ui.tests.Activity_term_test"
-            android:label=""/>
-        <activity android:name=".ui.book.Activity_book_term" />
-        <activity android:name=".book_term" />
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:name=".SignInActivity"
+            android:configChanges="orientation"
+            android:noHistory="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ActivityAchievements"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.result.DetailedQuestionActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.result.Activity_result_term"
+            android:configChanges="orientation"
+            android:label="@string/text_result"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.push.push" />
+        <activity
+            android:name=".ui.settings.ActivitySettings"
+            android:configChanges="orientation"
+            android:label=""
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.tests.Activity_quiz_term"
+            android:configChanges="orientation"
+            android:label=""
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.tests.Activity_term_test"
+            android:configChanges="orientation"
+            android:label=""
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.book.Activity_book_term"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

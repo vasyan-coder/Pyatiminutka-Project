@@ -7,11 +7,14 @@ import androidx.cardview.widget.CardView;
 import androidx.core.widget.NestedScrollView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.animation.AnimatorInflater;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,6 +35,7 @@ import com.example.pyatiminutka.R;
 import com.example.pyatiminutka.Models.constants.AppConstants;
 import com.example.pyatiminutka.Models.DataBase.QuestionTest;
 import com.example.pyatiminutka.Models.pagetabsother.SectionsPagerAdapter;
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Arrays;
@@ -84,6 +88,9 @@ public class Activity_quiz_term extends AppCompatActivity {
         tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabs.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
 
+        AppBarLayout appBarLayout = findViewById(R.id.app_bar);
+        appBarLayout.setStateListAnimator(AnimatorInflater.loadStateListAnimator(this, R.animator.elevation));
+
         //Настройка таймера перед запуском
         chronometer_test_term.setBase(SystemClock.elapsedRealtime());
 
@@ -91,30 +98,31 @@ public class Activity_quiz_term extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder a_builder1 = new AlertDialog.Builder(Activity_quiz_term.this);
-                a_builder1.setMessage("Вы хотите завершить тест?")
+                a_builder1.setMessage(getResources().getString(R.string.text_finish_question))
                         .setCancelable(true)
-                        .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                        .setPositiveButton(getResources().getString(R.string.text_yes), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+
                                 long elapsedMillis = SystemClock.elapsedRealtime() - chronometer_test_term.getBase();
                                 chronometer_test_term.stop();
                                 Intent intent = new Intent(Activity_quiz_term.this, Activity_result_term.class);
                                 intent.putExtra(AppConstants.KEY_INTENT_TIME_TEXT, chronometer_test_term.getText().toString());
                                 intent.putExtra(AppConstants.KEY_INTENT_TIME_MLS, elapsedMillis);
-                                Log.d("myLogs", "Полученное время " + elapsedMillis);
+//                                Log.d("myLogs", "Полученное время " + elapsedMillis);
 
                                 startActivity(intent);
                                 finish();
                             }
                         })
-                        .setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getResources().getString(R.string.text_no), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
                             }
                         });
                 AlertDialog alert = a_builder1.create();
-                alert.setTitle("Завершение теста");
+                alert.setTitle(getString(R.string.text_finish_test));
                 alert.show();
             }
         });
@@ -134,12 +142,16 @@ public class Activity_quiz_term extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.end_test) {
+
+
+
             AlertDialog.Builder a_builder1 = new AlertDialog.Builder(Activity_quiz_term.this);
-            a_builder1.setMessage("Вы хотите завершить тест?")
+            a_builder1.setMessage(getResources().getString(R.string.text_finish_question))
                     .setCancelable(true)
-                    .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                    .setPositiveButton(getResources().getString(R.string.text_yes), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+
                             chronometer_test_term.stop();
                             //Log.d("myLogs", String.valueOf(chronometer_test_term.getText().toString()));
                             Intent intent = new Intent(Activity_quiz_term.this, Activity_result_term.class);
@@ -148,14 +160,14 @@ public class Activity_quiz_term extends AppCompatActivity {
                             finish();
                         }
                     })
-                    .setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                    .setNegativeButton(getResources().getString(R.string.text_no), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
                         }
                     });
             AlertDialog alert = a_builder1.create();
-            alert.setTitle("Завершение теста");
+            alert.setTitle(getResources().getString(R.string.text_finish_test));
             alert.show();
         } else if (id == android.R.id.home) {
             //Место для уточнения выхода
@@ -186,24 +198,25 @@ public class Activity_quiz_term extends AppCompatActivity {
 
     private void exitAlert() {
         AlertDialog.Builder a_builder = new AlertDialog.Builder(Activity_quiz_term.this);
-        a_builder.setMessage("При выходе из незаконченного теста данные не сохраняются")
+        a_builder.setMessage(getResources().getString(R.string.text_unsaved_data))
                 .setCancelable(true)
-                .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getResources().getString(R.string.text_yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+
                         Intent refresh = new Intent(Activity_quiz_term.this, Activity_term_test.class);
                         startActivity(refresh);//Start the same Activity
                         finish(); //finish Activity.
                     }
                 })
-                .setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                .setNegativeButton(getResources().getString(R.string.text_no), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
                     }
                 });
         AlertDialog alert = a_builder.create();
-        alert.setTitle("Закрытие теста");
+        alert.setTitle(getString(R.string.text_close_test));
         alert.show();
     }
 

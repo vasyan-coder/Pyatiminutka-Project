@@ -7,9 +7,11 @@
     <item android:id="@+id/textEnlarge"
         android:title="@string/support_text_enlarge"
         android:icon="@drawable/ic_baseline_add_16"
+        android:visible="false"
         android:orderInCategory="2" />
     <item android:id="@+id/textReduce"
         android:title="@string/support_text_reduce"
+        android:visible="false"
         android:icon="@drawable/ic_baseline_remove_16"
         android:orderInCategory="3" />
 </menu>

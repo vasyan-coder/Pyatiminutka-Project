@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_book_list"
-        android:name="com.example.pyatiminutka.ui.book.BookListFragment"
+        android:name="com.example.pyatiminutka.ui.theory.TheoryFragment"
         android:label="Книги"
-        tools:layout="@layout/fragment_book_list" />
+        tools:layout="@layout/fragment_theory" />
 
     <fragment
         android:id="@+id/navigation_test_list"
@@ -18,8 +18,14 @@
         tools:layout="@layout/fragment_test_list" />
 
     <fragment
+        android:id="@+id/navigation_push"
+        android:name="com.example.pyatiminutka.NotificationsFragment"
+        android:label="Уведомления"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.pyatiminutka.ui.profile.ProfileFragment"
         android:label="Профиль"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_profile" />
 </navigation>

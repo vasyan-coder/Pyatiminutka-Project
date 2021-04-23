@@ -100,16 +100,18 @@ public class TestsAdapter extends RecyclerView.Adapter<TestsAdapter.TestsAdapter
             SharedPreferences sharedPreferences =
                     PreferenceManager.getDefaultSharedPreferences(context1);
 
+            test_icon.setImageResource(QuestionTest.Question_title_icon[listIndex]);
+
             if (listIndex == 0) {
                 btn_background.getBackground().setColorFilter(context1.getResources()
-                        .getColor(R.color.btn_purple), PorterDuff.Mode.SRC_ATOP);
+                        .getColor(R.color.test_1), PorterDuff.Mode.SRC_ATOP);
 
                 if (sharedPreferences.contains(AppConstants.KEY_SCORE_EASY_TERM)) {
                     int score_easy_term =
                             sharedPreferences.getInt(AppConstants.KEY_SCORE_EASY_TERM, 0)
                                     * 100 / questionTest.QuestionTest[listIndex][0].length;
                     easy.setProgress(score_easy_term);
-                    Log.d("myLogs", "Рекорд " + score_easy_term);
+//                    Log.d("myLogs", "Рекорд " + score_easy_term);
                 } else easy.setProgress(0);
 
                 if (sharedPreferences.contains(AppConstants.KEY_SCORE_MEDIUM_TERM)) {
@@ -126,6 +128,116 @@ public class TestsAdapter extends RecyclerView.Adapter<TestsAdapter.TestsAdapter
                     hard.setProgress(score_hard_term);
                 } else hard.setProgress(0);
             }
+
+            if (listIndex == 1) {
+                btn_background.getBackground().setColorFilter(context1.getResources()
+                        .getColor(R.color.test_2), PorterDuff.Mode.SRC_ATOP);
+
+                if (sharedPreferences.contains(AppConstants.KEY_SCORE_EASY_2)) {
+                    int score_easy_term =
+                            sharedPreferences.getInt(AppConstants.KEY_SCORE_EASY_2, 0)
+                                    * 100 / questionTest.QuestionTest[listIndex][0].length;
+                    easy.setProgress(score_easy_term);
+//                    Log.d("myLogs", "Рекорд " + score_easy_term);
+                } else easy.setProgress(0);
+
+                if (sharedPreferences.contains(AppConstants.KEY_SCORE_MEDIUM_2)) {
+                    int score_medium_term =
+                            sharedPreferences.getInt(AppConstants.KEY_SCORE_MEDIUM_2, 0)
+                                    * 100 / questionTest.QuestionTest[listIndex][1].length;
+                    medium.setProgress(score_medium_term);
+                } else medium.setProgress(0);
+
+                if (sharedPreferences.contains(AppConstants.KEY_SCORE_HARD_2)) {
+                    int score_hard_term =
+                            sharedPreferences.getInt(AppConstants.KEY_SCORE_HARD_2, 0)
+                                    * 100 / questionTest.QuestionTest[listIndex][2].length;
+                    hard.setProgress(score_hard_term);
+                } else hard.setProgress(0);
+            }
+
+            if (listIndex == 2) {
+                btn_background.getBackground().setColorFilter(context1.getResources()
+                        .getColor(R.color.test_3), PorterDuff.Mode.SRC_ATOP);
+
+                if (sharedPreferences.contains(AppConstants.KEY_SCORE_EASY_3)) {
+                    int score_easy_term =
+                            sharedPreferences.getInt(AppConstants.KEY_SCORE_EASY_3, 0)
+                                    * 100 / questionTest.QuestionTest[listIndex][0].length;
+                    easy.setProgress(score_easy_term);
+//                    Log.d("myLogs", "Рекорд " + score_easy_term);
+                } else easy.setProgress(0);
+
+                if (sharedPreferences.contains(AppConstants.KEY_SCORE_MEDIUM_3)) {
+                    int score_medium_term =
+                            sharedPreferences.getInt(AppConstants.KEY_SCORE_MEDIUM_3, 0)
+                                    * 100 / questionTest.QuestionTest[listIndex][1].length;
+                    medium.setProgress(score_medium_term);
+                } else medium.setProgress(0);
+
+                if (sharedPreferences.contains(AppConstants.KEY_SCORE_HARD_3)) {
+                    int score_hard_term =
+                            sharedPreferences.getInt(AppConstants.KEY_SCORE_HARD_3, 0)
+                                    * 100 / questionTest.QuestionTest[listIndex][2].length;
+                    hard.setProgress(score_hard_term);
+                } else hard.setProgress(0);
+            }
+
+            if (listIndex == 3) {
+                btn_background.getBackground().setColorFilter(context1.getResources()
+                        .getColor(R.color.test_4), PorterDuff.Mode.SRC_ATOP);
+
+                if (sharedPreferences.contains(AppConstants.KEY_SCORE_EASY_4)) {
+                    int score_easy_term =
+                            sharedPreferences.getInt(AppConstants.KEY_SCORE_EASY_4, 0)
+                                    * 100 / questionTest.QuestionTest[listIndex][0].length;
+                    easy.setProgress(score_easy_term);
+//                    Log.d("myLogs", "Рекорд " + score_easy_term);
+                } else easy.setProgress(0);
+
+                if (sharedPreferences.contains(AppConstants.KEY_SCORE_MEDIUM_4)) {
+                    int score_medium_term =
+                            sharedPreferences.getInt(AppConstants.KEY_SCORE_MEDIUM_4, 0)
+                                    * 100 / questionTest.QuestionTest[listIndex][1].length;
+                    medium.setProgress(score_medium_term);
+                } else medium.setProgress(0);
+
+                if (sharedPreferences.contains(AppConstants.KEY_SCORE_HARD_4)) {
+                    int score_hard_term =
+                            sharedPreferences.getInt(AppConstants.KEY_SCORE_HARD_4, 0)
+                                    * 100 / questionTest.QuestionTest[listIndex][2].length;
+                    hard.setProgress(score_hard_term);
+                } else hard.setProgress(0);
+            }
+
+            if (listIndex == 4) {
+                btn_background.getBackground().setColorFilter(context1.getResources()
+                        .getColor(R.color.test_5), PorterDuff.Mode.SRC_ATOP);
+
+                if (sharedPreferences.contains(AppConstants.KEY_SCORE_EASY_5)) {
+                    int score_easy_term =
+                            sharedPreferences.getInt(AppConstants.KEY_SCORE_EASY_5, 0)
+                                    * 100 / questionTest.QuestionTest[listIndex][0].length;
+                    easy.setProgress(score_easy_term);
+//                    Log.d("myLogs", "Рекорд " + score_easy_term);
+                } else easy.setProgress(0);
+
+                if (sharedPreferences.contains(AppConstants.KEY_SCORE_MEDIUM_5)) {
+                    int score_medium_term =
+                            sharedPreferences.getInt(AppConstants.KEY_SCORE_MEDIUM_5, 0)
+                                    * 100 / questionTest.QuestionTest[listIndex][1].length;
+                    medium.setProgress(score_medium_term);
+                } else medium.setProgress(0);
+
+                if (sharedPreferences.contains(AppConstants.KEY_SCORE_HARD_5)) {
+                    int score_hard_term =
+                            sharedPreferences.getInt(AppConstants.KEY_SCORE_HARD_5, 0)
+                                    * 100 / questionTest.QuestionTest[listIndex][2].length;
+                    hard.setProgress(score_hard_term);
+                } else hard.setProgress(0);
+            }
+
+
 
             test_title.setText(rTitle[listIndex]);
         }

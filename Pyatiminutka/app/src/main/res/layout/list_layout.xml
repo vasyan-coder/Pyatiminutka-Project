@@ -4,35 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:paddingHorizontal="10dp"
-    android:paddingTop="10dp">
+    android:paddingHorizontal="8dp"
+    android:paddingTop="8dp"
+    tools:background="@color/silver">
 
     <LinearLayout
-        android:id="@+id/linear_layout10"
-        android:layout_width="0dp"
+        android:id="@+id/linearLayout5"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:layout_toStartOf="@id/image_button2"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toStartOf="@+id/image_button2"
+        android:background="@drawable/rounded_corners2"
+        android:outlineProvider="paddedBounds"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/question_number"
+            style="@style/PrimaryText"
+            android:layout_marginBottom="2dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="4dp"
+            android:text="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/frame_correct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/rounded_corners3"
+        android:backgroundTint="@color/red"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout5"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/text_correct"
+            style="@style/PrimaryText"
+            android:layout_marginBottom="2dp"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="@string/text_small_skip"
+            android:textColor="@color/red" />
+
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/red"
+            android:src="@drawable/ic_baseline_cross_24" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_toStartOf="@id/image_button2"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+        <TextView
             android:id="@+id/text_view11"
             style="@style/PrimaryText"
-
             android:text="Текст первого вопроса" />
 
         <ImageView
             android:id="@+id/image_view"
-            android:layout_width="210dp"
-            android:layout_height="210dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:tint="?attr/colorMainText"
             android:visibility="gone" />
 
         <TextView
@@ -46,9 +93,8 @@
         <TextView
             android:id="@+id/text_view12"
             style="@style/SecondaryText"
-
             android:layout_marginStart="20dp"
-            android:layout_marginBottom="@dimen/text_margin_bottom"
+            android:padding="@dimen/text_margin_bottom"
             android:text="Первый вариант"
             android:textStyle="normal" />
 
@@ -56,7 +102,7 @@
             android:id="@+id/text_view13"
             style="@style/SecondaryText"
             android:layout_marginStart="20dp"
-            android:layout_marginBottom="@dimen/text_margin_bottom"
+            android:padding="@dimen/text_margin_bottom"
             android:text="Первый вариант"
             android:textStyle="normal" />
 
@@ -64,11 +110,12 @@
             android:id="@+id/text_view18"
             style="@style/SecondaryText"
             android:layout_marginStart="20dp"
-            android:layout_marginBottom="@dimen/text_margin_bottom"
+            android:padding="@dimen/text_margin_bottom"
             android:text="Первый вариант"
             android:textStyle="normal" />
 
         <TextView
+            android:padding="@dimen/text_margin_bottom"
             android:id="@+id/text_view19"
             style="@style/SecondaryText"
             android:layout_marginStart="20dp"
@@ -88,7 +135,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginBottom="@dimen/text_margin_bottom"
+            android:padding="@dimen/text_margin_bottom"
             android:text="Первый вариант" />
 
         <TextView
@@ -97,7 +144,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginBottom="@dimen/text_margin_bottom"
+            android:padding="@dimen/text_margin_bottom"
             android:text="Второй вариант" />
 
         <TextView
@@ -106,12 +153,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginBottom="@dimen/text_margin_bottom"
+            android:padding="@dimen/text_margin_bottom"
             android:text="Третий вариант" />
 
         <TextView
             android:id="@+id/text_view17"
             style="@style/Wrong_answers"
+            android:padding="@dimen/text_margin_bottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -121,23 +169,48 @@
             android:id="@+id/text_view20"
             style="@style/SecondaryText"
             android:layout_marginStart="20dp"
-            android:text="Задание пропущено"
+            android:text="@string/text_question_skipped"
             android:textStyle="normal"
             android:visibility="invisible" />
     </LinearLayout>
 
-    <ImageButton
+    <androidx.cardview.widget.CardView
         android:id="@+id/image_button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:background="@android:color/transparent"
-        android:elevation="@dimen/shadow_two"
-        android:padding="8dp"
-        android:src="@drawable/ic_baseline_info_24"
-        android:tint="?attr/colorAccent"
+        android:backgroundTint="?attr/colorAccent"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:foregroundTint="@color/black"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="@dimen/shadow_two"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/shadow_two"
+                android:padding="8dp"
+                android:src="@drawable/ic_baseline_info_24"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
+                android:text="@string/text_parsing"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <ImageButton
         android:id="@+id/image_button2"
@@ -150,30 +223,27 @@
         android:padding="8dp"
         android:src="@drawable/ic_baseline_ondemand_video_24"
         android:tint="?attr/colorAccent"
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@+id/image_button1"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/image1"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_alignBottom="@id/linear_layout10"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/ic_baseline_done_green_48"
-        app:layout_constraintBottom_toBottomOf="@+id/linear_layout10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/image_button1" />
+    <!--    <ImageView-->
+    <!--        android:id="@+id/image1"-->
+    <!--        android:layout_width="48dp"-->
+    <!--        android:layout_height="48dp"-->
+    <!--        android:layout_alignBottom="@id/linear_layout10"-->
+    <!--        android:layout_alignParentEnd="true"-->
+    <!--        android:src="@drawable/ic_baseline_done_green_48"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/linear_layout10"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/image_button1" />-->
 
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_alignBottom="@id/image1"
-        android:layout_marginTop="10dp"
         android:background="@color/silver"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image1"
-        tools:layout_editor_absoluteX="10dp" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

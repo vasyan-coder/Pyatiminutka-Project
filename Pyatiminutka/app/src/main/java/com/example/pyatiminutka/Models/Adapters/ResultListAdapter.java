@@ -1,18 +1,21 @@
 package com.example.pyatiminutka.Models.Adapters;
 
 import android.content.Context;
-import android.util.Log;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pyatiminutka.ui.result.DetailedQuestionActivity;
 import com.example.pyatiminutka.Models.DataBase.QuestionTest;
 import com.example.pyatiminutka.Models.constants.AppConstants;
 import com.example.pyatiminutka.R;
@@ -82,13 +85,21 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
         ImageView image_view;
         TextView text_skip;
         ImageView image1;
-        ImageView image_button1;
+        CardView image_button1;
         ImageView image_button2;
         View divider;
+
+        TextView question_number;
+        TextView text_correct;
+        LinearLayout frame_correct;
 
 
         public ResultListViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            question_number = itemView.findViewById(R.id.question_number);
+            text_correct = itemView.findViewById(R.id.text_correct);
+            frame_correct = itemView.findViewById(R.id.frame_correct);
 
             question_final_text = itemView.findViewById(R.id.text_view11);
             correct_question_text1 = itemView.findViewById(R.id.text_view12);
@@ -103,9 +114,56 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
             text_skip = itemView.findViewById(R.id.text_view20);
             image1 = itemView.findViewById(R.id.image1);
             divider = itemView.findViewById(R.id.divider);
+
+            image_button1 = itemView.findViewById(R.id.image_button1);
+
         }
 
         void bind(int listIndex) {
+
+            correct_question_text1.setCompoundDrawablesWithIntrinsicBounds(
+                    QuestionTest.imageAnswers[test_num][difficult][listIndex][0], 0, 0, 0);
+            correct_question_text2.setCompoundDrawablesWithIntrinsicBounds(
+                    QuestionTest.imageAnswers[test_num][difficult][listIndex][1], 0, 0, 0);
+            correct_question_text3.setCompoundDrawablesWithIntrinsicBounds(
+                    QuestionTest.imageAnswers[test_num][difficult][listIndex][2], 0, 0, 0);
+            correct_question_text4.setCompoundDrawablesWithIntrinsicBounds(
+                    QuestionTest.imageAnswers[test_num][difficult][listIndex][3], 0, 0, 0);
+
+            choose_question_text1.setCompoundDrawablesWithIntrinsicBounds(
+                    QuestionTest.imageAnswers[test_num][difficult][listIndex][0], 0, 0, 0);
+            choose_question_text2.setCompoundDrawablesWithIntrinsicBounds(
+                    QuestionTest.imageAnswers[test_num][difficult][listIndex][1], 0, 0, 0);
+            choose_question_text3.setCompoundDrawablesWithIntrinsicBounds(
+                    QuestionTest.imageAnswers[test_num][difficult][listIndex][2], 0, 0, 0);
+            choose_question_text4.setCompoundDrawablesWithIntrinsicBounds(
+                    QuestionTest.imageAnswers[test_num][difficult][listIndex][3], 0, 0, 0);
+
+            question_number.setText(String.valueOf(listIndex + 1));
+
+            image_button1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context1.getApplicationContext(), DetailedQuestionActivity.class);
+                    intent.putExtra("position", getAdapterPosition());
+                    context1.startActivity(intent);
+                }
+            });
+
+            if (QuestionTest.results[listIndex] > 1){
+                text_correct.setTextColor(context1.getResources().getColor(R.color.red));
+                text_correct.setText(context1.getText(R.string.text_small_incorrect));
+                frame_correct.setBackgroundTintList(context1.getResources().getColorStateList(R.color.red));
+            }
+
+            if (QuestionTest.results[listIndex] == 1){
+                text_correct.setTextColor(context1.getResources().getColor(R.color.green));
+                text_correct.setText(context1.getText(R.string.text_small_correct));
+                frame_correct.setBackgroundTintList(context1.getResources().getColorStateList(R.color.green));
+            }
+
+
+//            text_correct.setTextColor(context1.getResources().getColor(R.color.red));
 
             if (QuestionTest.test_pictures[test_num][difficult][listIndex] != 0) {
                 image_view.setVisibility(View.VISIBLE);
@@ -123,32 +181,32 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
                 image1.setImageResource(rIcons[1]);
                 text_skip.setVisibility(View.VISIBLE);
             } else {
-                ((ViewManager) text_skip.getParent()).removeView(text_skip);
+                text_skip.setVisibility(View.GONE);
             }
 
             //Вывод правильных ответов
             if (questionTest.correctAnswer[test_num][difficult][listIndex][0] == 1) {
                 correct_question_text1.setText(questionTest.choiceans[test_num][difficult][listIndex][0]);
             } else {
-                ((ViewManager) correct_question_text1.getParent()).removeView(correct_question_text1);
+                correct_question_text1.setVisibility(View.GONE);
             }
 
             if (questionTest.correctAnswer[test_num][difficult][listIndex][1] == 1) {
                 correct_question_text2.setText(questionTest.choiceans[test_num][difficult][listIndex][1]);
             } else {
-                ((ViewManager) correct_question_text2.getParent()).removeView(correct_question_text2);
+                correct_question_text2.setVisibility(View.GONE);
             }
 
             if (questionTest.correctAnswer[test_num][difficult][listIndex][2] == 1) {
                 correct_question_text3.setText(questionTest.choiceans[test_num][difficult][listIndex][2]);
             } else {
-                ((ViewManager) correct_question_text3.getParent()).removeView(correct_question_text3);
+                correct_question_text3.setVisibility(View.GONE);
             }
 
             if (questionTest.correctAnswer[test_num][difficult][listIndex][3] == 1) {
                 correct_question_text4.setText(questionTest.choiceans[test_num][difficult][listIndex][3]);
             } else {
-                ((ViewManager) correct_question_text4.getParent()).removeView(correct_question_text4);
+                correct_question_text4.setVisibility(View.GONE);
             }
             //Вывод ответов пользователя
 
@@ -158,7 +216,7 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
                     choose_question_text1.setTextColor(ContextCompat.getColor(context1, R.color.green));
                 }
             } else {
-                ((ViewManager) choose_question_text1.getParent()).removeView(choose_question_text1);
+                choose_question_text1.setVisibility(View.GONE);
             }
 
             if (QuestionTest.choosed_answers2[listIndex] == 1) {
@@ -167,7 +225,7 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
                     choose_question_text2.setTextColor(ContextCompat.getColor(context1, R.color.green));
                 }
             } else {
-                ((ViewManager) choose_question_text2.getParent()).removeView(choose_question_text2);
+                choose_question_text2.setVisibility(View.GONE);
             }
 
             if (QuestionTest.choosed_answers3[listIndex] == 1) {
@@ -176,7 +234,7 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
                     choose_question_text3.setTextColor(ContextCompat.getColor(context1, R.color.green));
                 }
             } else {
-                ((ViewManager) choose_question_text3.getParent()).removeView(choose_question_text3);
+                choose_question_text3.setVisibility(View.GONE);
             }
 
             if (QuestionTest.choosed_answers4[listIndex] == 1) {
@@ -185,7 +243,7 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Re
                     choose_question_text4.setTextColor(ContextCompat.getColor(context1, R.color.green));
                 }
             } else {
-                ((ViewManager) choose_question_text4.getParent()).removeView(choose_question_text4);
+                choose_question_text4.setVisibility(View.GONE);
             }
 
         }

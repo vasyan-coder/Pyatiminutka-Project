@@ -61,7 +61,7 @@
                             android:layout_height="14dp"
                             android:layout_marginHorizontal="16dp"
                             android:layout_marginTop="3dp"
-                            android:background="@drawable/badge_circle" />
+                            android:background="@drawable/badge_circle_green" />
 
                         <View
                             android:id="@+id/view_red2_easy"
@@ -69,7 +69,7 @@
                             android:layout_height="14dp"
                             android:layout_marginHorizontal="16dp"
                             android:layout_marginTop="3dp"
-                            android:background="@drawable/badge_circle"
+                            android:background="@drawable/badge_circle_green"
                             app:layout_constraintBottom_toBottomOf="@+id/linearLayout_charts_easy" />
 
                         <View
@@ -86,7 +86,8 @@
                     <TextView
                         android:id="@+id/text_view_easy"
                         style="@style/SecondaryText"
-                        android:text="@string/text_difficult_easy"
+                        android:textSize="12sp"
+                        android:text="@string/text_easy_short"
                         app:layout_constraintBottom_toBottomOf="@+id/linearLayout_circles_easy"
                         app:layout_constraintStart_toEndOf="@+id/linearLayout_circles_easy"
                         app:layout_constraintTop_toTopOf="@+id/linearLayout_circles_easy" />
@@ -103,7 +104,7 @@
                         style="@style/SecondaryText"
                         android:layout_marginHorizontal="16dp"
                         android:layout_marginTop="16dp"
-                        android:text="Приступить к выполнению"
+                        android:text="@string/text_start"
                         android:textColor="?attr/colorAccent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +138,7 @@
                             <TextView
                                 android:id="@+id/text_view_easy_last_result"
                                 style="@style/ThirdText"
-                                android:text="Последний рез-т"
+                                android:text="@string/text_last_result"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -147,7 +148,7 @@
                                 android:layout_width="54dp"
                                 android:layout_height="54dp"
                                 android:layout_marginTop="8dp"
-                                app:cpb_background_progressbar_color="@color/progress_red"
+                                app:cpb_background_progressbar_color="@color/progress_silver"
                                 app:cpb_background_progressbar_width="6dp"
                                 app:cpb_progress_direction="to_left"
                                 app:cpb_progress_max="100"
@@ -180,7 +181,7 @@
                                 android:id="@+id/text_view_last_score_time_easy"
                                 style="@style/ThirdText"
                                 android:layout_marginTop="8dp"
-                                android:text="10:10"
+                                android:text="00:00"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/progressBar_easy_last_score" />
@@ -189,7 +190,7 @@
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp">
+                            android:layout_marginStart="8dp">
 
                             <TextView
                                 android:id="@+id/text_view_easy_score"
@@ -204,7 +205,7 @@
                                 android:layout_width="54dp"
                                 android:layout_height="54dp"
                                 android:layout_marginTop="8dp"
-                                app:cpb_background_progressbar_color="@color/progress_red"
+                                app:cpb_background_progressbar_color="@color/progress_silver"
                                 app:cpb_background_progressbar_width="6dp"
                                 app:cpb_progressbar_width="6dp"
                                 app:cpb_progress_direction="to_left"
@@ -237,7 +238,7 @@
                                 android:id="@+id/text_view_score_time_easy"
                                 style="@style/ThirdText"
                                 android:layout_marginTop="8dp"
-                                android:text="10:10"
+                                android:text="00:00"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/progressBar_easy_score" />
@@ -305,7 +306,8 @@
                     <TextView
                         android:id="@+id/text_view_medium"
                         style="@style/SecondaryText"
-                        android:text="@string/text_difficult_medium"
+                        android:textSize="12sp"
+                        android:text="@string/text_medium_short"
                         app:layout_constraintBottom_toBottomOf="@+id/linearLayout_circles_medium"
                         app:layout_constraintStart_toEndOf="@+id/linearLayout_circles_medium"
                         app:layout_constraintTop_toTopOf="@+id/linearLayout_circles_medium" />
@@ -322,7 +324,7 @@
                         style="@style/SecondaryText"
                         android:layout_marginHorizontal="16dp"
                         android:layout_marginTop="16dp"
-                        android:text="Приступить к выполнению"
+                        android:text="@string/text_start"
                         android:textColor="?attr/colorAccent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -356,7 +358,7 @@
                             <TextView
                                 android:id="@+id/text_view_medium_last_result"
                                 style="@style/ThirdText"
-                                android:text="Последний рез-т"
+                                android:text="@string/text_last_result"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -366,7 +368,7 @@
                                 android:layout_width="54dp"
                                 android:layout_height="54dp"
                                 android:layout_marginTop="8dp"
-                                app:cpb_background_progressbar_color="@color/progress_red"
+                                app:cpb_background_progressbar_color="@color/progress_silver"
                                 app:cpb_background_progressbar_width="6dp"
                                 app:cpb_progressbar_width="6dp"
                                 app:cpb_progress_direction="to_left"
@@ -390,7 +392,7 @@
                                 android:id="@+id/text_percent_medium_last_score"
                                 style="@style/ThirdText"
                                 android:layout_marginStart="8dp"
-                                android:text="30%"
+                                android:text="0%"
                                 app:layout_constraintBottom_toBottomOf="@+id/progressBar_medium_last_score"
                                 app:layout_constraintStart_toEndOf="@+id/progressBar_medium_last_score"
                                 app:layout_constraintTop_toTopOf="@+id/progressBar_medium_last_score" />
@@ -399,7 +401,7 @@
                                 android:id="@+id/text_view_last_score_time_medium"
                                 style="@style/ThirdText"
                                 android:layout_marginTop="8dp"
-                                android:text="10:10"
+                                android:text="00:00"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/progressBar_medium_last_score" />
@@ -408,7 +410,7 @@
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp">
+                            android:layout_marginStart="8dp">
 
                             <TextView
                                 android:id="@+id/text_view_medium_score"
@@ -423,7 +425,7 @@
                                 android:layout_width="54dp"
                                 android:layout_height="54dp"
                                 android:layout_marginTop="8dp"
-                                app:cpb_background_progressbar_color="@color/progress_red"
+                                app:cpb_background_progressbar_color="@color/progress_silver"
                                 app:cpb_background_progressbar_width="6dp"
                                 app:cpb_progressbar_width="6dp"
                                 app:cpb_progress_direction="to_left"
@@ -438,7 +440,7 @@
                                 android:id="@+id/text_medium_high_score"
                                 style="@style/ThirdText"
                                 android:layout_marginEnd="8dp"
-                                android:text="3/10"
+                                android:text="0/10"
                                 app:layout_constraintBottom_toBottomOf="@+id/progressBar_medium_score"
                                 app:layout_constraintEnd_toStartOf="@+id/progressBar_medium_score"
                                 app:layout_constraintTop_toTopOf="@+id/progressBar_medium_score" />
@@ -456,7 +458,7 @@
                                 android:id="@+id/text_view_score_time_medium"
                                 style="@style/ThirdText"
                                 android:layout_marginTop="8dp"
-                                android:text="10:10"
+                                android:text="00:00"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/progressBar_medium_score" />
@@ -499,7 +501,7 @@
                             android:layout_height="14dp"
                             android:layout_marginHorizontal="16dp"
                             android:layout_marginTop="3dp"
-                            android:background="@drawable/badge_circle_green" />
+                            android:background="@drawable/badge_circle" />
 
                         <View
                             android:id="@+id/view_red2_hard"
@@ -507,7 +509,7 @@
                             android:layout_height="14dp"
                             android:layout_marginHorizontal="16dp"
                             android:layout_marginTop="3dp"
-                            android:background="@drawable/badge_circle_green"
+                            android:background="@drawable/badge_circle"
                             app:layout_constraintBottom_toBottomOf="@+id/linearLayout_charts_medium" />
 
                         <View
@@ -524,7 +526,8 @@
                     <TextView
                         android:id="@+id/text_view_hard"
                         style="@style/SecondaryText"
-                        android:text="@string/text_difficult_hard"
+                        android:text="@string/text_hard_short"
+                        android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="@+id/linearLayout_circles_hard"
                         app:layout_constraintStart_toEndOf="@+id/linearLayout_circles_hard"
                         app:layout_constraintTop_toTopOf="@+id/linearLayout_circles_hard" />
@@ -541,7 +544,7 @@
                         style="@style/SecondaryText"
                         android:layout_marginHorizontal="16dp"
                         android:layout_marginTop="16dp"
-                        android:text="Приступить к выполнению"
+                        android:text="@string/text_start"
                         android:textColor="?attr/colorAccent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -575,7 +578,7 @@
                             <TextView
                                 android:id="@+id/text_view_hard_last_result"
                                 style="@style/ThirdText"
-                                android:text="Последний рез-т"
+                                android:text="@string/text_last_result"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -585,7 +588,7 @@
                                 android:layout_width="54dp"
                                 android:layout_height="54dp"
                                 android:layout_marginTop="8dp"
-                                app:cpb_background_progressbar_color="@color/progress_red"
+                                app:cpb_background_progressbar_color="@color/progress_silver"
                                 app:cpb_background_progressbar_width="6dp"
                                 app:cpb_progressbar_width="6dp"
                                 app:cpb_progress_direction="to_left"
@@ -618,7 +621,7 @@
                                 android:id="@+id/text_view_last_score_time_hard"
                                 style="@style/ThirdText"
                                 android:layout_marginTop="8dp"
-                                android:text="10:10"
+                                android:text="00:00"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/progressBar_hard_last_score" />
@@ -627,7 +630,7 @@
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp">
+                            android:layout_marginStart="8dp">
 
                             <TextView
                                 android:id="@+id/text_view_hard_score"
@@ -642,7 +645,7 @@
                                 android:layout_width="54dp"
                                 android:layout_height="54dp"
                                 android:layout_marginTop="8dp"
-                                app:cpb_background_progressbar_color="@color/progress_red"
+                                app:cpb_background_progressbar_color="@color/progress_silver"
                                 app:cpb_background_progressbar_width="6dp"
                                 app:cpb_progressbar_width="6dp"
                                 app:cpb_progress_direction="to_left"
@@ -657,7 +660,7 @@
                                 android:id="@+id/text_hard_high_score"
                                 style="@style/ThirdText"
                                 android:layout_marginEnd="8dp"
-                                android:text="3/10"
+                                android:text="0/10"
                                 app:layout_constraintBottom_toBottomOf="@+id/progressBar_hard_score"
                                 app:layout_constraintEnd_toStartOf="@+id/progressBar_hard_score"
                                 app:layout_constraintTop_toTopOf="@+id/progressBar_hard_score" />
@@ -675,7 +678,7 @@
                                 android:id="@+id/text_view_score_time_hard"
                                 style="@style/ThirdText"
                                 android:layout_marginTop="8dp"
-                                android:text="10:10"
+                                android:text="00:00"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/progressBar_hard_score" />

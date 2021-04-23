@@ -72,14 +72,14 @@
                         android:layout_height="24dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
+                        android:background="?attr/actionBarItemBackground"
                         android:clickable="true"
                         android:focusable="true"
-                        android:background="?attr/actionBarItemBackground"
                         android:rotation="180"
                         android:src="@drawable/ic_baseline_arrow_forward_24"
-                        android:tint="@color/black"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/black" />
 
                     <ImageView
                         android:id="@+id/imageView6"
@@ -109,7 +109,6 @@
                         android:id="@+id/text_title_test"
                         style="@style/PrimaryText"
                         android:layout_marginStart="24dp"
-                        android:text=""
                         android:textSize="20sp"
                         app:layout_constraintBottom_toBottomOf="@+id/button_back"
                         app:layout_constraintStart_toEndOf="@+id/button_back"
@@ -123,8 +122,8 @@
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="16dp"
                         android:backgroundTint="?attr/colorAccent"
-                        android:elevation="@dimen/shadow_two"
                         android:clickable="true"
+                        android:elevation="@dimen/shadow_two"
                         android:focusable="true"
                         android:foreground="?android:attr/selectableItemBackground"
                         app:cardCornerRadius="5dp"
@@ -142,7 +141,7 @@
                                 style="@style/PrimaryText"
 
                                 android:layout_gravity="center"
-                                android:text="Завершить"
+                                android:text="@string/text_finish"
                                 android:textColor="@color/white" />
 
                             <ImageView
