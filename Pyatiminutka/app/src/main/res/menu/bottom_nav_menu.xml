@@ -20,11 +20,11 @@
 <!--        android:title="@string/text_notifications"-->
 <!--        app:showAsAction="withText"/>-->
 
-    <item
+<!--    <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_baseline_account_box_24"
         android:title="@string/text_profile"
-        app:showAsAction="withText"/>
+        app:showAsAction="withText"/>-->
 
 
 

@@ -146,10 +146,6 @@ public class Question10Fragment extends Fragment {
             test_image.setVisibility(View.GONE);
         }
 
-
-//        Log.d("myLogs", "Правильные ответы " + correctAnswer1 + correctAnswer2 + correctAnswer3 + correctAnswer4);
-
-
         View.OnClickListener onClickListener2 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -196,9 +192,7 @@ public class Question10Fragment extends Fragment {
                                 score_new_form += 1;
                             } else if (correctAnswer2 == 0 && answer_two.isChecked()) {
                                 score_new_form += 4;
-//                                Log.d("myLogs", "Счётчик увеличился");
                             }
-
 
                             if (correctAnswer3 == 1 && answer_three.isChecked()) {
                                 score_new_form += 1;
@@ -209,7 +203,6 @@ public class Question10Fragment extends Fragment {
                                 score_new_form += 1;
                             } else if (answer_four.isChecked()) score_new_form += 4;
 
-
                             int val = currentView + 1;
                             if (score_new_form == correctAnswer1 + correctAnswer2 + correctAnswer3 + correctAnswer4) {
                                 QuestionTest.skip_answers[currentView] = 0;
@@ -219,11 +212,8 @@ public class Question10Fragment extends Fragment {
                                 QuestionTest.incorrect_results[currentView] = 1;
                                 QuestionTest.results[currentView] = 3;
                             }
-
                             AnimQuestionFadeIn();
-
                             viewPager.setCurrentItem(currentView + 1);
-
                         } else if (!answer_one.isChecked() && !answer_two.isChecked() &&
                                 !answer_three.isChecked() && !answer_four.isChecked()) {
                             AlertDialog.Builder a_builder = new AlertDialog.Builder(getContext());
@@ -254,7 +244,6 @@ public class Question10Fragment extends Fragment {
                             alert.setTitle(getString(R.string.text_skip_question));
                             alert.show();
                         }
-
                         if (answer_one.isChecked())
                             QuestionTest.choosed_answers1[currentView] = 1; //Метка при коприровании
                         if (answer_two.isChecked())
@@ -265,10 +254,8 @@ public class Question10Fragment extends Fragment {
                             QuestionTest.choosed_answers4[currentView] = 1; //Метка при коприровании
                         break;
 
-
                     case R.id.changeq10:
                         score_new_form = 0;
-
                         if (answer_one.isChecked())
                             QuestionTest.choosed_answers1[currentView] = 0; //Метка при коприровании
                         if (answer_two.isChecked())
@@ -282,8 +269,6 @@ public class Question10Fragment extends Fragment {
                         QuestionTest.incorrect_results[currentView] = 0;
 
                         AnimQuestionFadeFrom();
-
-
                         break;
                 }
             }

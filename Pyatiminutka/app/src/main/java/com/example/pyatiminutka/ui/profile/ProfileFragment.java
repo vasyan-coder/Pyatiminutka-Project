@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.IntegerRes;
 import androidx.appcompat.widget.Toolbar;
@@ -111,8 +112,10 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getContext(), ActivityChooseRaiting.class);
-                startActivity(intent);
+                Toast.makeText(getContext(), "Функция отключена", Toast.LENGTH_SHORT).show();
+
+//                Intent intent = new Intent(getContext(), ActivityChooseRaiting.class);
+//                startActivity(intent);
             }
         });
 
